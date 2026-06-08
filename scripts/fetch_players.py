@@ -35,17 +35,21 @@ OUTPUT_PATH = Path(__file__).parent.parent / "data" / "players.json"
 # ---------------------------------------------------------------------------
 
 TBE = {
-    "1960s": ["BOS", "PHI", "LAL", "NYK", "CIN"],   # manually curated, skipped here
-    "1970s": ["NYK", "MIL", "GSW", "POR", "LAL"],
+    "1960s": ["BOS", "PHI", "LAL", "NYK", "SAC", "HOU", "ATL"],
+    "1970s": ["NYK", "MIL", "GSW", "POR", "LAL", "OKC", "SAC", "UTA"],
     "1980s": ["BOS", "LAL", "DET", "CHI", "HOU", "PHI"],
-    "1990s": ["CHI", "UTA", "HOU", "SAS", "ORL", "NYK", "SEA", "IND"],
+    "1990s": ["CHI", "UTA", "HOU", "SAS", "ORL", "NYK", "OKC", "IND"],
     "2000s": ["LAL", "SAS", "MIA", "DET", "DAL", "PHX", "PHI", "CLE", "MIN"],
-    "2010s": ["GSW", "MIA", "OKC", "SAS", "CLE", "TOR", "HOU", "MIL", "BOS"],
+    "2010s": ["GSW", "MIA", "OKC", "SAS", "CLE", "TOR", "HOU", "MIL", "BOS", "NOP"],
     "2020s": ["DEN", "MIL", "LAL", "BKN", "PHX", "DAL", "BOS", "OKC", "MIN", "IND"],
 }
 
+# Combos that are manually curated — never overwrite with API data.
+SKIP_COMBOS = {"BOS-1960s", "PHI-1960s", "LAL-1960s", "NYK-1960s", "SAC-1960s"}
+
 # Seasons per decade (NBA season start year → "YYYY-YY" format)
 ERA_SEASONS = {
+    "1960s": list(range(1960, 1970)),
     "1970s": list(range(1970, 1980)),
     "1980s": list(range(1980, 1990)),
     "1990s": list(range(1990, 2000)),
@@ -75,8 +79,14 @@ ERA_ADJ = {
 HIST_ABBR: dict = {
     "GSW": [(1970, "SFW"), (1995, "GOS"), (9999, "GSW")],
     "PHI": [(1995, "PHL"), (9999, "PHI")],
-    "UTA": [(1995, "UTH"), (9999, "UTA")],
+    "UTA": [(1978, "NOJ"), (1995, "UTH"), (9999, "UTA")],
     "SAS": [(1995, "SAN"), (9999, "SAS")],
+    # Franchise continuity mappings
+    "OKC": [(2007, "SEA"), (9999, "OKC")],
+    "SAC": [(1971, "CIN"), (1984, "KCK"), (9999, "SAC")],
+    "ATL": [(1967, "STL"), (9999, "ATL")],
+    "HOU": [(1970, "SDR"), (9999, "HOU")],
+    "NOP": [(2012, "NOH"), (9999, "NOP")],
 }
 
 
@@ -408,12 +418,9 @@ def run_pipeline(target_eras: list[str] = None, dry_run: bool = False) -> None:
         return
 
     db = dict(existing["db"])
-    eras_to_run = target_eras or [e for e in TBE if e != "1960s"]
+    eras_to_run = target_eras or list(TBE.keys())
 
     for era in eras_to_run:
-        if era == "1960s":
-            print(f"\nSkipping 1960s — manually curated")
-            continue
         if era not in ERA_SEASONS:
             print(f"\nNo season map for {era}, skipping")
             continue
@@ -427,6 +434,9 @@ def run_pipeline(target_eras: list[str] = None, dry_run: bool = False) -> None:
 
         for abbr in teams:
             combo = f"{abbr}-{era}"
+            if combo in SKIP_COMBOS:
+                print(f"\n  [{combo}] — skipping (manually curated)")
+                continue
             print(f"\n  [{combo}]")
             players = build_combo(abbr, era, seasons)
             if players:

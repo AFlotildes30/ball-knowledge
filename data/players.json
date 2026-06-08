@@ -378,76 +378,6 @@
         "note": "SPG/BPG untracked"
       }
     ],
-    "CIN-1960s": [
-      {
-        "name": "Oscar Robertson",
-        "canon": "Oscar Robertson",
-        "pos": [
-          "PG",
-          "SG"
-        ],
-        "ppg": 31.4,
-        "rpg": 12.5,
-        "apg": 11.4,
-        "spg": 0,
-        "bpg": 0,
-        "best": "1961-62",
-        "init": "OR",
-        "score": 98,
-        "note": "SPG/BPG untracked"
-      },
-      {
-        "name": "Jack Twyman",
-        "canon": "Jack Twyman",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 22.8,
-        "rpg": 7.7,
-        "apg": 2.7,
-        "spg": 0,
-        "bpg": 0,
-        "best": "1959-60",
-        "init": "JT",
-        "score": 74,
-        "note": "SPG/BPG untracked"
-      },
-      {
-        "name": "Tom Van Arsdale",
-        "canon": "Tom Van Arsdale",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 19.4,
-        "rpg": 5.6,
-        "apg": 2.6,
-        "spg": 0,
-        "bpg": 0,
-        "best": "1967-68",
-        "init": "TV",
-        "score": 66,
-        "note": "SPG/BPG untracked"
-      },
-      {
-        "name": "Zelmo Beaty",
-        "canon": "Zelmo Beaty",
-        "pos": [
-          "C",
-          "PF"
-        ],
-        "ppg": 18.4,
-        "rpg": 13.6,
-        "apg": 1.7,
-        "spg": 0,
-        "bpg": 0,
-        "best": "1966-67",
-        "init": "ZB",
-        "score": 68,
-        "note": "SPG/BPG untracked"
-      }
-    ],
     "NYK-1970s": [
       {
         "name": "Bob McAdoo",
@@ -1460,7 +1390,7 @@
         "name": "Jim Barnett",
         "canon": "Jim Barnett",
         "pos": [
-          "SF",
+          "PG",
           "SG"
         ],
         "ppg": 12.4,
@@ -1770,7 +1700,7 @@
         "name": "Jim Barnett",
         "canon": "Jim Barnett",
         "pos": [
-          "SF",
+          "PG",
           "SG"
         ],
         "ppg": 18.5,
@@ -6971,359 +6901,6 @@
         "score": 50
       }
     ],
-    "SEA-1990s": [
-      {
-        "name": "Gary Payton",
-        "canon": "Gary Payton",
-        "pos": [
-          "PG"
-        ],
-        "ppg": 24.2,
-        "rpg": 6.5,
-        "apg": 8.9,
-        "spg": 1.9,
-        "bpg": 0.2,
-        "best": "1999-00",
-        "init": "GP",
-        "score": 96
-      },
-      {
-        "name": "Shawn Kemp",
-        "canon": "Shawn Kemp",
-        "pos": [
-          "PF",
-          "C"
-        ],
-        "ppg": 18.1,
-        "rpg": 10.8,
-        "apg": 2.6,
-        "spg": 1.8,
-        "bpg": 2.1,
-        "best": "1993-94",
-        "init": "SK",
-        "score": 87
-      },
-      {
-        "name": "Ricky Pierce",
-        "canon": "Ricky Pierce",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 21.7,
-        "rpg": 3.0,
-        "apg": 3.1,
-        "spg": 1.1,
-        "bpg": 0.3,
-        "best": "1991-92",
-        "init": "RP",
-        "score": 79
-      },
-      {
-        "name": "Vin Baker",
-        "canon": "Vin Baker",
-        "pos": [
-          "PF",
-          "C"
-        ],
-        "ppg": 19.2,
-        "rpg": 8.0,
-        "apg": 1.9,
-        "spg": 1.1,
-        "bpg": 1.0,
-        "best": "1997-98",
-        "init": "VB",
-        "score": 79
-      },
-      {
-        "name": "Detlef Schrempf",
-        "canon": "Detlef Schrempf",
-        "pos": [
-          "SF",
-          "PF"
-        ],
-        "ppg": 19.2,
-        "rpg": 6.2,
-        "apg": 3.8,
-        "spg": 1.1,
-        "bpg": 0.4,
-        "best": "1994-95",
-        "init": "DS",
-        "score": 78
-      },
-      {
-        "name": "Benoit Benjamin",
-        "canon": "Benoit Benjamin",
-        "pos": [
-          "PF",
-          "C"
-        ],
-        "ppg": 14.0,
-        "rpg": 10.3,
-        "apg": 1.7,
-        "spg": 0.8,
-        "bpg": 2.1,
-        "best": "1990-91",
-        "init": "BB",
-        "score": 75
-      },
-      {
-        "name": "Derrick McKey",
-        "canon": "Derrick McKey",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 15.3,
-        "rpg": 5.8,
-        "apg": 2.3,
-        "spg": 1.2,
-        "bpg": 0.8,
-        "best": "1990-91",
-        "init": "DM",
-        "score": 71
-      },
-      {
-        "name": "Hersey Hawkins",
-        "canon": "Hersey Hawkins",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 15.6,
-        "rpg": 3.6,
-        "apg": 2.7,
-        "spg": 1.8,
-        "bpg": 0.2,
-        "best": "1995-96",
-        "init": "HH",
-        "score": 71
-      },
-      {
-        "name": "Kendall Gill",
-        "canon": "Kendall Gill",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 14.1,
-        "rpg": 3.4,
-        "apg": 3.5,
-        "spg": 1.9,
-        "bpg": 0.4,
-        "best": "1993-94",
-        "init": "KG",
-        "score": 70
-      },
-      {
-        "name": "Eddie Johnson",
-        "canon": "Eddie Johnson",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 17.1,
-        "rpg": 3.6,
-        "apg": 2.0,
-        "spg": 0.7,
-        "bpg": 0.1,
-        "best": "1991-92",
-        "init": "EJ",
-        "score": 68
-      },
-      {
-        "name": "Sam Perkins",
-        "canon": "Sam Perkins",
-        "pos": [
-          "SF",
-          "PF"
-        ],
-        "ppg": 13.1,
-        "rpg": 6.6,
-        "apg": 2.0,
-        "spg": 0.8,
-        "bpg": 1.0,
-        "best": "1992-93",
-        "init": "SP",
-        "score": 67
-      },
-      {
-        "name": "Brent Barry",
-        "canon": "Brent Barry",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 11.8,
-        "rpg": 4.7,
-        "apg": 3.6,
-        "spg": 1.3,
-        "bpg": 0.4,
-        "best": "1999-00",
-        "init": "BB",
-        "score": 65
-      },
-      {
-        "name": "Nate McMillan",
-        "canon": "Nate McMillan",
-        "pos": [
-          "PG",
-          "SG"
-        ],
-        "ppg": 7.5,
-        "rpg": 4.2,
-        "apg": 5.3,
-        "spg": 2.4,
-        "bpg": 0.5,
-        "best": "1992-93",
-        "init": "NM",
-        "score": 64
-      },
-      {
-        "name": "Sedale Threatt",
-        "canon": "Sedale Threatt",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 12.7,
-        "rpg": 1.2,
-        "apg": 3.4,
-        "spg": 1.4,
-        "bpg": 0.1,
-        "best": "1990-91",
-        "init": "ST",
-        "score": 63
-      },
-      {
-        "name": "Ruben Patterson",
-        "canon": "Ruben Patterson",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 11.6,
-        "rpg": 5.4,
-        "apg": 1.6,
-        "spg": 1.2,
-        "bpg": 0.5,
-        "best": "1999-00",
-        "init": "RP",
-        "score": 63
-      },
-      {
-        "name": "Michael Cage",
-        "canon": "Michael Cage",
-        "pos": [
-          "SF",
-          "PF"
-        ],
-        "ppg": 8.8,
-        "rpg": 8.9,
-        "apg": 1.1,
-        "spg": 1.2,
-        "bpg": 0.7,
-        "best": "1991-92",
-        "init": "MC",
-        "score": 61
-      },
-      {
-        "name": "Horace Grant",
-        "canon": "Horace Grant",
-        "pos": [
-          "SF",
-          "PF"
-        ],
-        "ppg": 8.1,
-        "rpg": 7.8,
-        "apg": 2.5,
-        "spg": 0.7,
-        "bpg": 0.8,
-        "best": "1999-00",
-        "init": "HG",
-        "score": 59
-      },
-      {
-        "name": "Dale Ellis",
-        "canon": "Dale Ellis",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 11.8,
-        "rpg": 2.3,
-        "apg": 1.1,
-        "spg": 0.8,
-        "bpg": 0.1,
-        "best": "1997-98",
-        "init": "DE",
-        "score": 57
-      },
-      {
-        "name": "Vincent Askew",
-        "canon": "Vincent Askew",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 9.9,
-        "rpg": 2.5,
-        "apg": 2.5,
-        "spg": 0.7,
-        "bpg": 0.2,
-        "best": "1994-95",
-        "init": "VA",
-        "score": 56
-      },
-      {
-        "name": "Olden Polynice",
-        "canon": "Olden Polynice",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 7.7,
-        "rpg": 8.9,
-        "apg": 0.9,
-        "spg": 0.4,
-        "bpg": 0.6,
-        "best": "1998-99",
-        "init": "OP",
-        "score": 56
-      },
-      {
-        "name": "Vernon Maxwell",
-        "canon": "Vernon Maxwell",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 10.9,
-        "rpg": 1.7,
-        "apg": 1.6,
-        "spg": 0.8,
-        "bpg": 0.2,
-        "best": "1999-00",
-        "init": "VM",
-        "score": 56
-      },
-      {
-        "name": "Billy Owens",
-        "canon": "Billy Owens",
-        "pos": [
-          "SF",
-          "SG"
-        ],
-        "ppg": 7.8,
-        "rpg": 3.8,
-        "apg": 1.8,
-        "spg": 0.6,
-        "bpg": 0.2,
-        "best": "1998-99",
-        "init": "BO",
-        "score": 52
-      }
-    ],
     "IND-1990s": [
       {
         "name": "Detlef Schrempf",
@@ -7616,8 +7193,7 @@
         "name": "Shaquille O'Neal",
         "canon": "Shaquille O'Neal",
         "pos": [
-          "C",
-          "PF"
+          "C"
         ],
         "ppg": 28.7,
         "rpg": 12.7,
@@ -7649,7 +7225,7 @@
         "canon": "Lamar Odom",
         "pos": [
           "PF",
-          "C"
+          "SF"
         ],
         "ppg": 15.9,
         "rpg": 9.8,
@@ -7664,8 +7240,8 @@
         "name": "Karl Malone",
         "canon": "Karl Malone",
         "pos": [
-          "SF",
-          "PF"
+          "PF",
+          "C"
         ],
         "ppg": 13.2,
         "rpg": 8.7,
@@ -8114,8 +7690,7 @@
         "name": "David Robinson",
         "canon": "David Robinson",
         "pos": [
-          "SF",
-          "PF"
+          "C"
         ],
         "ppg": 14.4,
         "rpg": 8.6,
@@ -8500,6 +8075,7 @@
         "name": "Dwyane Wade",
         "canon": "Dwyane Wade",
         "pos": [
+          "SG",
           "PG"
         ],
         "ppg": 27.4,
@@ -8515,8 +8091,7 @@
         "name": "Shaquille O'Neal",
         "canon": "Shaquille O'Neal",
         "pos": [
-          "C",
-          "PF"
+          "C"
         ],
         "ppg": 22.9,
         "rpg": 10.4,
@@ -8532,7 +8107,7 @@
         "canon": "Lamar Odom",
         "pos": [
           "PF",
-          "C"
+          "SF"
         ],
         "ppg": 17.1,
         "rpg": 9.7,
@@ -8547,8 +8122,8 @@
         "name": "Shawn Marion",
         "canon": "Shawn Marion",
         "pos": [
-          "PF",
-          "C"
+          "SF",
+          "PF"
         ],
         "ppg": 15.4,
         "rpg": 10.2,
@@ -8580,7 +8155,7 @@
         "canon": "Anthony Mason",
         "pos": [
           "PF",
-          "C"
+          "SF"
         ],
         "ppg": 16.1,
         "rpg": 9.6,
@@ -9607,7 +9182,7 @@
         "canon": "Dirk Nowitzki",
         "pos": [
           "PF",
-          "C"
+          "SF"
         ],
         "ppg": 26.1,
         "rpg": 9.7,
@@ -9812,8 +9387,8 @@
         "name": "Shawn Marion",
         "canon": "Shawn Marion",
         "pos": [
-          "PF",
-          "C"
+          "SF",
+          "PF"
         ],
         "ppg": 12.0,
         "rpg": 6.4,
@@ -10038,8 +9613,8 @@
         "name": "Shawn Marion",
         "canon": "Shawn Marion",
         "pos": [
-          "PF",
-          "C"
+          "SF",
+          "PF"
         ],
         "ppg": 21.8,
         "rpg": 11.8,
@@ -10115,8 +9690,7 @@
         "name": "Shaquille O'Neal",
         "canon": "Shaquille O'Neal",
         "pos": [
-          "C",
-          "PF"
+          "C"
         ],
         "ppg": 17.8,
         "rpg": 8.4,
@@ -10179,8 +9753,8 @@
         "name": "Boris Diaw",
         "canon": "Boris Diaw",
         "pos": [
-          "PG",
-          "SG"
+          "SF",
+          "PF"
         ],
         "ppg": 13.3,
         "rpg": 6.9,
@@ -10225,7 +9799,7 @@
       },
       {
         "name": "Anfernee Hardaway",
-        "canon": "Anfernee Hardaway",
+        "canon": "Penny Hardaway",
         "pos": [
           "PG",
           "SG"
@@ -10901,7 +10475,7 @@
         "name": "Jrue Holiday",
         "canon": "Jrue Holiday",
         "pos": [
-          "SF",
+          "PG",
           "SG"
         ],
         "ppg": 8.0,
@@ -11047,7 +10621,9 @@
         "name": "LeBron James",
         "canon": "LeBron James",
         "pos": [
-          "PG"
+          "SF",
+          "PF",
+          "SG"
         ],
         "ppg": 27.2,
         "rpg": 7.4,
@@ -11270,8 +10846,7 @@
         "name": "Shaquille O'Neal",
         "canon": "Shaquille O'Neal",
         "pos": [
-          "C",
-          "PF"
+          "C"
         ],
         "ppg": 12.0,
         "rpg": 6.7,
@@ -11704,7 +11279,8 @@
         "name": "Kevin Durant",
         "canon": "Kevin Durant",
         "pos": [
-          "PG",
+          "SF",
+          "PF",
           "SG"
         ],
         "ppg": 26.4,
@@ -11737,7 +11313,8 @@
         "canon": "Draymond Green",
         "pos": [
           "PF",
-          "C"
+          "C",
+          "SF"
         ],
         "ppg": 14.0,
         "rpg": 9.5,
@@ -11784,8 +11361,8 @@
         "name": "Klay Thompson",
         "canon": "Klay Thompson",
         "pos": [
-          "SF",
-          "SG"
+          "SG",
+          "SF"
         ],
         "ppg": 21.7,
         "rpg": 3.2,
@@ -11800,7 +11377,7 @@
         "name": "DeMarcus Cousins",
         "canon": "DeMarcus Cousins",
         "pos": [
-          "SF",
+          "C",
           "PF"
         ],
         "ppg": 16.3,
@@ -12073,7 +11650,7 @@
         "canon": "Jermaine O'Neal",
         "pos": [
           "SF",
-          "PF"
+          "SG"
         ],
         "ppg": 7.9,
         "rpg": 5.5,
@@ -12154,7 +11731,9 @@
         "name": "LeBron James",
         "canon": "LeBron James",
         "pos": [
-          "PG"
+          "SF",
+          "PF",
+          "SG"
         ],
         "ppg": 27.1,
         "rpg": 7.9,
@@ -12169,6 +11748,7 @@
         "name": "Dwyane Wade",
         "canon": "Dwyane Wade",
         "pos": [
+          "SG",
           "PG"
         ],
         "ppg": 25.5,
@@ -12182,9 +11762,9 @@
       },
       {
         "name": "Jimmy Butler III",
-        "canon": "Jimmy Butler III",
+        "canon": "Jimmy Butler",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 19.9,
@@ -12216,8 +11796,8 @@
         "name": "Bam Adebayo",
         "canon": "Bam Adebayo",
         "pos": [
-          "PF",
-          "C"
+          "C",
+          "PF"
         ],
         "ppg": 15.9,
         "rpg": 10.2,
@@ -12424,7 +12004,7 @@
         "name": "Joe Johnson",
         "canon": "Joe Johnson",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 12.2,
@@ -12537,7 +12117,7 @@
         "canon": "Michael Beasley",
         "pos": [
           "SF",
-          "PF"
+          "SG"
         ],
         "ppg": 8.8,
         "rpg": 3.7,
@@ -12584,8 +12164,8 @@
         "name": "Udonis Haslem",
         "canon": "Udonis Haslem",
         "pos": [
-          "PF",
-          "C"
+          "SF",
+          "PF"
         ],
         "ppg": 6.0,
         "rpg": 7.3,
@@ -12664,7 +12244,7 @@
         "name": "Mike Miller",
         "canon": "Mike Miller",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 5.6,
@@ -12698,7 +12278,8 @@
         "name": "Kevin Durant",
         "canon": "Kevin Durant",
         "pos": [
-          "PG",
+          "SF",
+          "PF",
           "SG"
         ],
         "ppg": 32.0,
@@ -12745,8 +12326,7 @@
         "name": "Chris Paul",
         "canon": "Chris Paul",
         "pos": [
-          "PG",
-          "SG"
+          "PG"
         ],
         "ppg": 17.6,
         "rpg": 5.0,
@@ -12825,8 +12405,8 @@
         "name": "James Harden",
         "canon": "James Harden",
         "pos": [
-          "SF",
-          "SG"
+          "SG",
+          "PG"
         ],
         "ppg": 16.8,
         "rpg": 4.1,
@@ -13113,7 +12693,7 @@
         "name": "Derek Fisher",
         "canon": "Derek Fisher",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 5.6,
@@ -13161,7 +12741,7 @@
         "name": "Randy Foye",
         "canon": "Randy Foye",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 5.9,
@@ -13275,8 +12855,8 @@
         "name": "Tim Duncan",
         "canon": "Tim Duncan",
         "pos": [
-          "C",
-          "PF"
+          "PF",
+          "C"
         ],
         "ppg": 17.8,
         "rpg": 9.9,
@@ -13291,8 +12871,7 @@
         "name": "Tony Parker",
         "canon": "Tony Parker",
         "pos": [
-          "PG",
-          "SG"
+          "PG"
         ],
         "ppg": 20.3,
         "rpg": 3.0,
@@ -13547,8 +13126,8 @@
         "name": "Boris Diaw",
         "canon": "Boris Diaw",
         "pos": [
-          "PG",
-          "SG"
+          "SF",
+          "PF"
         ],
         "ppg": 9.1,
         "rpg": 4.1,
@@ -13629,7 +13208,9 @@
         "name": "LeBron James",
         "canon": "LeBron James",
         "pos": [
-          "PG"
+          "SF",
+          "PF",
+          "SG"
         ],
         "ppg": 27.5,
         "rpg": 8.6,
@@ -13676,7 +13257,7 @@
         "name": "Anderson Varejao",
         "canon": "Anderson Varejao",
         "pos": [
-          "SF",
+          "C",
           "PF"
         ],
         "ppg": 14.1,
@@ -13805,7 +13386,7 @@
         "canon": "JJ Hickson",
         "pos": [
           "SF",
-          "SG"
+          "PF"
         ],
         "ppg": 13.8,
         "rpg": 8.7,
@@ -13852,7 +13433,7 @@
         "name": "Ramon Sessions",
         "canon": "Ramon Sessions",
         "pos": [
-          "SF",
+          "PG",
           "SG"
         ],
         "ppg": 13.3,
@@ -13964,7 +13545,7 @@
         "name": "Darius Garland",
         "canon": "Darius Garland",
         "pos": [
-          "SF",
+          "PG",
           "SG"
         ],
         "ppg": 12.3,
@@ -14334,8 +13915,8 @@
         "name": "Pascal Siakam",
         "canon": "Pascal Siakam",
         "pos": [
-          "SF",
-          "PF"
+          "PF",
+          "SF"
         ],
         "ppg": 22.9,
         "rpg": 7.3,
@@ -14477,7 +14058,7 @@
         "name": "Lou Williams",
         "canon": "Lou Williams",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 15.5,
@@ -14557,7 +14138,7 @@
         "name": "Leandro Barbosa",
         "canon": "Leandro Barbosa",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 13.3,
@@ -14733,7 +14314,7 @@
         "name": "Reggie Evans",
         "canon": "Reggie Evans",
         "pos": [
-          "SF",
+          "C",
           "PF"
         ],
         "ppg": 4.4,
@@ -14863,8 +14444,8 @@
         "name": "James Harden",
         "canon": "James Harden",
         "pos": [
-          "SF",
-          "SG"
+          "SG",
+          "PG"
         ],
         "ppg": 29.1,
         "rpg": 8.1,
@@ -14894,8 +14475,7 @@
         "name": "Chris Paul",
         "canon": "Chris Paul",
         "pos": [
-          "PG",
-          "SG"
+          "PG"
         ],
         "ppg": 18.6,
         "rpg": 5.4,
@@ -15022,7 +14602,7 @@
         "name": "Lou Williams",
         "canon": "Lou Williams",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 17.5,
@@ -15262,8 +14842,8 @@
         "name": "Samuel Dalembert",
         "canon": "Samuel Dalembert",
         "pos": [
-          "PF",
-          "C"
+          "SF",
+          "PF"
         ],
         "ppg": 7.5,
         "rpg": 7.0,
@@ -15486,7 +15066,7 @@
         "name": "Joe Johnson",
         "canon": "Joe Johnson",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 6.8,
@@ -15504,8 +15084,8 @@
         "name": "Giannis Antetokounmpo",
         "canon": "Giannis Antetokounmpo",
         "pos": [
-          "C",
-          "PF"
+          "PF",
+          "SF"
         ],
         "ppg": 27.7,
         "rpg": 12.5,
@@ -15552,8 +15132,8 @@
         "name": "Khris Middleton",
         "canon": "Khris Middleton",
         "pos": [
-          "PG",
-          "SG"
+          "SG",
+          "SF"
         ],
         "ppg": 20.1,
         "rpg": 5.2,
@@ -15744,8 +15324,8 @@
         "name": "Brook Lopez",
         "canon": "Brook Lopez",
         "pos": [
-          "SF",
-          "SG"
+          "C",
+          "PF"
         ],
         "ppg": 12.5,
         "rpg": 4.9,
@@ -15824,7 +15404,7 @@
         "name": "Ramon Sessions",
         "canon": "Ramon Sessions",
         "pos": [
-          "SF",
+          "PG",
           "SG"
         ],
         "ppg": 12.3,
@@ -20569,8 +20149,8 @@
         "name": "Shaquille O'Neal",
         "canon": "Shaquille O'Neal",
         "pos": [
-          "C",
-          "PF"
+          "SF",
+          "SG"
         ],
         "ppg": 9.2,
         "rpg": 4.8,
@@ -20682,7 +20262,7 @@
         "canon": "Jermaine O'Neal",
         "pos": [
           "SF",
-          "PF"
+          "SG"
         ],
         "ppg": 5.0,
         "rpg": 5.4,
@@ -20725,6 +20305,2795 @@
         "init": "MP",
         "score": 47
       }
+    ],
+    "SAC-1960s": [
+      {
+        "name": "Oscar Robertson",
+        "canon": "Oscar Robertson",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 31.4,
+        "rpg": 12.5,
+        "apg": 11.4,
+        "spg": 0,
+        "bpg": 0,
+        "best": "1961-62",
+        "init": "OR",
+        "score": 98,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Jack Twyman",
+        "canon": "Jack Twyman",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 22.8,
+        "rpg": 7.7,
+        "apg": 2.7,
+        "spg": 0,
+        "bpg": 0,
+        "best": "1959-60",
+        "init": "JT",
+        "score": 74,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Tom Van Arsdale",
+        "canon": "Tom Van Arsdale",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 19.4,
+        "rpg": 5.6,
+        "apg": 2.6,
+        "spg": 0,
+        "bpg": 0,
+        "best": "1967-68",
+        "init": "TV",
+        "score": 66,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Zelmo Beaty",
+        "canon": "Zelmo Beaty",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 18.4,
+        "rpg": 13.6,
+        "apg": 1.7,
+        "spg": 0,
+        "bpg": 0,
+        "best": "1966-67",
+        "init": "ZB",
+        "score": 68,
+        "note": "SPG/BPG untracked"
+      }
+    ],
+    "OKC-1990s": [
+      {
+        "name": "Gary Payton",
+        "canon": "Gary Payton",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 24.2,
+        "rpg": 6.5,
+        "apg": 8.9,
+        "spg": 1.9,
+        "bpg": 0.2,
+        "best": "1999-00",
+        "init": "GP",
+        "score": 96
+      },
+      {
+        "name": "Shawn Kemp",
+        "canon": "Shawn Kemp",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 18.1,
+        "rpg": 10.8,
+        "apg": 2.6,
+        "spg": 1.8,
+        "bpg": 2.1,
+        "best": "1993-94",
+        "init": "SK",
+        "score": 87
+      },
+      {
+        "name": "Ricky Pierce",
+        "canon": "Ricky Pierce",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 21.7,
+        "rpg": 3.0,
+        "apg": 3.1,
+        "spg": 1.1,
+        "bpg": 0.3,
+        "best": "1991-92",
+        "init": "RP",
+        "score": 79
+      },
+      {
+        "name": "Vin Baker",
+        "canon": "Vin Baker",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 19.2,
+        "rpg": 8.0,
+        "apg": 1.9,
+        "spg": 1.1,
+        "bpg": 1.0,
+        "best": "1997-98",
+        "init": "VB",
+        "score": 79
+      },
+      {
+        "name": "Detlef Schrempf",
+        "canon": "Detlef Schrempf",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 19.2,
+        "rpg": 6.2,
+        "apg": 3.8,
+        "spg": 1.1,
+        "bpg": 0.4,
+        "best": "1994-95",
+        "init": "DS",
+        "score": 78
+      },
+      {
+        "name": "Benoit Benjamin",
+        "canon": "Benoit Benjamin",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 14.0,
+        "rpg": 10.3,
+        "apg": 1.7,
+        "spg": 0.8,
+        "bpg": 2.1,
+        "best": "1990-91",
+        "init": "BB",
+        "score": 75
+      },
+      {
+        "name": "Derrick McKey",
+        "canon": "Derrick McKey",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 15.3,
+        "rpg": 5.8,
+        "apg": 2.3,
+        "spg": 1.2,
+        "bpg": 0.8,
+        "best": "1990-91",
+        "init": "DM",
+        "score": 71
+      },
+      {
+        "name": "Hersey Hawkins",
+        "canon": "Hersey Hawkins",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 15.6,
+        "rpg": 3.6,
+        "apg": 2.7,
+        "spg": 1.8,
+        "bpg": 0.2,
+        "best": "1995-96",
+        "init": "HH",
+        "score": 71
+      },
+      {
+        "name": "Kendall Gill",
+        "canon": "Kendall Gill",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 14.1,
+        "rpg": 3.4,
+        "apg": 3.5,
+        "spg": 1.9,
+        "bpg": 0.4,
+        "best": "1993-94",
+        "init": "KG",
+        "score": 70
+      },
+      {
+        "name": "Eddie Johnson",
+        "canon": "Eddie Johnson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 17.1,
+        "rpg": 3.6,
+        "apg": 2.0,
+        "spg": 0.7,
+        "bpg": 0.1,
+        "best": "1991-92",
+        "init": "EJ",
+        "score": 68
+      },
+      {
+        "name": "Sam Perkins",
+        "canon": "Sam Perkins",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 13.1,
+        "rpg": 6.6,
+        "apg": 2.0,
+        "spg": 0.8,
+        "bpg": 1.0,
+        "best": "1992-93",
+        "init": "SP",
+        "score": 67
+      },
+      {
+        "name": "Brent Barry",
+        "canon": "Brent Barry",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.8,
+        "rpg": 4.7,
+        "apg": 3.6,
+        "spg": 1.3,
+        "bpg": 0.4,
+        "best": "1999-00",
+        "init": "BB",
+        "score": 65
+      },
+      {
+        "name": "Nate McMillan",
+        "canon": "Nate McMillan",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 7.5,
+        "rpg": 4.2,
+        "apg": 5.3,
+        "spg": 2.4,
+        "bpg": 0.5,
+        "best": "1992-93",
+        "init": "NM",
+        "score": 64
+      },
+      {
+        "name": "Sedale Threatt",
+        "canon": "Sedale Threatt",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 12.7,
+        "rpg": 1.2,
+        "apg": 3.4,
+        "spg": 1.4,
+        "bpg": 0.1,
+        "best": "1990-91",
+        "init": "ST",
+        "score": 63
+      },
+      {
+        "name": "Ruben Patterson",
+        "canon": "Ruben Patterson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.6,
+        "rpg": 5.4,
+        "apg": 1.6,
+        "spg": 1.2,
+        "bpg": 0.5,
+        "best": "1999-00",
+        "init": "RP",
+        "score": 63
+      },
+      {
+        "name": "Michael Cage",
+        "canon": "Michael Cage",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 8.8,
+        "rpg": 8.9,
+        "apg": 1.1,
+        "spg": 1.2,
+        "bpg": 0.7,
+        "best": "1991-92",
+        "init": "MC",
+        "score": 61
+      },
+      {
+        "name": "Horace Grant",
+        "canon": "Horace Grant",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 8.1,
+        "rpg": 7.8,
+        "apg": 2.5,
+        "spg": 0.7,
+        "bpg": 0.8,
+        "best": "1999-00",
+        "init": "HG",
+        "score": 59
+      },
+      {
+        "name": "Dale Ellis",
+        "canon": "Dale Ellis",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.8,
+        "rpg": 2.3,
+        "apg": 1.1,
+        "spg": 0.8,
+        "bpg": 0.1,
+        "best": "1997-98",
+        "init": "DE",
+        "score": 57
+      },
+      {
+        "name": "Vincent Askew",
+        "canon": "Vincent Askew",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.9,
+        "rpg": 2.5,
+        "apg": 2.5,
+        "spg": 0.7,
+        "bpg": 0.2,
+        "best": "1994-95",
+        "init": "VA",
+        "score": 56
+      },
+      {
+        "name": "Olden Polynice",
+        "canon": "Olden Polynice",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.7,
+        "rpg": 8.9,
+        "apg": 0.9,
+        "spg": 0.4,
+        "bpg": 0.6,
+        "best": "1998-99",
+        "init": "OP",
+        "score": 56
+      },
+      {
+        "name": "Vernon Maxwell",
+        "canon": "Vernon Maxwell",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.9,
+        "rpg": 1.7,
+        "apg": 1.6,
+        "spg": 0.8,
+        "bpg": 0.2,
+        "best": "1999-00",
+        "init": "VM",
+        "score": 56
+      },
+      {
+        "name": "Billy Owens",
+        "canon": "Billy Owens",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.8,
+        "rpg": 3.8,
+        "apg": 1.8,
+        "spg": 0.6,
+        "bpg": 0.2,
+        "best": "1998-99",
+        "init": "BO",
+        "score": 52
+      }
+    ],
+    "HOU-1960s": [
+      {
+        "name": "Elvin Hayes",
+        "canon": "Elvin Hayes",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 28.4,
+        "rpg": 17.1,
+        "apg": 1.4,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1968-69",
+        "init": "EH",
+        "score": 89,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Don Kojis",
+        "canon": "Don Kojis",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 22.5,
+        "rpg": 9.6,
+        "apg": 2.6,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1968-69",
+        "init": "DK",
+        "score": 75,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "John Block",
+        "canon": "John Block",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 15.3,
+        "rpg": 9.0,
+        "apg": 1.8,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1968-69",
+        "init": "JB",
+        "score": 63,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Jim Barnett",
+        "canon": "Jim Barnett",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 14.5,
+        "rpg": 4.5,
+        "apg": 4.2,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1968-69",
+        "init": "JB",
+        "score": 61,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Toby Kimball",
+        "canon": "Toby Kimball",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 11.0,
+        "rpg": 11.7,
+        "apg": 1.8,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1967-68",
+        "init": "TK",
+        "score": 59,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Stu Lantz",
+        "canon": "Stu Lantz",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 14.5,
+        "rpg": 3.1,
+        "apg": 3.5,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1969-70",
+        "init": "SL",
+        "score": 59,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Dave Gambee",
+        "canon": "Dave Gambee",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 13.4,
+        "rpg": 5.8,
+        "apg": 1.2,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1967-68",
+        "init": "DG",
+        "score": 57,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Arthur Williams",
+        "canon": "Arthur Williams",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 7.1,
+        "rpg": 4.6,
+        "apg": 6.6,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1968-69",
+        "init": "AW",
+        "score": 53,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "John Barnhill",
+        "canon": "John Barnhill",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.9,
+        "rpg": 2.3,
+        "apg": 3.5,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1967-68",
+        "init": "JB",
+        "score": 52,
+        "note": "SPG/BPG untracked"
+      }
+    ],
+    "ATL-1960s": [
+      {
+        "name": "Bob Pettit",
+        "canon": "Bob Pettit",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 31.1,
+        "rpg": 18.7,
+        "apg": 3.7,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1961-62",
+        "init": "BP",
+        "score": 97,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Cliff Hagan",
+        "canon": "Cliff Hagan",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 22.9,
+        "rpg": 8.2,
+        "apg": 4.8,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1961-62",
+        "init": "CH",
+        "score": 78,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Lou Hudson",
+        "canon": "Lou Hudson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 25.4,
+        "rpg": 4.7,
+        "apg": 3.5,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1969-70",
+        "init": "LH",
+        "score": 77,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Clyde Lovellette",
+        "canon": "Clyde Lovellette",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 22.0,
+        "rpg": 10.1,
+        "apg": 2.6,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1960-61",
+        "init": "CL",
+        "score": 75,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Lenny Wilkens",
+        "canon": "Lenny Wilkens",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 20.0,
+        "rpg": 5.3,
+        "apg": 8.3,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1967-68",
+        "init": "LW",
+        "score": 75,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Zelmo Beaty",
+        "canon": "Zelmo Beaty",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 20.7,
+        "rpg": 13.6,
+        "apg": 1.6,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1965-66",
+        "init": "ZB",
+        "score": 75,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Bill Bridges",
+        "canon": "Bill Bridges",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 17.4,
+        "rpg": 15.1,
+        "apg": 2.8,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1966-67",
+        "init": "BB",
+        "score": 72,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Joe Caldwell",
+        "canon": "Joe Caldwell",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 21.1,
+        "rpg": 5.0,
+        "apg": 3.5,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1969-70",
+        "init": "JC",
+        "score": 71,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Walt Hazzard",
+        "canon": "Walt Hazzard",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 15.3,
+        "rpg": 4.0,
+        "apg": 6.8,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1969-70",
+        "init": "WH",
+        "score": 65,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Paul Silas",
+        "canon": "Paul Silas",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 13.4,
+        "rpg": 11.7,
+        "apg": 2.0,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1967-68",
+        "init": "PS",
+        "score": 63,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Richie Guerin",
+        "canon": "Richie Guerin",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 14.9,
+        "rpg": 3.9,
+        "apg": 4.9,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1965-66",
+        "init": "RG",
+        "score": 62,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Jim Davis",
+        "canon": "Jim Davis",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 13.6,
+        "rpg": 9.7,
+        "apg": 2.9,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1969-70",
+        "init": "JD",
+        "score": 62,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "John Barnhill",
+        "canon": "John Barnhill",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.7,
+        "rpg": 4.7,
+        "apg": 4.2,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1962-63",
+        "init": "JB",
+        "score": 57,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Don Ohl",
+        "canon": "Don Ohl",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 12.1,
+        "rpg": 2.2,
+        "apg": 2.9,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1968-69",
+        "init": "DO",
+        "score": 54,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Si Green",
+        "canon": "Si Green",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.2,
+        "rpg": 5.0,
+        "apg": 3.4,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1960-61",
+        "init": "SG",
+        "score": 53,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Johnny McCarthy",
+        "canon": "Johnny McCarthy",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 8.3,
+        "rpg": 4.1,
+        "apg": 5.4,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1960-61",
+        "init": "JM",
+        "score": 53,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Charles Vaughn",
+        "canon": "Charles Vaughn",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.1,
+        "rpg": 3.4,
+        "apg": 3.3,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1962-63",
+        "init": "CV",
+        "score": 53,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Woody Sauldsberry",
+        "canon": "Woody Sauldsberry",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 7.5,
+        "rpg": 7.1,
+        "apg": 1.1,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1960-61",
+        "init": "WS",
+        "score": 49,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Al Ferrari",
+        "canon": "Al Ferrari",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 7.5,
+        "rpg": 2.7,
+        "apg": 4.0,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1961-62",
+        "init": "AF",
+        "score": 49,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Dick Snyder",
+        "canon": "Dick Snyder",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.6,
+        "rpg": 2.6,
+        "apg": 2.2,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1967-68",
+        "init": "DS",
+        "score": 49,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Fred LaCour",
+        "canon": "Fred LaCour",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.8,
+        "rpg": 3.7,
+        "apg": 2.3,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1961-62",
+        "init": "FL",
+        "score": 48,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Mike Farmer",
+        "canon": "Mike Farmer",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.4,
+        "rpg": 4.6,
+        "apg": 1.8,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1962-63",
+        "init": "MF",
+        "score": 48,
+        "note": "SPG/BPG untracked"
+      }
+    ],
+    "OKC-1970s": [
+      {
+        "name": "Spencer Haywood",
+        "canon": "Spencer Haywood",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 29.2,
+        "rpg": 12.9,
+        "apg": 2.5,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1972-73",
+        "init": "SH",
+        "score": 95,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Gus Williams",
+        "canon": "Gus Williams",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 22.1,
+        "rpg": 3.4,
+        "apg": 4.8,
+        "spg": 2.4,
+        "bpg": 0.5,
+        "best": "1979-80",
+        "init": "GW",
+        "score": 88
+      },
+      {
+        "name": "Fred Brown",
+        "canon": "Fred Brown",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 23.1,
+        "rpg": 4.2,
+        "apg": 2.7,
+        "spg": 1.9,
+        "bpg": 0.2,
+        "best": "1975-76",
+        "init": "FB",
+        "score": 85
+      },
+      {
+        "name": "Dennis Johnson",
+        "canon": "Dennis Johnson",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 19.0,
+        "rpg": 5.1,
+        "apg": 4.1,
+        "spg": 1.8,
+        "bpg": 1.0,
+        "best": "1979-80",
+        "init": "DJ",
+        "score": 83
+      },
+      {
+        "name": "Lenny Wilkens",
+        "canon": "Lenny Wilkens",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 19.8,
+        "rpg": 4.5,
+        "apg": 9.2,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1970-71",
+        "init": "LW",
+        "score": 80,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Slick Watts",
+        "canon": "Slick Watts",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 13.0,
+        "rpg": 4.5,
+        "apg": 8.1,
+        "spg": 3.2,
+        "bpg": 0.2,
+        "best": "1975-76",
+        "init": "SW",
+        "score": 80
+      },
+      {
+        "name": "Jack Sikma",
+        "canon": "Jack Sikma",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 15.6,
+        "rpg": 12.4,
+        "apg": 3.2,
+        "spg": 1.0,
+        "bpg": 0.8,
+        "best": "1978-79",
+        "init": "JS",
+        "score": 78
+      },
+      {
+        "name": "Tom Burleson",
+        "canon": "Tom Burleson",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 15.6,
+        "rpg": 9.0,
+        "apg": 2.2,
+        "spg": 0.9,
+        "bpg": 1.8,
+        "best": "1975-76",
+        "init": "TB",
+        "score": 77
+      },
+      {
+        "name": "Marvin Webster",
+        "canon": "Marvin Webster",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 14.0,
+        "rpg": 12.6,
+        "apg": 2.5,
+        "spg": 0.6,
+        "bpg": 2.0,
+        "best": "1977-78",
+        "init": "MW",
+        "score": 77
+      },
+      {
+        "name": "Dick Snyder",
+        "canon": "Dick Snyder",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 18.1,
+        "rpg": 4.1,
+        "apg": 3.6,
+        "spg": 1.2,
+        "bpg": 0.4,
+        "best": "1973-74",
+        "init": "DS",
+        "score": 76
+      },
+      {
+        "name": "Lonnie Shelton",
+        "canon": "Lonnie Shelton",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 13.6,
+        "rpg": 7.7,
+        "apg": 1.9,
+        "spg": 1.2,
+        "bpg": 1.0,
+        "best": "1979-80",
+        "init": "LS",
+        "score": 71
+      },
+      {
+        "name": "Archie Clark",
+        "canon": "Archie Clark",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 13.9,
+        "rpg": 3.1,
+        "apg": 5.6,
+        "spg": 1.4,
+        "bpg": 0.1,
+        "best": "1974-75",
+        "init": "AC",
+        "score": 70
+      },
+      {
+        "name": "John Johnson",
+        "canon": "John Johnson",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 11.3,
+        "rpg": 5.3,
+        "apg": 5.2,
+        "spg": 0.9,
+        "bpg": 0.4,
+        "best": "1979-80",
+        "init": "JJ",
+        "score": 66
+      },
+      {
+        "name": "Jim Fox",
+        "canon": "Jim Fox",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 11.3,
+        "rpg": 9.2,
+        "apg": 2.9,
+        "spg": 0.7,
+        "bpg": 0.3,
+        "best": "1973-74",
+        "init": "JF",
+        "score": 65
+      },
+      {
+        "name": "Don Kojis",
+        "canon": "Don Kojis",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 14.6,
+        "rpg": 5.5,
+        "apg": 1.6,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1970-71",
+        "init": "DK",
+        "score": 63,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Leonard Gray",
+        "canon": "Leonard Gray",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 11.5,
+        "rpg": 6.4,
+        "apg": 2.2,
+        "spg": 0.8,
+        "bpg": 0.3,
+        "best": "1974-75",
+        "init": "LG",
+        "score": 63
+      },
+      {
+        "name": "Bruce Seals",
+        "canon": "Bruce Seals",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 11.8,
+        "rpg": 6.3,
+        "apg": 1.5,
+        "spg": 0.8,
+        "bpg": 0.5,
+        "best": "1975-76",
+        "init": "BS",
+        "score": 63
+      },
+      {
+        "name": "Mike Green",
+        "canon": "Mike Green",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 9.8,
+        "rpg": 6.6,
+        "apg": 1.6,
+        "spg": 0.6,
+        "bpg": 1.7,
+        "best": "1976-77",
+        "init": "MG",
+        "score": 63
+      },
+      {
+        "name": "John Brisker",
+        "canon": "John Brisker",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 12.8,
+        "rpg": 4.6,
+        "apg": 2.1,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1972-73",
+        "init": "JB",
+        "score": 59,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Pete Cross",
+        "canon": "Pete Cross",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 8.0,
+        "rpg": 12.0,
+        "apg": 1.4,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1970-71",
+        "init": "PC",
+        "score": 57,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Lee Winfield",
+        "canon": "Lee Winfield",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.6,
+        "rpg": 2.7,
+        "apg": 3.6,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1971-72",
+        "init": "LW",
+        "score": 56,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Dick Gibbs",
+        "canon": "Dick Gibbs",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.8,
+        "rpg": 3.1,
+        "apg": 1.1,
+        "spg": 0.5,
+        "bpg": 0.3,
+        "best": "1973-74",
+        "init": "DG",
+        "score": 56
+      },
+      {
+        "name": "Herm Gilliam",
+        "canon": "Herm Gilliam",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.5,
+        "rpg": 2.7,
+        "apg": 2.5,
+        "spg": 1.0,
+        "bpg": 0.1,
+        "best": "1975-76",
+        "init": "HG",
+        "score": 55
+      },
+      {
+        "name": "Tom Meschery",
+        "canon": "Tom Meschery",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 9.3,
+        "rpg": 6.1,
+        "apg": 1.4,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1970-71",
+        "init": "TM",
+        "score": 54,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Mike Bantom",
+        "canon": "Mike Bantom",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.9,
+        "rpg": 5.4,
+        "apg": 1.4,
+        "spg": 0.4,
+        "bpg": 0.4,
+        "best": "1975-76",
+        "init": "MB",
+        "score": 54
+      },
+      {
+        "name": "Paul Silas",
+        "canon": "Paul Silas",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 5.8,
+        "rpg": 8.1,
+        "apg": 1.8,
+        "spg": 0.8,
+        "bpg": 0.2,
+        "best": "1977-78",
+        "init": "PS",
+        "score": 54
+      },
+      {
+        "name": "Willie Norwood",
+        "canon": "Willie Norwood",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.7,
+        "rpg": 3.8,
+        "apg": 1.3,
+        "spg": 0.8,
+        "bpg": 0.1,
+        "best": "1976-77",
+        "init": "WN",
+        "score": 52
+      },
+      {
+        "name": "Talvin Skinner",
+        "canon": "Talvin Skinner",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 4.8,
+        "rpg": 4.7,
+        "apg": 1.2,
+        "spg": 0.7,
+        "bpg": 0.2,
+        "best": "1974-75",
+        "init": "TS",
+        "score": 48
+      }
+    ],
+    "SAC-1970s": [
+      {
+        "name": "Nate Archibald",
+        "canon": "Nate Archibald",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 34.0,
+        "rpg": 2.8,
+        "apg": 11.4,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1972-73",
+        "init": "NA",
+        "score": 99,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Sam Lacey",
+        "canon": "Sam Lacey",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 14.2,
+        "rpg": 13.4,
+        "apg": 3.8,
+        "spg": 1.6,
+        "bpg": 2.3,
+        "best": "1973-74",
+        "init": "SL",
+        "score": 85
+      },
+      {
+        "name": "Ron Boone",
+        "canon": "Ron Boone",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 22.2,
+        "rpg": 3.9,
+        "apg": 4.1,
+        "spg": 1.5,
+        "bpg": 0.2,
+        "best": "1976-77",
+        "init": "RB",
+        "score": 84
+      },
+      {
+        "name": "Otis Birdsong",
+        "canon": "Otis Birdsong",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 22.7,
+        "rpg": 4.0,
+        "apg": 2.5,
+        "spg": 1.7,
+        "bpg": 0.3,
+        "best": "1979-80",
+        "init": "OB",
+        "score": 84
+      },
+      {
+        "name": "Brian Taylor",
+        "canon": "Brian Taylor",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 17.0,
+        "rpg": 3.3,
+        "apg": 4.4,
+        "spg": 2.8,
+        "bpg": 0.2,
+        "best": "1976-77",
+        "init": "BT",
+        "score": 80
+      },
+      {
+        "name": "Phil Ford",
+        "canon": "Phil Ford",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 15.9,
+        "rpg": 2.3,
+        "apg": 8.6,
+        "spg": 2.2,
+        "bpg": 0.1,
+        "best": "1978-79",
+        "init": "PF",
+        "score": 80
+      },
+      {
+        "name": "Tom Van Arsdale",
+        "canon": "Tom Van Arsdale",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 22.9,
+        "rpg": 6.1,
+        "apg": 2.2,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1970-71",
+        "init": "TA",
+        "score": 78,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Norm Van Lier",
+        "canon": "Norm Van Lier",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 16.0,
+        "rpg": 7.1,
+        "apg": 10.1,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1970-71",
+        "init": "NL",
+        "score": 77,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Scott Wedman",
+        "canon": "Scott Wedman",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 17.7,
+        "rpg": 5.7,
+        "apg": 2.5,
+        "spg": 1.2,
+        "bpg": 0.3,
+        "best": "1977-78",
+        "init": "SW",
+        "score": 75
+      },
+      {
+        "name": "Nate Williams",
+        "canon": "Nate Williams",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 15.5,
+        "rpg": 4.2,
+        "apg": 2.2,
+        "spg": 1.8,
+        "bpg": 0.4,
+        "best": "1973-74",
+        "init": "NW",
+        "score": 72
+      },
+      {
+        "name": "Jimmy Walker",
+        "canon": "Jimmy Walker",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 16.7,
+        "rpg": 3.0,
+        "apg": 2.8,
+        "spg": 1.0,
+        "bpg": 0.2,
+        "best": "1974-75",
+        "init": "JW",
+        "score": 70
+      },
+      {
+        "name": "Johnny Green",
+        "canon": "Johnny Green",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 16.7,
+        "rpg": 8.7,
+        "apg": 1.2,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1970-71",
+        "init": "JG",
+        "score": 68,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Richard Washington",
+        "canon": "Richard Washington",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 13.0,
+        "rpg": 8.5,
+        "apg": 1.0,
+        "spg": 0.8,
+        "bpg": 1.1,
+        "best": "1976-77",
+        "init": "RW",
+        "score": 68
+      },
+      {
+        "name": "Bill Robinzine",
+        "canon": "Bill Robinzine",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 13.4,
+        "rpg": 7.8,
+        "apg": 1.3,
+        "spg": 1.3,
+        "bpg": 0.2,
+        "best": "1978-79",
+        "init": "BR",
+        "score": 68
+      },
+      {
+        "name": "Lucius Allen",
+        "canon": "Lucius Allen",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 11.9,
+        "rpg": 3.0,
+        "apg": 4.7,
+        "spg": 1.2,
+        "bpg": 0.4,
+        "best": "1977-78",
+        "init": "LA",
+        "score": 66
+      },
+      {
+        "name": "Don Kojis",
+        "canon": "Don Kojis",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 13.1,
+        "rpg": 5.0,
+        "apg": 1.4,
+        "spg": 1.0,
+        "bpg": 0.2,
+        "best": "1973-74",
+        "init": "DK",
+        "score": 64
+      },
+      {
+        "name": "Ron Behagen",
+        "canon": "Ron Behagen",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 11.0,
+        "rpg": 7.1,
+        "apg": 1.7,
+        "spg": 0.7,
+        "bpg": 0.5,
+        "best": "1973-74",
+        "init": "RB",
+        "score": 62
+      },
+      {
+        "name": "Tom Burleson",
+        "canon": "Tom Burleson",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 8.6,
+        "rpg": 6.3,
+        "apg": 1.7,
+        "spg": 0.8,
+        "bpg": 1.1,
+        "best": "1977-78",
+        "init": "TB",
+        "score": 60
+      },
+      {
+        "name": "Ollie Johnson",
+        "canon": "Ollie Johnson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.1,
+        "rpg": 4.4,
+        "apg": 1.8,
+        "spg": 0.8,
+        "bpg": 0.5,
+        "best": "1975-76",
+        "init": "OJ",
+        "score": 59
+      },
+      {
+        "name": "Larry McNeill",
+        "canon": "Larry McNeill",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 9.8,
+        "rpg": 6.2,
+        "apg": 0.9,
+        "spg": 0.9,
+        "bpg": 0.3,
+        "best": "1974-75",
+        "init": "LM",
+        "score": 58
+      },
+      {
+        "name": "Reggie King",
+        "canon": "Reggie King",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 8.2,
+        "rpg": 6.9,
+        "apg": 1.3,
+        "spg": 0.8,
+        "bpg": 0.4,
+        "best": "1979-80",
+        "init": "RK",
+        "score": 57
+      },
+      {
+        "name": "Matt Guokas",
+        "canon": "Matt Guokas",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 9.1,
+        "rpg": 3.1,
+        "apg": 5.1,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1972-73",
+        "init": "MG",
+        "score": 56,
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "John Block",
+        "canon": "John Block",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 8.7,
+        "rpg": 4.7,
+        "apg": 1.1,
+        "spg": 0.8,
+        "bpg": 0.4,
+        "best": "1973-74",
+        "init": "JB",
+        "score": 55
+      },
+      {
+        "name": "Darnell Hillman",
+        "canon": "Darnell Hillman",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.0,
+        "rpg": 5.5,
+        "apg": 1.2,
+        "spg": 0.6,
+        "bpg": 0.8,
+        "best": "1978-79",
+        "init": "DH",
+        "score": 54
+      },
+      {
+        "name": "Ron Riley",
+        "canon": "Ron Riley",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 8.4,
+        "rpg": 6.9,
+        "apg": 1.0,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1972-73",
+        "init": "RR",
+        "score": 52,
+        "note": "SPG/BPG untracked"
+      }
+    ],
+    "UTA-1970s": [
+      {
+        "name": "Pete Maravich",
+        "canon": "Pete Maravich",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 31.1,
+        "rpg": 5.1,
+        "apg": 5.4,
+        "spg": 1.2,
+        "bpg": 0.3,
+        "best": "1976-77",
+        "init": "PM",
+        "score": 99
+      },
+      {
+        "name": "Adrian Dantley",
+        "canon": "Adrian Dantley",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 28.0,
+        "rpg": 7.6,
+        "apg": 2.8,
+        "spg": 1.4,
+        "bpg": 0.2,
+        "best": "1979-80",
+        "init": "AD",
+        "score": 95
+      },
+      {
+        "name": "Truck Robinson",
+        "canon": "Truck Robinson",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 22.7,
+        "rpg": 15.7,
+        "apg": 2.1,
+        "spg": 0.9,
+        "bpg": 1.0,
+        "best": "1977-78",
+        "init": "TR",
+        "score": 92
+      },
+      {
+        "name": "Rich Kelley",
+        "canon": "Rich Kelley",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 15.7,
+        "rpg": 12.8,
+        "apg": 3.6,
+        "spg": 1.6,
+        "bpg": 2.1,
+        "best": "1978-79",
+        "init": "RK",
+        "score": 86
+      },
+      {
+        "name": "Jim McElroy",
+        "canon": "Jim McElroy",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 16.9,
+        "rpg": 2.7,
+        "apg": 5.7,
+        "spg": 1.9,
+        "bpg": 0.6,
+        "best": "1978-79",
+        "init": "JM",
+        "score": 78
+      },
+      {
+        "name": "Gail Goodrich",
+        "canon": "Gail Goodrich",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 16.1,
+        "rpg": 2.2,
+        "apg": 4.8,
+        "spg": 1.0,
+        "bpg": 0.3,
+        "best": "1977-78",
+        "init": "GG",
+        "score": 71
+      },
+      {
+        "name": "Otto Moore",
+        "canon": "Otto Moore",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 9.0,
+        "rpg": 9.8,
+        "apg": 2.7,
+        "spg": 1.0,
+        "bpg": 1.7,
+        "best": "1975-76",
+        "init": "OM",
+        "score": 67
+      },
+      {
+        "name": "Allan Bristow",
+        "canon": "Allan Bristow",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 11.6,
+        "rpg": 6.2,
+        "apg": 4.2,
+        "spg": 1.1,
+        "bpg": 0.1,
+        "best": "1979-80",
+        "init": "AB",
+        "score": 66
+      },
+      {
+        "name": "Nate Williams",
+        "canon": "Nate Williams",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 12.8,
+        "rpg": 4.4,
+        "apg": 1.3,
+        "spg": 1.3,
+        "bpg": 0.2,
+        "best": "1975-76",
+        "init": "NW",
+        "score": 64
+      },
+      {
+        "name": "Ben Poquette",
+        "canon": "Ben Poquette",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 8.9,
+        "rpg": 6.8,
+        "apg": 1.6,
+        "spg": 0.5,
+        "bpg": 2.0,
+        "best": "1979-80",
+        "init": "BP",
+        "score": 62
+      },
+      {
+        "name": "Aaron James",
+        "canon": "Aaron James",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 12.2,
+        "rpg": 5.3,
+        "apg": 1.4,
+        "spg": 0.5,
+        "bpg": 0.3,
+        "best": "1977-78",
+        "init": "AJ",
+        "score": 61
+      },
+      {
+        "name": "Louie Nelson",
+        "canon": "Louie Nelson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.2,
+        "rpg": 2.7,
+        "apg": 2.5,
+        "spg": 0.9,
+        "bpg": 0.1,
+        "best": "1974-75",
+        "init": "LN",
+        "score": 59
+      },
+      {
+        "name": "E.C. Coleman",
+        "canon": "E.C. Coleman",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.1,
+        "rpg": 7.1,
+        "apg": 1.4,
+        "spg": 1.1,
+        "bpg": 0.5,
+        "best": "1974-75",
+        "init": "EC",
+        "score": 58
+      },
+      {
+        "name": "Isaac Stallworth",
+        "canon": "Isaac Stallworth",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.9,
+        "rpg": 3.4,
+        "apg": 0.6,
+        "spg": 0.8,
+        "bpg": 0.2,
+        "best": "1974-75",
+        "init": "IS",
+        "score": 55
+      },
+      {
+        "name": "Henry Bibby",
+        "canon": "Henry Bibby",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.3,
+        "rpg": 2.3,
+        "apg": 2.8,
+        "spg": 0.8,
+        "bpg": 0.0,
+        "best": "1975-76",
+        "init": "HB",
+        "score": 55
+      },
+      {
+        "name": "Paul Griffin",
+        "canon": "Paul Griffin",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 5.3,
+        "rpg": 6.2,
+        "apg": 2.1,
+        "spg": 1.1,
+        "bpg": 0.5,
+        "best": "1977-78",
+        "init": "PG",
+        "score": 54
+      },
+      {
+        "name": "Don Williams",
+        "canon": "Don Williams",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 6.6,
+        "rpg": 1.4,
+        "apg": 2.4,
+        "spg": 1.3,
+        "bpg": 0.1,
+        "best": "1979-80",
+        "init": "DW",
+        "score": 52
+      },
+      {
+        "name": "James Hardy",
+        "canon": "James Hardy",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 5.5,
+        "rpg": 5.3,
+        "apg": 1.4,
+        "spg": 0.6,
+        "bpg": 1.1,
+        "best": "1979-80",
+        "init": "JH",
+        "score": 52
+      }
+    ],
+    "NOP-2010s": [
+      {
+        "name": "Anthony Davis",
+        "canon": "Anthony Davis",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 28.1,
+        "rpg": 11.1,
+        "apg": 2.3,
+        "spg": 1.5,
+        "bpg": 2.6,
+        "best": "2017-18",
+        "init": "AD",
+        "score": 99
+      },
+      {
+        "name": "DeMarcus Cousins",
+        "canon": "DeMarcus Cousins",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 25.2,
+        "rpg": 12.9,
+        "apg": 5.4,
+        "spg": 1.6,
+        "bpg": 1.6,
+        "best": "2017-18",
+        "init": "DC",
+        "score": 97
+      },
+      {
+        "name": "Jrue Holiday",
+        "canon": "Jrue Holiday",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 21.2,
+        "rpg": 5.0,
+        "apg": 7.7,
+        "spg": 1.6,
+        "bpg": 0.8,
+        "best": "2018-19",
+        "init": "JH",
+        "score": 85
+      },
+      {
+        "name": "Brandon Ingram",
+        "canon": "Brandon Ingram",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 23.8,
+        "rpg": 6.1,
+        "apg": 4.2,
+        "spg": 1.0,
+        "bpg": 0.6,
+        "best": "2019-20",
+        "init": "BI",
+        "score": 83
+      },
+      {
+        "name": "Chris Paul",
+        "canon": "Chris Paul",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 15.9,
+        "rpg": 4.1,
+        "apg": 9.8,
+        "spg": 2.4,
+        "bpg": 0.1,
+        "best": "2010-11",
+        "init": "CP",
+        "score": 80
+      },
+      {
+        "name": "Julius Randle",
+        "canon": "Julius Randle",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 21.4,
+        "rpg": 8.7,
+        "apg": 3.1,
+        "spg": 0.7,
+        "bpg": 0.6,
+        "best": "2018-19",
+        "init": "JR",
+        "score": 79
+      },
+      {
+        "name": "Zion Williamson",
+        "canon": "Zion Williamson",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 22.5,
+        "rpg": 6.3,
+        "apg": 2.1,
+        "spg": 0.7,
+        "bpg": 0.4,
+        "best": "2019-20",
+        "init": "ZW",
+        "score": 77
+      },
+      {
+        "name": "David West",
+        "canon": "David West",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 18.9,
+        "rpg": 7.6,
+        "apg": 2.3,
+        "spg": 1.0,
+        "bpg": 0.9,
+        "best": "2010-11",
+        "init": "DW",
+        "score": 75
+      },
+      {
+        "name": "Tyreke Evans",
+        "canon": "Tyreke Evans",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 16.6,
+        "rpg": 5.3,
+        "apg": 6.6,
+        "spg": 1.3,
+        "bpg": 0.5,
+        "best": "2014-15",
+        "init": "TE",
+        "score": 75
+      },
+      {
+        "name": "Greivis Vasquez",
+        "canon": "Greivis Vasquez",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 13.9,
+        "rpg": 4.3,
+        "apg": 9.0,
+        "spg": 0.8,
+        "bpg": 0.1,
+        "best": "2012-13",
+        "init": "GV",
+        "score": 70
+      },
+      {
+        "name": "Ryan Anderson",
+        "canon": "Ryan Anderson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 19.8,
+        "rpg": 6.5,
+        "apg": 0.8,
+        "spg": 0.5,
+        "bpg": 0.3,
+        "best": "2013-14",
+        "init": "RA",
+        "score": 70
+      },
+      {
+        "name": "Jarrett Jack",
+        "canon": "Jarrett Jack",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 15.6,
+        "rpg": 3.9,
+        "apg": 6.3,
+        "spg": 0.7,
+        "bpg": 0.2,
+        "best": "2011-12",
+        "init": "JJ",
+        "score": 69
+      },
+      {
+        "name": "Lonzo Ball",
+        "canon": "Lonzo Ball",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 11.8,
+        "rpg": 6.1,
+        "apg": 7.0,
+        "spg": 1.4,
+        "bpg": 0.6,
+        "best": "2019-20",
+        "init": "LB",
+        "score": 69
+      },
+      {
+        "name": "Nikola Mirotic",
+        "canon": "Nikola Mirotic",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 15.6,
+        "rpg": 7.4,
+        "apg": 1.5,
+        "spg": 0.8,
+        "bpg": 0.7,
+        "best": "2017-18",
+        "init": "NM",
+        "score": 68
+      },
+      {
+        "name": "Eric Gordon",
+        "canon": "Eric Gordon",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 17.0,
+        "rpg": 1.8,
+        "apg": 3.3,
+        "spg": 1.1,
+        "bpg": 0.2,
+        "best": "2012-13",
+        "init": "EG",
+        "score": 67
+      },
+      {
+        "name": "Chris Kaman",
+        "canon": "Chris Kaman",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 13.1,
+        "rpg": 7.7,
+        "apg": 2.1,
+        "spg": 0.5,
+        "bpg": 1.6,
+        "best": "2011-12",
+        "init": "CK",
+        "score": 66
+      },
+      {
+        "name": "Elfrid Payton",
+        "canon": "Elfrid Payton",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 10.6,
+        "rpg": 5.2,
+        "apg": 7.6,
+        "spg": 1.0,
+        "bpg": 0.4,
+        "best": "2018-19",
+        "init": "EP",
+        "score": 65
+      },
+      {
+        "name": "Trevor Ariza",
+        "canon": "Trevor Ariza",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.8,
+        "rpg": 5.2,
+        "apg": 3.3,
+        "spg": 1.7,
+        "bpg": 0.6,
+        "best": "2011-12",
+        "init": "TA",
+        "score": 64
+      },
+      {
+        "name": "Emeka Okafor",
+        "canon": "Emeka Okafor",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 10.3,
+        "rpg": 9.5,
+        "apg": 0.6,
+        "spg": 0.6,
+        "bpg": 1.8,
+        "best": "2010-11",
+        "init": "EO",
+        "score": 63
+      },
+      {
+        "name": "Rajon Rondo",
+        "canon": "Rajon Rondo",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 8.3,
+        "rpg": 4.0,
+        "apg": 8.2,
+        "spg": 1.1,
+        "bpg": 0.2,
+        "best": "2017-18",
+        "init": "RR",
+        "score": 61
+      },
+      {
+        "name": "JJ Redick",
+        "canon": "JJ Redick",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 15.3,
+        "rpg": 2.5,
+        "apg": 2.0,
+        "spg": 0.3,
+        "bpg": 0.2,
+        "best": "2019-20",
+        "init": "JR",
+        "score": 61
+      },
+      {
+        "name": "Robin Lopez",
+        "canon": "Robin Lopez",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.3,
+        "rpg": 5.6,
+        "apg": 0.8,
+        "spg": 0.4,
+        "bpg": 1.6,
+        "best": "2012-13",
+        "init": "RL",
+        "score": 60
+      },
+      {
+        "name": "E'Twaun Moore",
+        "canon": "E'Twaun Moore",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 12.5,
+        "rpg": 2.9,
+        "apg": 2.3,
+        "spg": 1.0,
+        "bpg": 0.1,
+        "best": "2017-18",
+        "init": "EM",
+        "score": 59
+      },
+      {
+        "name": "Derrick Favors",
+        "canon": "Derrick Favors",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 9.0,
+        "rpg": 9.8,
+        "apg": 1.6,
+        "spg": 0.6,
+        "bpg": 0.9,
+        "best": "2019-20",
+        "init": "DF",
+        "score": 59
+      },
+      {
+        "name": "Josh Hart",
+        "canon": "Josh Hart",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 10.1,
+        "rpg": 6.5,
+        "apg": 1.7,
+        "spg": 1.0,
+        "bpg": 0.4,
+        "best": "2019-20",
+        "init": "JH",
+        "score": 59
+      },
+      {
+        "name": "Carl Landry",
+        "canon": "Carl Landry",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 12.5,
+        "rpg": 5.2,
+        "apg": 0.9,
+        "spg": 0.3,
+        "bpg": 0.3,
+        "best": "2011-12",
+        "init": "CL",
+        "score": 58
+      },
+      {
+        "name": "Norris Cole",
+        "canon": "Norris Cole",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.6,
+        "rpg": 3.4,
+        "apg": 3.7,
+        "spg": 0.8,
+        "bpg": 0.1,
+        "best": "2015-16",
+        "init": "NC",
+        "score": 58
+      },
+      {
+        "name": "Al-Farouq Aminu",
+        "canon": "Al-Farouq Aminu",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 7.3,
+        "rpg": 7.7,
+        "apg": 1.4,
+        "spg": 1.2,
+        "bpg": 0.7,
+        "best": "2012-13",
+        "init": "AA",
+        "score": 57
+      },
+      {
+        "name": "Marco Belinelli",
+        "canon": "Marco Belinelli",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.8,
+        "rpg": 2.6,
+        "apg": 1.5,
+        "spg": 0.7,
+        "bpg": 0.1,
+        "best": "2011-12",
+        "init": "MB",
+        "score": 56
+      },
+      {
+        "name": "Jason Smith",
+        "canon": "Jason Smith",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.9,
+        "rpg": 4.9,
+        "apg": 0.9,
+        "spg": 0.5,
+        "bpg": 1.0,
+        "best": "2011-12",
+        "init": "JS",
+        "score": 56
+      },
+      {
+        "name": "Omer Asik",
+        "canon": "Omer Asik",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 7.3,
+        "rpg": 9.8,
+        "apg": 0.9,
+        "spg": 0.4,
+        "bpg": 0.7,
+        "best": "2014-15",
+        "init": "OA",
+        "score": 55
+      },
+      {
+        "name": "Toney Douglas",
+        "canon": "Toney Douglas",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.7,
+        "rpg": 2.3,
+        "apg": 2.6,
+        "spg": 1.1,
+        "bpg": 0.1,
+        "best": "2015-16",
+        "init": "TD",
+        "score": 54
+      },
+      {
+        "name": "Tim Frazier",
+        "canon": "Tim Frazier",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 7.1,
+        "rpg": 2.7,
+        "apg": 5.2,
+        "spg": 0.9,
+        "bpg": 0.1,
+        "best": "2016-17",
+        "init": "TF",
+        "score": 54
+      },
+      {
+        "name": "Brian Roberts",
+        "canon": "Brian Roberts",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.4,
+        "rpg": 1.9,
+        "apg": 3.3,
+        "spg": 0.6,
+        "bpg": 0.1,
+        "best": "2013-14",
+        "init": "BR",
+        "score": 53
+      },
+      {
+        "name": "Gustavo Ayon",
+        "canon": "Gustavo Ayon",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 5.9,
+        "rpg": 4.9,
+        "apg": 1.4,
+        "spg": 1.0,
+        "bpg": 0.9,
+        "best": "2011-12",
+        "init": "GA",
+        "score": 52
+      },
+      {
+        "name": "Solomon Hill",
+        "canon": "Solomon Hill",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.0,
+        "rpg": 3.8,
+        "apg": 1.8,
+        "spg": 0.9,
+        "bpg": 0.4,
+        "best": "2016-17",
+        "init": "SH",
+        "score": 52
+      },
+      {
+        "name": "Darius Miller",
+        "canon": "Darius Miller",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.2,
+        "rpg": 1.9,
+        "apg": 2.1,
+        "spg": 0.6,
+        "bpg": 0.3,
+        "best": "2018-19",
+        "init": "DM",
+        "score": 51
+      },
+      {
+        "name": "Kenrich Williams",
+        "canon": "Kenrich Williams",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 6.1,
+        "rpg": 4.8,
+        "apg": 1.8,
+        "spg": 1.0,
+        "bpg": 0.4,
+        "best": "2018-19",
+        "init": "KW",
+        "score": 51
+      },
+      {
+        "name": "Willie Green",
+        "canon": "Willie Green",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.7,
+        "rpg": 2.1,
+        "apg": 1.0,
+        "spg": 0.5,
+        "bpg": 0.2,
+        "best": "2010-11",
+        "init": "WG",
+        "score": 50
+      },
+      {
+        "name": "Dante Cunningham",
+        "canon": "Dante Cunningham",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 6.6,
+        "rpg": 4.2,
+        "apg": 0.6,
+        "spg": 0.6,
+        "bpg": 0.4,
+        "best": "2016-17",
+        "init": "DC",
+        "score": 49
+      },
+      {
+        "name": "Quincy Pondexter",
+        "canon": "Quincy Pondexter",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.2,
+        "rpg": 2.6,
+        "apg": 1.3,
+        "spg": 0.3,
+        "bpg": 0.3,
+        "best": "2014-15",
+        "init": "QP",
+        "score": 48
+      },
+      {
+        "name": "Austin Rivers",
+        "canon": "Austin Rivers",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 6.2,
+        "rpg": 1.8,
+        "apg": 2.1,
+        "spg": 0.4,
+        "bpg": 0.1,
+        "best": "2012-13",
+        "init": "AR",
+        "score": 46
+      },
+      {
+        "name": "Alonzo Gee",
+        "canon": "Alonzo Gee",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 4.5,
+        "rpg": 3.4,
+        "apg": 1.0,
+        "spg": 0.9,
+        "bpg": 0.2,
+        "best": "2015-16",
+        "init": "AG",
+        "score": 46
+      }
     ]
   },
   "tbe": {
@@ -20733,14 +23102,19 @@
       "PHI",
       "LAL",
       "NYK",
-      "CIN"
+      "SAC",
+      "HOU",
+      "ATL"
     ],
     "1970s": [
       "NYK",
       "MIL",
       "GSW",
       "POR",
-      "LAL"
+      "LAL",
+      "OKC",
+      "SAC",
+      "UTA"
     ],
     "1980s": [
       "BOS",
@@ -20757,7 +23131,7 @@
       "SAS",
       "ORL",
       "NYK",
-      "SEA",
+      "OKC",
       "IND"
     ],
     "2000s": [
@@ -20768,7 +23142,8 @@
       "DAL",
       "PHX",
       "PHI",
-      "CLE"
+      "CLE",
+      "MIN"
     ],
     "2010s": [
       "GSW",
@@ -20778,7 +23153,9 @@
       "CLE",
       "TOR",
       "HOU",
-      "MIL"
+      "MIL",
+      "BOS",
+      "NOP"
     ],
     "2020s": [
       "DEN",
@@ -20832,8 +23209,9 @@
     "MIN",
     "POR",
     "NYK",
-    "CIN",
-    "SEA"
+    "SAC",
+    "ATL",
+    "NOP"
   ],
   "hist": {
     "1960s": [
