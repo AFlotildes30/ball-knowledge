@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ball Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div id="home-screen" class="screen active">
+  <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><div class="nav-chip">How to Play</div></div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;">
+    <div class="home-inner">
+      <div class="home-title">Ball Knowledge</div>
+      <div class="home-sub">Do you know enough to build a GOAT roster? Test your might!</div>
+      <div class="mode-cards">
+        <div class="mode-card sel" data-mode="classic" onclick="pickMode('classic')"><div class="mode-emoji">&#127936;</div><div class="mode-name">Classic</div><div class="mode-desc">Full stats visible to make informed picks!</div></div>
+        <div class="mode-card" data-mode="challenge" onclick="pickMode('challenge')"><div class="mode-emoji">&#129504;</div><div class="mode-name">Challenge</div><div class="mode-desc">Stats hidden. Use your brain and draft carefully.</div></div>
+        <div class="mode-card" data-mode="dynasty" onclick="pickMode('dynasty')"><div class="mode-emoji">&#127942;</div><div class="mode-name">Dynasty</div><div class="mode-desc">Build a team and chase championships across a decade.</div></div>
+      </div>
+      <button class="btn-start" onclick="startGame()">Start Game</button>
+    </div>
+  </div>
+</div>
+
+<div id="game-screen" class="screen">
+  <div class="left-col">
+    <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><div class="mode-tag" id="mode-tag">Classic</div></div>
+    <div class="spin-zone">
+      <div class="cards-row">
+        <div class="spin-card team-card"><div class="sc-label">Team</div><div class="sc-value" id="sc-team">&#8212;</div></div>
+        <div class="spin-card era-card"><div class="sc-label">Era</div><div class="sc-value" id="sc-era">&#8212;</div></div>
+      </div>
+      <button class="btn-spin" id="btn-spin" onclick="doSpin()">SPIN</button>
+      <div class="reroll-row" id="reroll-row" style="display:none;">
+        <button class="btn-rr" id="rr-team" onclick="doReroll('team')"><span class="rr-dot" id="dot-t">1</span>Re-roll Team</button>
+        <button class="btn-rr" id="rr-era" onclick="doReroll('era')"><span class="rr-dot" id="dot-e">1</span>Re-roll Era</button>
+      </div>
+    </div>
+    <div class="list-zone" id="list-zone">
+      <div class="list-filters">
+        <button class="pf-btn active" onclick="fPos('ALL',this)">All</button>
+        <button class="pf-btn" onclick="fPos('G',this)">G</button>
+        <button class="pf-btn" onclick="fPos('F',this)">F</button>
+        <button class="pf-btn" onclick="fPos('C',this)">C</button>
+        <input class="search-in" type="text" placeholder="Search by name" id="search-in" oninput="applyF()">
+      </div>
+      <div class="list-meta" id="list-meta">&#8212; players available</div>
+      <div class="player-scroll" id="player-scroll"></div>
+    </div>
+  </div>
+  <div class="right-col">
+    <div class="court-wrap">
+      <div class="court-svg-wrap">
+        <svg viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="460" rx="8" fill="#C68642"/>
+          <g stroke="#B07030" stroke-width="0.7" opacity="0.5"><line x1="0" y1="46" x2="680" y2="46"/><line x1="0" y1="92" x2="680" y2="92"/><line x1="0" y1="138" x2="680" y2="138"/><line x1="0" y1="184" x2="680" y2="184"/><line x1="0" y1="230" x2="680" y2="230"/><line x1="0" y1="276" x2="680" y2="276"/><line x1="0" y1="322" x2="680" y2="322"/><line x1="0" y1="368" x2="680" y2="368"/><line x1="0" y1="414" x2="680" y2="414"/></g>
+          <rect x="10" y="10" width="660" height="440" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/>
+          <rect x="240" y="10" width="200" height="188" fill="#B87333" stroke="#fff" stroke-width="2"/>
+          <ellipse cx="340" cy="198" rx="60" ry="60" fill="none" stroke="#fff" stroke-width="2"/>
+          <rect x="312" y="8" width="56" height="6" rx="2" fill="#fff"/>
+          <circle cx="340" cy="38" r="18" fill="none" stroke="#fff" stroke-width="2.5"/>
+          <path d="M 300 188 Q 340 140 380 188" fill="none" stroke="#fff" stroke-width="2"/>
+          <path d="M 60 10 L 60 198 Q 60 390 340 390 Q 620 390 620 198 L 620 10" fill="none" stroke="#fff" stroke-width="2"/>
+          <line x1="60" y1="10" x2="60" y2="198" stroke="#fff" stroke-width="2"/><line x1="620" y1="10" x2="620" y2="198" stroke="#fff" stroke-width="2"/>
+          <line x1="240" y1="10" x2="240" y2="188" stroke="#fff" stroke-width="2"/><line x1="440" y1="10" x2="440" y2="188" stroke="#fff" stroke-width="2"/>
+          <rect x="240" y="58" width="14" height="7" fill="#fff"/><rect x="426" y="58" width="14" height="7" fill="#fff"/>
+          <rect x="240" y="98" width="14" height="7" fill="#fff"/><rect x="426" y="98" width="14" height="7" fill="#fff"/>
+          <rect x="240" y="138" width="14" height="7" fill="#fff"/><rect x="426" y="138" width="14" height="7" fill="#fff"/>
+          <line x1="10" y1="450" x2="670" y2="450" stroke="#fff" stroke-width="2"/>
+        </svg>
+        <div class="pos-node" id="node-C"  style="left:38%;top:35%" onclick="nodeClick('C')"><div class="pos-bubble" id="bub-C">C</div></div>
+        <div class="pos-node" id="node-PF" style="left:62%;top:35%" onclick="nodeClick('PF')"><div class="pos-bubble" id="bub-PF">PF</div></div>
+        <div class="pos-node" id="node-SF" style="left:18%;top:62%" onclick="nodeClick('SF')"><div class="pos-bubble" id="bub-SF">SF</div></div>
+        <div class="pos-node" id="node-SG" style="left:82%;top:62%" onclick="nodeClick('SG')"><div class="pos-bubble" id="bub-SG">SG</div></div>
+        <div class="pos-node" id="node-PG" style="left:50%;top:82%" onclick="nodeClick('PG')"><div class="pos-bubble" id="bub-PG">PG</div></div>
+        <div class="assign-banner" id="assign-banner"></div>
+      </div>
+    </div>
+    <div class="team-stats-bar">
+      <div class="ts-label">Team Averages <span id="ts-count" style="font-weight:500;color:var(--ink3);text-transform:none;letter-spacing:0;">(0/5 players)</span></div>
+      <div class="ts-grid">
+        <div class="ts-item"><div class="ts-val" id="ts-ppg">0.0</div><div class="ts-key">PPG</div></div>
+        <div class="ts-item"><div class="ts-val" id="ts-apg">0.0</div><div class="ts-key">APG</div></div>
+        <div class="ts-item"><div class="ts-val" id="ts-rpg">0.0</div><div class="ts-key">RPG</div></div>
+        <div class="ts-item"><div class="ts-val" id="ts-spg">0.0</div><div class="ts-key">SPG</div></div>
+        <div class="ts-item"><div class="ts-val" id="ts-bpg">0.0</div><div class="ts-key">BPG</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="score-screen" class="screen">
+  <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><span class="nav-chip" onclick="goHome()">&#8592; New Game</span></div>
+  <div style="flex:1;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:24px;">
+    <div class="score-inner">
+      <div style="text-align:center;margin-bottom:24px;"><div class="score-grade" id="score-grade">A</div><div class="score-wins" id="score-wins"></div></div>
+      <div class="score-roster" id="score-roster"></div>
+      <div class="score-stats" id="score-stats"></div>
+      <div class="score-analysis" id="score-analysis"></div>
+      <div class="score-btns"><button class="btn-outline" onclick="goHome()">New Game</button><button class="btn-start" onclick="goHome()">Play Again</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="dynasty-screen" class="screen">
+  <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><div class="mode-tag">Dynasty</div></div>
+  <div style="flex:1;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:24px;">
+    <div class="dynasty-inner">
+      <div class="dynasty-title" id="d-title">Spin for your dynasty era</div>
+      <div class="dynasty-sub" id="d-sub">Your squad will be placed in a decade and simulate every season.</div>
+      <div class="d-spin-box" id="d-spin-box">
+        <div class="d-reel-win"><div class="d-reel-val" id="d-reel">&#8212;</div></div><br>
+        <button class="btn-dspin" id="btn-dspin" onclick="dynastySpin()">SPIN FOR DECADE</button>
+      </div>
+      <div class="dynasty-timeline" id="d-timeline" style="display:none;"></div>
+      <div class="d-summary" id="d-summary" style="display:none;">
+        <div class="ds-grade" id="ds-grade"></div><div class="ds-sub" id="ds-sub2"></div><div class="ds-txt" id="ds-txt"></div>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:20px;">
+          <button class="btn-outline" onclick="goHome()">New Game</button><button class="btn-start" onclick="goHome()">Play Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>

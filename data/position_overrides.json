@@ -1,0 +1,220 @@
+{
+  "_comment": "Era-specific position overrides. Key = player name as it appears in players.json (or normalized). Each era key maps to the correct position array for that decade.",
+  "overrides": {
+    "LeBron James": {
+      "2000s": ["SF", "PF", "SG"],
+      "2010s": ["SF", "PF", "SG"],
+      "2020s": ["SF", "PF", "SG"]
+    },
+    "Kevin Durant": {
+      "2010s": ["SF", "PF", "SG"],
+      "2020s": ["SF", "PF", "SG"]
+    },
+    "Giannis Antetokounmpo": {
+      "2010s": ["PF", "SF"],
+      "2020s": ["PF", "SF", "C"]
+    },
+    "Luka Dončić": {
+      "2020s": ["PG", "SG", "SF"]
+    },
+    "Nikola Jokić": {
+      "2020s": ["C", "PF"]
+    },
+    "Jayson Tatum": {
+      "2020s": ["SF", "PF", "SG"]
+    },
+    "Kawhi Leonard": {
+      "2010s": ["SF", "SG"],
+      "2020s": ["SF", "SG", "PF"]
+    },
+    "Jimmy Butler III": {
+      "2010s": ["SF", "SG"],
+      "2020s": ["SF", "SG", "PF"]
+    },
+    "Scottie Pippen": {
+      "1980s": ["SF", "SG"],
+      "1990s": ["SF", "SG", "PF"]
+    },
+    "Magic Johnson": {
+      "1970s": ["PG", "SG"],
+      "1980s": ["PG", "SG"]
+    },
+    "Draymond Green": {
+      "2010s": ["PF", "C", "SF"],
+      "2020s": ["PF", "C", "SF"]
+    },
+    "Ben Simmons": {
+      "2020s": ["PG", "SF", "PF"]
+    },
+    "Anfernee Hardaway": {
+      "1990s": ["PG", "SG"],
+      "2000s": ["PG", "SG"]
+    },
+    "Grant Hill": {
+      "1990s": ["SF", "SG", "PF"],
+      "2000s": ["SF", "SG"]
+    },
+    "Kevin Garnett": {
+      "2000s": ["PF", "C", "SF"],
+      "2010s": ["PF", "C"]
+    },
+    "_kg_note": "MIN-2000s and BOS-2010s added to TBE 2026-06-08",
+    "Shawn Kemp": {
+      "1990s": ["PF", "C"]
+    },
+    "Charles Barkley": {
+      "1980s": ["PF", "C"],
+      "1990s": ["PF", "C", "SF"]
+    },
+    "Karl Malone": {
+      "1990s": ["PF", "C"],
+      "2000s": ["PF", "C"]
+    },
+    "Pau Gasol": {
+      "2000s": ["C", "PF"],
+      "2010s": ["C", "PF"]
+    },
+    "Lamar Odom": {
+      "2000s": ["PF", "SF"]
+    },
+    "Shaquille O'Neal": {
+      "1990s": ["C"],
+      "2000s": ["C"]
+    },
+    "Hakeem Olajuwon": {
+      "1980s": ["C"],
+      "1990s": ["C"]
+    },
+    "David Robinson": {
+      "1990s": ["C"],
+      "2000s": ["C"]
+    },
+    "Patrick Ewing": {
+      "1990s": ["C"]
+    },
+    "Russell Westbrook": {
+      "2010s": ["PG"],
+      "2020s": ["PG"]
+    },
+    "James Harden": {
+      "2010s": ["SG", "PG"],
+      "2020s": ["SG", "PG"]
+    },
+    "Chris Paul": {
+      "2000s": ["PG"],
+      "2010s": ["PG"],
+      "2020s": ["PG"]
+    },
+    "Kyrie Irving": {
+      "2010s": ["PG", "SG"],
+      "2020s": ["PG", "SG"]
+    },
+    "Stephen Curry": {
+      "2010s": ["PG", "SG"],
+      "2020s": ["PG", "SG"]
+    },
+    "Klay Thompson": {
+      "2010s": ["SG", "SF"]
+    },
+    "Devin Booker": {
+      "2020s": ["SG", "PG"]
+    },
+    "Anthony Davis": {
+      "2020s": ["C", "PF"]
+    },
+    "Bam Adebayo": {
+      "2010s": ["C", "PF"],
+      "2020s": ["C", "PF"]
+    },
+    "Pascal Siakam": {
+      "2010s": ["PF", "SF"],
+      "2020s": ["PF", "SF"]
+    },
+    "Shai Gilgeous-Alexander": {
+      "2020s": ["PG", "SG"]
+    },
+    "Anthony Edwards": {
+      "2020s": ["SG", "SF"]
+    },
+    "Tyrese Haliburton": {
+      "2020s": ["PG", "SG"]
+    },
+
+    "_additional_from_scan": "Players below added from full dataset audit",
+
+    "Larry Bird": {
+      "1980s": ["SF", "PF"]
+    },
+    "Dwyane Wade": {
+      "2000s": ["SG", "PG"],
+      "2010s": ["SG", "PG"]
+    },
+    "Jerry West": {
+      "1960s": ["SG", "PG"],
+      "1970s": ["SG", "PG"]
+    },
+    "Dennis Rodman": {
+      "1980s": ["PF", "C"],
+      "1990s": ["PF", "C"]
+    },
+    "Dirk Nowitzki": {
+      "2000s": ["PF", "SF"],
+      "2010s": ["PF", "SF"]
+    },
+    "Shawn Marion": {
+      "2000s": ["SF", "PF"],
+      "2010s": ["SF", "PF"]
+    },
+    "Boris Diaw": {
+      "2000s": ["SF", "PF"],
+      "2010s": ["SF", "PF"]
+    },
+    "Khris Middleton": {
+      "2010s": ["SG", "SF"],
+      "2020s": ["SG", "SF"]
+    },
+    "DeMarcus Cousins": {
+      "2010s": ["C", "PF"]
+    },
+    "Brook Lopez": {
+      "2010s": ["C", "PF"],
+      "2020s": ["C", "PF"]
+    },
+    "Myles Turner": {
+      "2020s": ["C", "PF"]
+    },
+    "Darius Garland": {
+      "2010s": ["PG", "SG"],
+      "2020s": ["PG", "SG"]
+    },
+    "Jrue Holiday": {
+      "2000s": ["PG", "SG"],
+      "2010s": ["PG", "SG"],
+      "2020s": ["PG", "SG"]
+    },
+    "Malcolm Brogdon": {
+      "2020s": ["PG", "SG"]
+    },
+    "Derrick White": {
+      "2020s": ["PG", "SG"]
+    },
+    "Domantas Sabonis": {
+      "2020s": ["C", "PF"]
+    },
+    "Julius Randle": {
+      "2020s": ["PF", "SF"]
+    },
+    "Vin Baker": {
+      "1990s": ["PF", "C"]
+    },
+    "Anthony Mason": {
+      "1990s": ["PF", "SF"],
+      "2000s": ["PF", "SF"]
+    }
+  },
+
+  "display_name_overrides": {
+    "Jimmy Butler III": "Jimmy Butler",
+    "Anfernee Hardaway": "Penny Hardaway"
+  }
+}
