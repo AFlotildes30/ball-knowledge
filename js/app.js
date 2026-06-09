@@ -115,9 +115,15 @@ function syncRR() {
   document.getElementById('dot-e').classList.toggle('spent', rrE);
 }
 
-function loadPool() {
+function loadPool(retries = 0) {
   cKey = cTeam + '-' + cEra;
   const all = DB[cKey] || [];
+  if (!all.length && retries < 10) {
+    const r = rRoll();
+    cTeam = r.t; cEra = r.e;
+    setCards(cTeam, cEra);
+    return loadPool(retries + 1);
+  }
   const seen = new Set();
   cPlayers = all.filter(p => {
     if (takenC.has(p.canon) || seen.has(p.canon)) return false;

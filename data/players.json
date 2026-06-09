@@ -6538,8 +6538,8 @@
         "name": "Latrell Sprewell",
         "canon": "Latrell Sprewell",
         "pos": [
-          "PG",
-          "SG"
+          "SG",
+          "SF"
         ],
         "ppg": 18.6,
         "rpg": 4.3,
@@ -7079,8 +7079,8 @@
         "name": "Chris Mullin",
         "canon": "Chris Mullin",
         "pos": [
-          "SF",
-          "SG"
+          "SG",
+          "SF"
         ],
         "ppg": 11.3,
         "rpg": 3.0,
@@ -19269,8 +19269,8 @@
         "name": "Latrell Sprewell",
         "canon": "Latrell Sprewell",
         "pos": [
-          "SF",
-          "SG"
+          "SG",
+          "SF"
         ],
         "ppg": 16.8,
         "rpg": 3.8,
@@ -19877,7 +19877,7 @@
         "name": "Gordon Hayward",
         "canon": "Gordon Hayward",
         "pos": [
-          "PG",
+          "SF",
           "SG"
         ],
         "ppg": 17.5,
@@ -23196,6 +23196,1144 @@
         "init": "AG",
         "score": 46
       }
+    ],
+    "GSW-1990s": [
+      {
+        "name": "Tim Hardaway",
+        "canon": "Tim Hardaway",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 22.9,
+        "rpg": 4.0,
+        "apg": 9.7,
+        "spg": 2.6,
+        "bpg": 0.1,
+        "best": "1990-91",
+        "init": "TH",
+        "score": 95
+      },
+      {
+        "name": "Chris Mullin",
+        "canon": "Chris Mullin",
+        "pos": [
+          "SG",
+          "SF"
+        ],
+        "ppg": 25.7,
+        "rpg": 5.4,
+        "apg": 4.0,
+        "spg": 2.1,
+        "bpg": 0.8,
+        "best": "1990-91",
+        "init": "CM",
+        "score": 94
+      },
+      {
+        "name": "Latrell Sprewell",
+        "canon": "Latrell Sprewell",
+        "pos": [
+          "SG",
+          "SF"
+        ],
+        "ppg": 24.2,
+        "rpg": 4.6,
+        "apg": 6.3,
+        "spg": 1.7,
+        "bpg": 0.6,
+        "best": "1996-97",
+        "init": "LS",
+        "score": 91
+      },
+      {
+        "name": "Mitch Richmond",
+        "canon": "Mitch Richmond",
+        "pos": [
+          "SG",
+          "SF"
+        ],
+        "ppg": 23.9,
+        "rpg": 5.9,
+        "apg": 3.1,
+        "spg": 1.6,
+        "bpg": 0.4,
+        "best": "1990-91",
+        "init": "MR",
+        "score": 87
+      },
+      {
+        "name": "Chris Webber",
+        "canon": "Chris Webber",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 17.5,
+        "rpg": 9.1,
+        "apg": 3.6,
+        "spg": 1.2,
+        "bpg": 2.2,
+        "best": "1993-94",
+        "init": "CW",
+        "score": 84
+      },
+      {
+        "name": "Joe Smith",
+        "canon": "Joe Smith",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 18.7,
+        "rpg": 8.5,
+        "apg": 1.6,
+        "spg": 0.9,
+        "bpg": 1.1,
+        "best": "1996-97",
+        "init": "JS",
+        "score": 78
+      },
+      {
+        "name": "Antawn Jamison",
+        "canon": "Antawn Jamison",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 19.6,
+        "rpg": 8.3,
+        "apg": 2.1,
+        "spg": 0.7,
+        "bpg": 0.3,
+        "best": "1999-00",
+        "init": "AJ",
+        "score": 77
+      },
+      {
+        "name": "Sarunas Marciulionis",
+        "canon": "Sarunas Marciulionis",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 18.9,
+        "rpg": 2.9,
+        "apg": 3.4,
+        "spg": 1.6,
+        "bpg": 0.1,
+        "best": "1991-92",
+        "init": "SM",
+        "score": 76
+      },
+      {
+        "name": "Billy Owens",
+        "canon": "Billy Owens",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 15.0,
+        "rpg": 8.1,
+        "apg": 4.1,
+        "spg": 1.1,
+        "bpg": 0.8,
+        "best": "1993-94",
+        "init": "BO",
+        "score": 75
+      },
+      {
+        "name": "Donyell Marshall",
+        "canon": "Donyell Marshall",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 15.4,
+        "rpg": 8.6,
+        "apg": 2.2,
+        "spg": 1.3,
+        "bpg": 1.0,
+        "best": "1997-98",
+        "init": "DM",
+        "score": 75
+      },
+      {
+        "name": "Jim Jackson",
+        "canon": "Jim Jackson",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 15.7,
+        "rpg": 5.1,
+        "apg": 4.8,
+        "spg": 1.0,
+        "bpg": 0.1,
+        "best": "1997-98",
+        "init": "JJ",
+        "score": 72
+      },
+      {
+        "name": "Chris Mills",
+        "canon": "Chris Mills",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 16.1,
+        "rpg": 6.2,
+        "apg": 2.4,
+        "spg": 0.9,
+        "bpg": 0.2,
+        "best": "1999-00",
+        "init": "CM",
+        "score": 70
+      },
+      {
+        "name": "Mookie Blaylock",
+        "canon": "Mookie Blaylock",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 11.3,
+        "rpg": 3.7,
+        "apg": 6.7,
+        "spg": 2.0,
+        "bpg": 0.3,
+        "best": "1999-00",
+        "init": "MB",
+        "score": 70
+      },
+      {
+        "name": "Larry Hughes",
+        "canon": "Larry Hughes",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 15.0,
+        "rpg": 4.3,
+        "apg": 2.5,
+        "spg": 1.4,
+        "bpg": 0.3,
+        "best": "1999-00",
+        "init": "LH",
+        "score": 69
+      },
+      {
+        "name": "John Starks",
+        "canon": "John Starks",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 13.8,
+        "rpg": 3.3,
+        "apg": 4.7,
+        "spg": 1.4,
+        "bpg": 0.1,
+        "best": "1998-99",
+        "init": "JS",
+        "score": 68
+      },
+      {
+        "name": "Erick Dampier",
+        "canon": "Erick Dampier",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 11.8,
+        "rpg": 8.7,
+        "apg": 1.1,
+        "spg": 0.5,
+        "bpg": 1.7,
+        "best": "1997-98",
+        "init": "ED",
+        "score": 66
+      },
+      {
+        "name": "Bimbo Coles",
+        "canon": "Bimbo Coles",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 11.0,
+        "rpg": 3.2,
+        "apg": 5.2,
+        "spg": 1.2,
+        "bpg": 0.2,
+        "best": "1995-96",
+        "init": "BC",
+        "score": 64
+      },
+      {
+        "name": "Avery Johnson",
+        "canon": "Avery Johnson",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 10.9,
+        "rpg": 2.1,
+        "apg": 5.3,
+        "spg": 1.4,
+        "bpg": 0.1,
+        "best": "1993-94",
+        "init": "AJ",
+        "score": 63
+      },
+      {
+        "name": "B.J. Armstrong",
+        "canon": "B.J. Armstrong",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 12.3,
+        "rpg": 2.2,
+        "apg": 4.9,
+        "spg": 0.8,
+        "bpg": 0.1,
+        "best": "1995-96",
+        "init": "BA",
+        "score": 63
+      },
+      {
+        "name": "Jason Caffey",
+        "canon": "Jason Caffey",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 12.0,
+        "rpg": 6.8,
+        "apg": 1.7,
+        "spg": 0.9,
+        "bpg": 0.3,
+        "best": "1999-00",
+        "init": "JC",
+        "score": 63
+      },
+      {
+        "name": "Mark Price",
+        "canon": "Mark Price",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 11.3,
+        "rpg": 2.6,
+        "apg": 4.9,
+        "spg": 1.0,
+        "bpg": 0.0,
+        "best": "1996-97",
+        "init": "MP",
+        "score": 62
+      },
+      {
+        "name": "Clar. Weatherspoon",
+        "canon": "Clar. Weatherspoon",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 9.3,
+        "rpg": 7.5,
+        "apg": 1.1,
+        "spg": 1.1,
+        "bpg": 0.9,
+        "best": "1997-98",
+        "init": "CW",
+        "score": 61
+      },
+      {
+        "name": "Victor Alexander",
+        "canon": "Victor Alexander",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.2,
+        "rpg": 5.8,
+        "apg": 1.3,
+        "spg": 0.5,
+        "bpg": 0.7,
+        "best": "1992-93",
+        "init": "VA",
+        "score": 60
+      },
+      {
+        "name": "Kevin Willis",
+        "canon": "Kevin Willis",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 10.6,
+        "rpg": 8.5,
+        "apg": 0.7,
+        "spg": 0.4,
+        "bpg": 0.5,
+        "best": "1995-96",
+        "init": "KW",
+        "score": 60
+      },
+      {
+        "name": "Tyrone Hill",
+        "canon": "Tyrone Hill",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 8.6,
+        "rpg": 10.2,
+        "apg": 0.9,
+        "spg": 0.6,
+        "bpg": 0.5,
+        "best": "1992-93",
+        "init": "TH",
+        "score": 59
+      },
+      {
+        "name": "Vonteego Cummings",
+        "canon": "Vonteego Cummings",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.4,
+        "rpg": 2.5,
+        "apg": 3.3,
+        "spg": 1.2,
+        "bpg": 0.2,
+        "best": "1999-00",
+        "init": "VC",
+        "score": 58
+      },
+      {
+        "name": "Tony Delk",
+        "canon": "Tony Delk",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.1,
+        "rpg": 2.2,
+        "apg": 2.2,
+        "spg": 0.9,
+        "bpg": 0.2,
+        "best": "1997-98",
+        "init": "TD",
+        "score": 57
+      },
+      {
+        "name": "Rod Higgins",
+        "canon": "Rod Higgins",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.5,
+        "rpg": 4.3,
+        "apg": 1.4,
+        "spg": 0.6,
+        "bpg": 0.5,
+        "best": "1990-91",
+        "init": "RH",
+        "score": 56
+      },
+      {
+        "name": "Terry Cummings",
+        "canon": "Terry Cummings",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.1,
+        "rpg": 5.1,
+        "apg": 1.2,
+        "spg": 0.9,
+        "bpg": 0.2,
+        "best": "1998-99",
+        "init": "TC",
+        "score": 56
+      },
+      {
+        "name": "Keith Jennings",
+        "canon": "Keith Jennings",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 7.4,
+        "rpg": 1.9,
+        "apg": 4.7,
+        "spg": 1.2,
+        "bpg": 0.0,
+        "best": "1994-95",
+        "init": "KJ",
+        "score": 55
+      },
+      {
+        "name": "Jerome Kersey",
+        "canon": "Jerome Kersey",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 6.7,
+        "rpg": 4.8,
+        "apg": 1.5,
+        "spg": 1.2,
+        "bpg": 0.6,
+        "best": "1995-96",
+        "init": "JK",
+        "score": 54
+      },
+      {
+        "name": "Alton Lister",
+        "canon": "Alton Lister",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 6.4,
+        "rpg": 6.3,
+        "apg": 1.2,
+        "spg": 0.3,
+        "bpg": 1.2,
+        "best": "1990-91",
+        "init": "AL",
+        "score": 53
+      },
+      {
+        "name": "Mario Elie",
+        "canon": "Mario Elie",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 7.8,
+        "rpg": 2.9,
+        "apg": 2.2,
+        "spg": 0.9,
+        "bpg": 0.2,
+        "best": "1991-92",
+        "init": "ME",
+        "score": 53
+      },
+      {
+        "name": "Muggsy Bogues",
+        "canon": "Muggsy Bogues",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 5.7,
+        "rpg": 2.2,
+        "apg": 5.4,
+        "spg": 1.1,
+        "bpg": 0.0,
+        "best": "1997-98",
+        "init": "MB",
+        "score": 53
+      },
+      {
+        "name": "Adonal Foyle",
+        "canon": "Adonal Foyle",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 5.5,
+        "rpg": 5.6,
+        "apg": 0.6,
+        "spg": 0.3,
+        "bpg": 1.8,
+        "best": "1999-00",
+        "init": "AF",
+        "score": 52
+      },
+      {
+        "name": "Mark Davis",
+        "canon": "Mark Davis",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 6.2,
+        "rpg": 3.7,
+        "apg": 1.7,
+        "spg": 1.1,
+        "bpg": 0.2,
+        "best": "1999-00",
+        "init": "MD",
+        "score": 51
+      },
+      {
+        "name": "Felton Spencer",
+        "canon": "Felton Spencer",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 5.1,
+        "rpg": 5.7,
+        "apg": 0.3,
+        "spg": 0.5,
+        "bpg": 0.7,
+        "best": "1996-97",
+        "init": "FS",
+        "score": 49
+      },
+      {
+        "name": "Melvin Booker",
+        "canon": "Melvin Booker",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 5.8,
+        "rpg": 1.4,
+        "apg": 2.5,
+        "spg": 0.1,
+        "bpg": 0.1,
+        "best": "1996-97",
+        "init": "MB",
+        "score": 46
+      }
+    ],
+    "UTA-2010s": [
+      {
+        "name": "Donovan Mitchell",
+        "canon": "Donovan Mitchell",
+        "pos": [
+          "SG",
+          "PG"
+        ],
+        "ppg": 23.8,
+        "rpg": 4.1,
+        "apg": 4.2,
+        "spg": 1.4,
+        "bpg": 0.4,
+        "best": "2018-19",
+        "init": "DM",
+        "score": 82
+      },
+      {
+        "name": "Al Jefferson",
+        "canon": "Al Jefferson",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 19.2,
+        "rpg": 9.6,
+        "apg": 2.2,
+        "spg": 0.8,
+        "bpg": 1.7,
+        "best": "2011-12",
+        "init": "AJ",
+        "score": 79
+      },
+      {
+        "name": "Gordon Hayward",
+        "canon": "Gordon Hayward",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 21.9,
+        "rpg": 5.4,
+        "apg": 3.5,
+        "spg": 1.0,
+        "bpg": 0.3,
+        "best": "2016-17",
+        "init": "GH",
+        "score": 78
+      },
+      {
+        "name": "Rudy Gobert",
+        "canon": "Rudy Gobert",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 15.9,
+        "rpg": 12.9,
+        "apg": 2.0,
+        "spg": 0.8,
+        "bpg": 2.3,
+        "best": "2018-19",
+        "init": "RG",
+        "score": 78
+      },
+      {
+        "name": "Paul Millsap",
+        "canon": "Paul Millsap",
+        "pos": [
+          "PF",
+          "SF"
+        ],
+        "ppg": 16.6,
+        "rpg": 8.8,
+        "apg": 2.3,
+        "spg": 1.8,
+        "bpg": 0.8,
+        "best": "2011-12",
+        "init": "PM",
+        "score": 76
+      },
+      {
+        "name": "Derrick Favors",
+        "canon": "Derrick Favors",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 16.4,
+        "rpg": 8.1,
+        "apg": 1.5,
+        "spg": 1.2,
+        "bpg": 1.5,
+        "best": "2015-16",
+        "init": "DF",
+        "score": 74
+      },
+      {
+        "name": "Bojan Bogdanovic",
+        "canon": "Bojan Bogdanovic",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 20.2,
+        "rpg": 4.1,
+        "apg": 2.1,
+        "spg": 0.5,
+        "bpg": 0.1,
+        "best": "2019-20",
+        "init": "BB",
+        "score": 70
+      },
+      {
+        "name": "Devin Harris",
+        "canon": "Devin Harris",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 15.2,
+        "rpg": 2.4,
+        "apg": 7.1,
+        "spg": 1.0,
+        "bpg": 0.1,
+        "best": "2010-11",
+        "init": "DH",
+        "score": 69
+      },
+      {
+        "name": "George Hill",
+        "canon": "George Hill",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 16.9,
+        "rpg": 3.4,
+        "apg": 4.2,
+        "spg": 1.0,
+        "bpg": 0.2,
+        "best": "2016-17",
+        "init": "GH",
+        "score": 69
+      },
+      {
+        "name": "Ricky Rubio",
+        "canon": "Ricky Rubio",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 13.1,
+        "rpg": 4.6,
+        "apg": 5.3,
+        "spg": 1.6,
+        "bpg": 0.1,
+        "best": "2017-18",
+        "init": "RR",
+        "score": 67
+      },
+      {
+        "name": "Andrei Kirilenko",
+        "canon": "Andrei Kirilenko",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.7,
+        "rpg": 5.1,
+        "apg": 3.0,
+        "spg": 1.3,
+        "bpg": 1.2,
+        "best": "2010-11",
+        "init": "AK",
+        "score": 65
+      },
+      {
+        "name": "Joe Ingles",
+        "canon": "Joe Ingles",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 12.1,
+        "rpg": 4.0,
+        "apg": 5.7,
+        "spg": 1.2,
+        "bpg": 0.2,
+        "best": "2018-19",
+        "init": "JI",
+        "score": 65
+      },
+      {
+        "name": "Mo Williams",
+        "canon": "Mo Williams",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 12.9,
+        "rpg": 2.4,
+        "apg": 6.2,
+        "spg": 1.0,
+        "bpg": 0.2,
+        "best": "2012-13",
+        "init": "MW",
+        "score": 64
+      },
+      {
+        "name": "Mike Conley",
+        "canon": "Mike Conley",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 14.4,
+        "rpg": 3.2,
+        "apg": 4.4,
+        "spg": 0.8,
+        "bpg": 0.1,
+        "best": "2019-20",
+        "init": "MC",
+        "score": 64
+      },
+      {
+        "name": "Rodney Hood",
+        "canon": "Rodney Hood",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 14.5,
+        "rpg": 3.4,
+        "apg": 2.7,
+        "spg": 0.9,
+        "bpg": 0.2,
+        "best": "2015-16",
+        "init": "RH",
+        "score": 63
+      },
+      {
+        "name": "Alec Burks",
+        "canon": "Alec Burks",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 14.0,
+        "rpg": 3.3,
+        "apg": 2.7,
+        "spg": 0.9,
+        "bpg": 0.2,
+        "best": "2013-14",
+        "init": "AB",
+        "score": 62
+      },
+      {
+        "name": "Trey Burke",
+        "canon": "Trey Burke",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 12.8,
+        "rpg": 3.0,
+        "apg": 5.7,
+        "spg": 0.6,
+        "bpg": 0.1,
+        "best": "2013-14",
+        "init": "TB",
+        "score": 62
+      },
+      {
+        "name": "Jordan Clarkson",
+        "canon": "Jordan Clarkson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 15.2,
+        "rpg": 2.6,
+        "apg": 1.9,
+        "spg": 0.6,
+        "bpg": 0.2,
+        "best": "2019-20",
+        "init": "JC",
+        "score": 62
+      },
+      {
+        "name": "CJ Miles",
+        "canon": "CJ Miles",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 12.8,
+        "rpg": 3.3,
+        "apg": 1.7,
+        "spg": 0.9,
+        "bpg": 0.5,
+        "best": "2010-11",
+        "init": "CM",
+        "score": 60
+      },
+      {
+        "name": "Enes Freedom",
+        "canon": "Enes Freedom",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 12.3,
+        "rpg": 7.5,
+        "apg": 0.9,
+        "spg": 0.4,
+        "bpg": 0.5,
+        "best": "2013-14",
+        "init": "EF",
+        "score": 60
+      },
+      {
+        "name": "Jae Crowder",
+        "canon": "Jae Crowder",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 11.9,
+        "rpg": 4.8,
+        "apg": 1.7,
+        "spg": 0.8,
+        "bpg": 0.4,
+        "best": "2018-19",
+        "init": "JC",
+        "score": 59
+      },
+      {
+        "name": "Marvin Williams",
+        "canon": "Marvin Williams",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.1,
+        "rpg": 5.1,
+        "apg": 1.2,
+        "spg": 0.8,
+        "bpg": 0.5,
+        "best": "2013-14",
+        "init": "MW",
+        "score": 55
+      },
+      {
+        "name": "Randy Foye",
+        "canon": "Randy Foye",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.8,
+        "rpg": 1.5,
+        "apg": 2.0,
+        "spg": 0.8,
+        "bpg": 0.3,
+        "best": "2012-13",
+        "init": "RF",
+        "score": 55
+      },
+      {
+        "name": "Richard Jefferson",
+        "canon": "Richard Jefferson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 10.1,
+        "rpg": 2.7,
+        "apg": 1.6,
+        "spg": 0.7,
+        "bpg": 0.2,
+        "best": "2013-14",
+        "init": "RJ",
+        "score": 54
+      },
+      {
+        "name": "Thabo Sefolosha",
+        "canon": "Thabo Sefolosha",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.2,
+        "rpg": 4.2,
+        "apg": 0.9,
+        "spg": 1.4,
+        "bpg": 0.3,
+        "best": "2017-18",
+        "init": "TS",
+        "score": 54
+      },
+      {
+        "name": "Shelvin Mack",
+        "canon": "Shelvin Mack",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.6,
+        "rpg": 2.5,
+        "apg": 3.6,
+        "spg": 0.7,
+        "bpg": 0.1,
+        "best": "2015-16",
+        "init": "SM",
+        "score": 53
+      },
+      {
+        "name": "Josh Howard",
+        "canon": "Josh Howard",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.7,
+        "rpg": 3.7,
+        "apg": 1.2,
+        "spg": 0.7,
+        "bpg": 0.2,
+        "best": "2011-12",
+        "init": "JH",
+        "score": 52
+      },
+      {
+        "name": "Joe Johnson",
+        "canon": "Joe Johnson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 9.2,
+        "rpg": 3.1,
+        "apg": 1.8,
+        "spg": 0.5,
+        "bpg": 0.2,
+        "best": "2016-17",
+        "init": "JJ",
+        "score": 52
+      },
+      {
+        "name": "Royce O'Neale",
+        "canon": "Royce O'Neale",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 6.3,
+        "rpg": 5.5,
+        "apg": 2.5,
+        "spg": 0.8,
+        "bpg": 0.5,
+        "best": "2019-20",
+        "init": "RO",
+        "score": 52
+      },
+      {
+        "name": "Raja Bell",
+        "canon": "Raja Bell",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 8.0,
+        "rpg": 2.6,
+        "apg": 1.7,
+        "spg": 0.8,
+        "bpg": 0.2,
+        "best": "2010-11",
+        "init": "RB",
+        "score": 51
+      },
+      {
+        "name": "Trevor Booker",
+        "canon": "Trevor Booker",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 5.9,
+        "rpg": 5.7,
+        "apg": 1.1,
+        "spg": 0.7,
+        "bpg": 0.5,
+        "best": "2015-16",
+        "init": "TB",
+        "score": 50
+      },
+      {
+        "name": "Earl Watson",
+        "canon": "Earl Watson",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 3.0,
+        "rpg": 2.4,
+        "apg": 4.3,
+        "spg": 1.1,
+        "bpg": 0.4,
+        "best": "2011-12",
+        "init": "EW",
+        "score": 48
+      },
+      {
+        "name": "Dante Exum",
+        "canon": "Dante Exum",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 4.8,
+        "rpg": 1.6,
+        "apg": 2.4,
+        "spg": 0.5,
+        "bpg": 0.2,
+        "best": "2014-15",
+        "init": "DE",
+        "score": 45
+      }
     ]
   },
   "tbe": {
@@ -23234,7 +24372,8 @@
       "ORL",
       "NYK",
       "OKC",
-      "IND"
+      "IND",
+      "GSW"
     ],
     "2000s": [
       "LAL",
@@ -23257,7 +24396,8 @@
       "HOU",
       "MIL",
       "BOS",
-      "NOP"
+      "NOP",
+      "UTA"
     ],
     "2020s": [
       "DEN",
