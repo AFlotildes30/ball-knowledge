@@ -180,7 +180,7 @@ function renderList() {
     const stats = ch ? '' : '<div class="p-stats"><div class="p-stat"><div class="p-stat-val">' + p.ppg.toFixed(1) + '</div><div class="p-stat-lbl">PPG</div></div><div class="p-stat"><div class="p-stat-val">' + p.rpg.toFixed(1) + '</div><div class="p-stat-lbl">RPG</div></div><div class="p-stat"><div class="p-stat-val">' + p.apg.toFixed(1) + '</div><div class="p-stat-lbl">APG</div></div></div>';
     const meta = ch ? '' : '<div class="p-meta">Best: ' + p.best + (untracked ? ' - Pre-stat era' : '') + '</div>';
     d.innerHTML = '<div class="p-av">' + p.init + '</div><div class="p-info"><div class="p-name">' + p.name + '</div><div class="p-pos">' + p.pos.join(' - ') + '</div>' + meta + '</div>' + stats;
-    d.onclick = () => selPlayer(p);
+    d.onclick = (ev) => { ev.stopPropagation(); selPlayer(p); };
     sc.appendChild(d);
   });
 }
