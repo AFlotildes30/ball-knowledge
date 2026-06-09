@@ -39,7 +39,7 @@ function startGame() {
   roster = { PG: null, SG: null, SF: null, PF: null, C: null };
   takenC = new Set(); roundN = 1; rrT = false; rrE = false;
   cTeam = ''; cEra = ''; cKey = ''; selP = null; mvMode = false; mvFrom = null; spinning = false;
-  const modeLabels = { classic: 'Classic', challenge: 'Challenge', dynasty: 'Dynasty', h2h: 'Head to Head' };
+  const modeLabels = { classic: 'Classic', challenge: 'Challenge', dynasty: 'Dynasty' };
   document.getElementById('mode-tag').textContent = modeLabels[gMode] || 'Classic';
   showScreen('game-screen');
   document.getElementById('list-zone').style.display = 'none';

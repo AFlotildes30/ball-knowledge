@@ -268,9 +268,8 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .htp-btn-next{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:8px 20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;}
 .htp-btn-next:hover{background:#D04E00;}
 
-/* ── Home screen: 4-card 2×2 grid (mobile) → 4-column (desktop) ── */
-.mode-cards{grid-template-columns:repeat(2,1fr);}
-@media(min-width:680px){.mode-cards{grid-template-columns:repeat(4,1fr);}}
+/* ── Home screen: 3-card grid (unchanged) ── */
+.mode-cards{grid-template-columns:repeat(3,1fr);}
 
 /* ── H2H mode-tag variant ── */
 .mode-tag.h2h-tag{background:#EFF6FF;color:var(--blue);}
