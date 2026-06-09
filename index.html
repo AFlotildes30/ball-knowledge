@@ -20,6 +20,7 @@
         <div class="mode-card sel" data-mode="classic" onclick="pickMode('classic')"><div class="mode-emoji">&#127936;</div><div class="mode-name">Classic</div><div class="mode-desc">Full stats visible to make informed picks!</div></div>
         <div class="mode-card" data-mode="challenge" onclick="pickMode('challenge')"><div class="mode-emoji">&#129504;</div><div class="mode-name">Challenge</div><div class="mode-desc">Stats hidden. Use your brain and draft carefully.</div></div>
         <div class="mode-card" data-mode="dynasty" onclick="pickMode('dynasty')"><div class="mode-emoji">&#127942;</div><div class="mode-name">Dynasty</div><div class="mode-desc">Build a team and chase championships across a decade.</div></div>
+        <div class="mode-card" data-mode="h2h" onclick="pickMode('h2h')"><div class="mode-emoji">&#127952;</div><div class="mode-name">Head to Head</div><div class="mode-desc">Build your roster and challenge a friend to a 7-game series.</div></div>
       </div>
       <button class="btn-start" onclick="startGame()">Start Game</button>
     </div>
@@ -103,13 +104,14 @@
       <div class="score-projections" id="score-projections"></div>
       <div class="score-analysis" id="score-analysis"></div>
       <div class="score-btns"><button class="btn-outline" onclick="goHome()">Choose Game Mode</button><button class="btn-start" onclick="startGame()">Play Again</button></div>
+      <button id="btn-challenge-friend" class="btn-challenge" onclick="openChallengeModal()" style="display:none;">&#127952; Challenge a Friend</button>
     </div>
   </div>
 </div>
 
 <div id="dynasty-screen" class="screen">
   <div class="topbar"><div class="topbar-logo logo-link" onclick="goHome()">Ball <span>Knowledge</span></div><div class="mode-tag">Dynasty</div></div>
-  <div style="flex:1;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:24px;">
+  <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column;align-items:center;padding:24px;">
     <div class="dynasty-inner">
       <div class="dynasty-title" id="d-title">Spin for your dynasty era</div>
       <div class="dynasty-sub" id="d-sub">Your squad will be placed in a decade and simulate every season.</div>
@@ -129,6 +131,79 @@
   </div>
 </div>
 
+<!-- Challenge acceptance screen -->
+<div id="challenge-screen" class="screen">
+  <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><div class="mode-tag h2h-tag">CHALLENGE</div></div>
+  <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column;align-items:center;padding:24px 24px 40px;">
+    <div class="ch-inner">
+      <div class="ch-title">Your opponent built this roster</div>
+      <div class="ch-sub">Think you can beat it? Build your starting 5 to go head to head in a 7-game series.</div>
+      <div id="ch-p1-chips" class="score-roster" style="justify-content:flex-start;"></div>
+      <div id="ch-p1-stats" class="score-stats" style="margin-bottom:28px;"></div>
+      <button class="btn-start ch-accept-btn" onclick="acceptChallenge()">Accept Challenge</button>
+      <div class="ch-note">Players your opponent already drafted will be marked <strong>Taken</strong> and cannot be selected.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Pre-series screen -->
+<div id="preseries-screen" class="screen">
+  <div class="topbar"><div class="topbar-logo logo-link" onclick="goHome()">Ball <span>Knowledge</span></div><div class="mode-tag h2h-tag">HEAD TO HEAD</div></div>
+  <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column;align-items:center;padding:24px 24px 40px;">
+    <div class="ps-inner">
+      <div class="ps-title">Ready to Simulate?</div>
+      <div class="ps-sub">Both rosters are locked. Let the series begin.</div>
+      <div class="ps-matchup">
+        <div class="ps-team-col">
+          <div class="ps-col-label">Challenger</div>
+          <div id="ps-p1-chips" class="ps-chips"></div>
+          <div id="ps-p1-rating" class="ps-rating"></div>
+        </div>
+        <div class="ps-vs">VS</div>
+        <div class="ps-team-col">
+          <div class="ps-col-label">You</div>
+          <div id="ps-p2-chips" class="ps-chips"></div>
+          <div id="ps-p2-rating" class="ps-rating"></div>
+        </div>
+      </div>
+      <button class="btn-start ps-sim-btn" onclick="runH2HSeries()">Simulate 7-Game Series</button>
+    </div>
+  </div>
+</div>
+
+<!-- H2H Results screen -->
+<div id="h2h-results-screen" class="screen">
+  <div class="topbar"><div class="topbar-logo logo-link" onclick="goHome()">Ball <span>Knowledge</span></div><div class="mode-tag h2h-tag">SERIES RESULT</div></div>
+  <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column;align-items:center;padding:24px 24px 40px;">
+    <div class="h2h-inner">
+      <div id="h2h-winner-banner" class="h2h-winner-banner"></div>
+      <div id="h2h-series-timeline" class="dynasty-timeline" style="margin-bottom:16px;"></div>
+      <div id="h2h-mvp-card" class="h2h-card"></div>
+      <div id="h2h-mods-card" class="h2h-card"></div>
+      <div id="h2h-rosters-card" class="h2h-card"></div>
+      <div id="h2h-narrative" class="score-analysis" style="display:none;"></div>
+      <div class="score-btns" style="margin-top:8px;">
+        <button id="btn-h2h-share" class="btn-start" onclick="shareH2HResults()">&#128279; Share Results</button>
+        <button class="btn-outline" onclick="goHome()">Play Again</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Results waiting screen (P1 opens ?results= before opponent played) -->
+<div id="results-waiting-screen" class="screen">
+  <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div></div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;">
+    <div class="wait-inner">
+      <div class="wait-pulse"></div>
+      <div class="wait-title">Waiting for your opponent</div>
+      <div class="wait-sub">Your challenge link is still active — share it to get a response.</div>
+      <div class="wait-sub2">When they finish, they'll share back a results link for you to open here.</div>
+      <button class="btn-outline" onclick="goHome()">Go Home</button>
+    </div>
+  </div>
+</div>
+
 <div id="confirm-modal" class="confirm-overlay" onclick="if(event.target===this)this.style.display='none'">
   <div class="confirm-box">
     <div class="confirm-title">Leave game?</div>
@@ -137,6 +212,37 @@
       <button class="btn-outline" onclick="document.getElementById('confirm-modal').style.display='none'">Keep Playing</button>
       <button class="btn-danger" onclick="document.getElementById('confirm-modal').style.display='none';goHome()">Go to Home</button>
     </div>
+  </div>
+</div>
+
+<!-- Challenge link modal -->
+<div id="challenge-modal" class="confirm-overlay" onclick="if(event.target===this)this.style.display='none'">
+  <div class="chal-modal-box">
+    <button class="htp-close" onclick="document.getElementById('challenge-modal').style.display='none'">&#x2715;</button>
+    <div class="chal-modal-title">&#127952; Challenge a Friend</div>
+    <div class="chal-section">
+      <div class="chal-section-label">Challenge Link</div>
+      <div class="chal-section-sub">Share this with your opponent — they'll build their roster against yours</div>
+      <div class="chal-input-row">
+        <input class="chal-link-input" id="chal-link" readonly onclick="this.select()">
+      </div>
+      <div class="chal-btn-row">
+        <button class="chal-btn chal-btn-copy" id="btn-copy-chal" onclick="copyChalLink()">Copy</button>
+        <button class="chal-btn chal-btn-share" id="btn-share-chal" onclick="shareChallenge()">Share</button>
+      </div>
+    </div>
+    <div class="chal-divider"></div>
+    <div class="chal-section">
+      <div class="chal-section-label">Your Results Link</div>
+      <div class="chal-section-sub">Bookmark this — when your opponent shares results back, open that link to see the outcome</div>
+      <div class="chal-input-row">
+        <input class="chal-link-input" id="res-link" readonly onclick="this.select()">
+      </div>
+      <div class="chal-btn-row">
+        <button class="chal-btn chal-btn-copy" id="btn-copy-res" onclick="copyResLink()">Copy</button>
+      </div>
+    </div>
+    <div class="chal-note">&#128276; Your opponent will share a results link back to you when done.</div>
   </div>
 </div>
 

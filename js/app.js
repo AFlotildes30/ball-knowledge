@@ -21,6 +21,12 @@ let takenC = new Set(), roundN = 1, rrT = false, rrE = false;
 let cTeam = '', cEra = '', cKey = '', cPlayers = [], fPlayers = [];
 let posF = 'ALL', selP = null, mvMode = false, mvFrom = null, spinning = false;
 
+// Head-to-head state
+let h2hChallenge = null;    // decoded payload from ?challenge= URL
+let h2hLockedEVs = new Set(); // era_variants taken by P1
+let h2hP2Roster = null;     // P2's completed roster (before series)
+let h2hSeriesResult = null; // result from simH2HSeries
+
 function pickMode(m) {
   gMode = m;
   document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('sel'));
@@ -28,10 +34,13 @@ function pickMode(m) {
 }
 
 function startGame() {
+  // Clear H2H challenge state on fresh game start
+  h2hChallenge = null; h2hLockedEVs = new Set(); h2hP2Roster = null; h2hSeriesResult = null;
   roster = { PG: null, SG: null, SF: null, PF: null, C: null };
   takenC = new Set(); roundN = 1; rrT = false; rrE = false;
   cTeam = ''; cEra = ''; cKey = ''; selP = null; mvMode = false; mvFrom = null; spinning = false;
-  document.getElementById('mode-tag').textContent = gMode === 'classic' ? 'Classic' : gMode === 'challenge' ? 'Challenge' : 'Dynasty';
+  const modeLabels = { classic: 'Classic', challenge: 'Challenge', dynasty: 'Dynasty', h2h: 'Head to Head' };
+  document.getElementById('mode-tag').textContent = modeLabels[gMode] || 'Classic';
   showScreen('game-screen');
   document.getElementById('list-zone').style.display = 'none';
   document.getElementById('reroll-row').style.display = 'none';
@@ -70,14 +79,14 @@ function doReroll(type) {
   syncRR();
   spinning = true;
   if (type === 'team') {
-    const pool = TBE[cEra];
+    const pool = TBE[cEra].filter(t => t !== cTeam);
     const nt = pool[Math.floor(Math.random() * pool.length)];
     const frozenEra = cEra;
     animTeam(nt, () => {
       cTeam = nt;
       console.log('[re-roll] team →', cTeam, '| era frozen at', frozenEra);
       spinning = false;
-      loadPool();
+      loadPool(0, 'era');
     });
   } else {
     const others = ERAS.filter(e => e !== cEra);
@@ -87,7 +96,7 @@ function doReroll(type) {
       cEra = ne;
       console.log('[re-roll] era →', cEra, '| team frozen at', frozenTeam);
       spinning = false;
-      loadPool();
+      loadPool(0, 'team');
     });
   }
 }
@@ -155,17 +164,27 @@ function syncRR() {
   document.getElementById('dot-e').classList.toggle('spent', rrE);
 }
 
-function loadPool(retries = 0) {
+function loadPool(retries = 0, lock = '') {
   cKey = cTeam + '-' + cEra;
   const all = DB[cKey] || [];
   if (!all.length && retries < 10) {
-    const r = rRoll();
-    cTeam = r.t; cEra = r.e;
-    // Update both display cards silently — this safety path only fires when the
-    // selected combo has no data, so showing the new combo is intentional.
-    document.getElementById('sc-team').textContent = cTeam;
-    document.getElementById('sc-era').textContent = cEra;
-    return loadPool(retries + 1);
+    if (lock === 'team') {
+      // Era re-roll: keep cTeam fixed, only cycle the era
+      const others = ERAS.filter(e => e !== cEra);
+      cEra = others[Math.floor(Math.random() * others.length)];
+      document.getElementById('sc-era').textContent = cEra;
+    } else if (lock === 'era') {
+      // Team re-roll: keep cEra fixed, only cycle the team
+      const pool = TBE[cEra];
+      cTeam = pool[Math.floor(Math.random() * pool.length)];
+      document.getElementById('sc-team').textContent = cTeam;
+    } else {
+      const r = rRoll();
+      cTeam = r.t; cEra = r.e;
+      document.getElementById('sc-team').textContent = cTeam;
+      document.getElementById('sc-era').textContent = cEra;
+    }
+    return loadPool(retries + 1, lock);
   }
   const seen = new Set();
   cPlayers = all.filter(p => {
@@ -218,6 +237,19 @@ function renderList() {
   fPlayers.forEach(p => {
     const d = document.createElement('div');
     const isSel = selP && selP.canon === p.canon;
+    // H2H: check if this player's era_variant is locked by P1
+    const pEV = p.era_variant || (p.canon + '-' + (p.rE || cEra));
+    const isLocked = h2hChallenge && h2hLockedEVs.has(pEV);
+    if (isLocked) {
+      d.className = 'p-card p-card-locked';
+      const url = headshotUrl(p.canon);
+      const avHtml = url
+        ? '<div class="p-av has-hs">' + p.init + '<img class="p-hs" src="' + url + '" alt="" onerror="this.parentNode.classList.remove(\'has-hs\');this.remove()"></div>'
+        : '<div class="p-av">' + p.init + '</div>';
+      d.innerHTML = avHtml + '<div class="p-info"><div class="p-name">' + p.name + '</div><div class="p-pos">' + p.pos.join(' - ') + '</div></div><div class="p-taken">Taken</div>';
+      sc.appendChild(d);
+      return;
+    }
     d.className = 'p-card' + (isSel ? ' selected' : '');
     const untracked = p.note && p.note.includes('untracked');
     const stats = ch ? '' : '<div class="p-stats"><div class="p-stat"><div class="p-stat-val">' + p.ppg.toFixed(1) + '</div><div class="p-stat-lbl">PPG</div></div><div class="p-stat"><div class="p-stat-val">' + p.rpg.toFixed(1) + '</div><div class="p-stat-lbl">RPG</div></div><div class="p-stat"><div class="p-stat-val">' + p.apg.toFixed(1) + '</div><div class="p-stat-lbl">APG</div></div></div>';
@@ -273,7 +305,7 @@ function renderFilled(bub, p) {
   bub.setAttribute('data-name', p.name);
   const url = headshotUrl(p.canon);
   if (url) {
-    bub.innerHTML = '<span class="bub-fb">' + p.init + '</span><img class="bub-hs" src="' + url + '" alt="" onerror="this.remove()">';
+    bub.innerHTML = '<span class="bub-fb">' + p.init + '</span><div class="bub-hs-wrap"><img class="bub-hs" src="' + url + '" alt="" onerror="this.parentNode.remove()"></div>';
   } else {
     bub.innerHTML = '<div style="font-size:18px;font-weight:800;color:var(--ink);">' + p.init + '</div>';
   }
@@ -372,6 +404,12 @@ function showResult() {
     document.getElementById('d-sub').textContent = 'Your squad will be placed in a decade and simulate every season.';
     return;
   }
+  // H2H challenge response: go to pre-series screen instead of scorecard
+  if (h2hChallenge) {
+    h2hP2Roster = Object.assign({}, roster);
+    showPreseries();
+    return;
+  }
   buildScore();
   showScreen('score-screen');
 }
@@ -421,13 +459,17 @@ function buildScore() {
     ).join('');
   document.getElementById('score-analysis').innerHTML = buildAnalysis(ps, tPpg, tRpg, tApg, tSpg, tBpg, avg);
   buildProjections();
+  // Show challenge button for classic / challenge / h2h modes
+  const chalBtn = document.getElementById('btn-challenge-friend');
+  if (chalBtn) chalBtn.style.display = gMode !== 'dynasty' ? 'flex' : 'none';
 }
 
 let dEra = '';
 
 function dynastySpin() {
   document.getElementById('btn-dspin').disabled = true;
-  const era = ERAS[Math.floor(Math.random() * ERAS.length)];
+  const ERA_W = {'1960s':8,'1970s':10,'1980s':16,'1990s':22,'2000s':22,'2010s':16,'2020s':6};
+  const era = ERAS[weightedIdx(ERAS.map(e => ERA_W[e] || 1))];
   dEra = era;
   const reel = document.getElementById('d-reel');
   let t = 0;
@@ -436,6 +478,17 @@ function dynastySpin() {
     t += 80;
     if (t >= 1000) { clearInterval(iv); reel.textContent = era; setTimeout(() => simDynasty(era), 400); }
   }, 80);
+}
+
+function weightedIdx(weights) {
+  let r = Math.random() * weights.reduce((a,b)=>a+b,0);
+  for (let i=0;i<weights.length;i++){r-=weights[i];if(r<=0)return i;}
+  return weights.length-1;
+}
+
+function seriesScore(weWin) {
+  const lw = [0,1,2,3][weightedIdx([3,10,16,20])];
+  return (weWin ? 'Won' : 'Lost') + ' 4–' + lw;
 }
 
 function simDynasty(era) {
@@ -462,29 +515,49 @@ function simDynasty(era) {
     const noise = (Math.random() - .5) * 14;
     const wins = Math.max(14, Math.min(82, Math.round(18 + (ts / 100) * 60 + noise)));
     totalW += wins;
-    let res = 'Missed Playoffs', cls = 'early';
+    let res = 'Missed Playoffs', cls = 'early', series = '';
     if (wins >= 48) {
       const o1 = opps[Math.floor(Math.random() * opps.length)];
-      if (sg(ts, o1.r)) {
+      const w1 = sg(ts, o1.r); const sc1 = seriesScore(w1);
+      if (w1) {
         const o2 = opps[Math.floor(Math.random() * opps.length)];
-        if (sg(ts, o2.r)) {
+        const w2 = sg(ts, o2.r); const sc2 = seriesScore(w2);
+        if (w2) {
           const o3 = opps[Math.floor(Math.random() * opps.length)];
-          if (sg(ts, o3.r)) {
+          const w3 = sg(ts, o3.r); const sc3 = seriesScore(w3);
+          if (w3) {
             const o4 = opps[Math.floor(Math.random() * opps.length)];
-            if (sg(ts, o4.r)) { res = '🏆 Champions'; cls = 'champ'; champs++; }
+            const w4 = sg(ts, o4.r); const sc4 = seriesScore(w4);
+            if (w4) { res = '🏆 Champions'; cls = 'champ'; champs++; }
             else { res = 'Finals Loss'; cls = 'conf'; }
-          } else { res = 'Conference Finals'; cls = 'conf'; }
-        } else { res = 'Second Round Exit'; cls = 'early'; }
-      } else { res = 'First Round Exit'; cls = 'early'; }
-    } else if (wins >= 38) { res = 'First Round Exit'; cls = 'early'; }
-    results.push({ yr, wins, res, cls });
+            series = '1st Round: ' + sc1 + ' · Semis: ' + sc2 + ' · Conf Finals: ' + sc3 + ' · Finals: ' + sc4;
+          } else {
+            res = 'Conference Finals'; cls = 'conf';
+            series = '1st Round: ' + sc1 + ' · Semis: ' + sc2 + ' · Conf Finals: ' + sc3;
+          }
+        } else {
+          res = 'Second Round Exit'; cls = 'early';
+          series = '1st Round: ' + sc1 + ' · Semis: ' + sc2;
+        }
+      } else {
+        res = 'First Round Exit'; cls = 'early';
+        series = '1st Round: ' + sc1;
+      }
+    } else if (wins >= 38) {
+      res = 'First Round Exit'; cls = 'early';
+      series = '1st Round: ' + seriesScore(false);
+    }
+    results.push({ yr, wins, res, cls, series });
   }
   results.forEach((r, i) => {
     setTimeout(() => {
       const row = document.createElement('div');
       row.className = 's-row';
       const losses = 82 - r.wins;
-      row.innerHTML = '<div class="s-yr">' + r.yr + '-' + (r.yr + 1).toString().slice(2) + '</div><div class="s-w">' + r.wins + '-' + losses + '</div><div class="s-r ' + r.cls + '">' + r.res + '</div>';
+      const rHtml = r.series
+        ? '<div class="s-r ' + r.cls + '"><div class="s-r-main">' + r.res + '</div><div class="s-series">' + r.series + '</div></div>'
+        : '<div class="s-r ' + r.cls + '">' + r.res + '</div>';
+      row.innerHTML = '<div class="s-yr">' + r.yr + '-' + (r.yr + 1).toString().slice(2) + '</div><div class="s-w">' + r.wins + '-' + losses + '</div>' + rHtml;
       tl.appendChild(row);
       if (i === 9) setTimeout(() => showDGrade(champs, totalW / 10), 600);
     }, i * 260);
@@ -545,7 +618,33 @@ function buildAnalysis(ps, tPpg, tRpg, tApg, tSpg, tBpg, avg) {
   return 'No glaring weaknesses. No obvious one-note identity. This is a roster built on balance — <strong>' + tPpg.toFixed(1) + ' PPG</strong>, <strong>' + tRpg.toFixed(1) + ' RPG</strong>, and <strong>' + tApg.toFixed(1) + ' APG</strong> spread evenly across all five positions. <strong>' + topScorer.name.split(' ').pop() + '</strong> leads the scoring but the others carry their weight rather than just filling out a stat line. Balanced teams are underrated — they adjust, they don\'t rely on one action, and they hold up late in series. ' + (avg >= 88 ? 'When a complete team is also this talented, that\'s the formula every dynasty was built on.' : avg >= 73 ? 'Versatile, hard to exploit, and dangerous in a series. One true star away from the next level.' : 'A team you never take lightly — but one that needs a genuine closer to reach their ceiling.');
 }
 
+const PRE74_KNOWN = {
+  'Wilt Chamberlain':    { spg: 0.8, bpg: 4.5 },
+  'Elvin Hayes':         { spg: 0.9, bpg: 2.8 },
+  'Bill Russell':        { spg: 1.5, bpg: 7.0 },
+  'Oscar Robertson':     { spg: 2.2, bpg: 0.2 },
+  'Jerry West':          { spg: 2.5, bpg: 0.3 },
+  'Kareem Abdul-Jabbar': { spg: 0.9, bpg: 4.5 },
+  'Elgin Baylor':        { spg: 1.4, bpg: 0.8 },
+  'Walt Frazier':        { spg: 2.8, bpg: 0.3 },
+  'John Havlicek':       { spg: 1.6, bpg: 0.5 },
+  'Dave DeBusschere':    { spg: 1.2, bpg: 0.6 },
+};
+const PRE74_POS = { PG:{spg:1.8,bpg:0.2}, SG:{spg:1.5,bpg:0.2}, SF:{spg:1.4,bpg:0.6}, PF:{spg:1.0,bpg:1.4}, C:{spg:0.8,bpg:2.8} };
+
+function getDefStats(p) {
+  const isPreTracking = p.spg === 0 && p.bpg === 0 &&
+    (parseInt(p.best) < 1974 || p.rE === '1960s' || p.rE === '1970s');
+  if (!isPreTracking) return { spg: p.spg, bpg: p.bpg, est: false };
+  const known = PRE74_KNOWN[p.canon] || PRE74_KNOWN[p.name];
+  if (known) return { spg: known.spg, bpg: known.bpg, est: true };
+  const base = PRE74_POS[(p.pos && p.pos[0]) || 'SF'] || PRE74_POS.SF;
+  const mod = 0.8 + (p.score / 99) * 0.4;
+  return { spg: base.spg * mod, bpg: base.bpg * mod, est: true };
+}
+
 function buildProjections() {
+  let hasEst = false;
   const rows = SLOTS.map(pos => {
     const p = roster[pos];
     if (!p) return '';
@@ -553,17 +652,22 @@ function buildProjections() {
     const pPpg = (p.ppg * perf).toFixed(1);
     const pRpg = (p.rpg * perf).toFixed(1);
     const pApg = (p.apg * perf).toFixed(1);
-    const pSpg = (p.spg * perf).toFixed(1);
-    const pBpg = (p.bpg * perf).toFixed(1);
+    const def = getDefStats(p);
+    if (def.est) hasEst = true;
+    const pSpg = Math.max(0.1, def.spg * perf).toFixed(1);
+    const pBpg = Math.max(0.1, def.bpg * perf).toFixed(1);
+    const spgStr = def.est ? '<span class="est-pfx">~</span>' + pSpg : pSpg;
+    const bpgStr = def.est ? '<span class="est-pfx">~</span>' + pBpg : pBpg;
     const url = headshotUrl(p.canon);
     const avHtml = url
       ? '<div class="proj-av has-hs">' + p.init + '<img class="p-hs" src="' + url + '" alt="" onerror="this.parentNode.classList.remove(\'has-hs\');this.remove()"></div>'
       : '<div class="proj-av">' + p.init + '</div>';
     const s = (v, l) => '<div class="proj-s"><div class="proj-v">' + v + '</div><div class="proj-l">' + l + '</div></div>';
-    return '<div class="proj-row">' + avHtml + '<div class="proj-info"><div class="proj-name">' + p.name + '</div><div class="proj-sub">' + pos + ' &middot; ' + p.rT + ' ' + p.rE + '</div></div><div class="proj-stats">' + s(pPpg,'PPG') + s(pRpg,'RPG') + s(pApg,'APG') + s(pSpg,'SPG') + s(pBpg,'BPG') + '</div></div>';
+    return '<div class="proj-row">' + avHtml + '<div class="proj-info"><div class="proj-name">' + p.name + '</div><div class="proj-sub">' + pos + ' &middot; ' + p.rT + ' ' + p.rE + '</div></div><div class="proj-stats">' + s(pPpg,'PPG') + s(pRpg,'RPG') + s(pApg,'APG') + s(spgStr,'SPG') + s(bpgStr,'BPG') + '</div></div>';
   }).join('');
+  const fn = hasEst ? '<div class="proj-footnote">Pre-1974 defensive stats marked with ~ are historically-informed projections. SPG and BPG were not officially recorded before the 1973&#8209;74 season.</div>' : '';
   const el = document.getElementById('score-projections');
-  if (el) el.innerHTML = '<div class="proj-hd">Projected Season Stats</div>' + rows;
+  if (el) el.innerHTML = '<div class="proj-hd">Projected Season Stats</div>' + rows + fn;
 }
 
 function buildDynastyPlayers(era) {
@@ -571,17 +675,21 @@ function buildDynastyPlayers(era) {
   if (!ps.length) return;
   const mvp = ps.reduce((a, b) => a.score > b.score ? a : b);
   const startY = parseInt(era);
+  let hasEst = false;
   const rows = SLOTS.map(pos => {
     const p = roster[pos];
     if (!p) return '';
     const peakOff = Math.floor(Math.random() * 3);
     const primePerf = 0.88 + (p.score / 99) * 0.22;
     const declineRate = p.score > 85 ? 0.018 : 0.028;
-    let sumPpg = 0, sumRpg = 0, sumApg = 0;
+    const def = getDefStats(p);
+    if (def.est) hasEst = true;
+    let sumPpg = 0, sumRpg = 0, sumApg = 0, sumSpg = 0, sumBpg = 0;
     for (let i = 0; i < 10; i++) {
       const dec = Math.max(0, (i - peakOff) * declineRate);
       const perf = Math.max(0.5, primePerf - dec);
       sumPpg += p.ppg * perf; sumRpg += p.rpg * perf; sumApg += p.apg * perf;
+      sumSpg += def.spg * perf; sumBpg += def.bpg * perf;
     }
     const bestY = startY + peakOff;
     const isMvp = p.canon === mvp.canon;
@@ -589,10 +697,15 @@ function buildDynastyPlayers(era) {
     const avHtml = url
       ? '<div class="dp-av has-hs">' + p.init + '<img class="p-hs" src="' + url + '" alt="" onerror="this.parentNode.classList.remove(\'has-hs\');this.remove()"></div>'
       : '<div class="dp-av">' + p.init + '</div>';
-    return '<div class="dp-row">' + avHtml + '<div class="dp-info"><div class="dp-name">' + p.name.split(' ').pop() + (isMvp ? ' <span class="dp-mvp-badge">MVP</span>' : '') + '</div><div class="dp-sub">' + pos + ' &middot; ' + p.rT + ' ' + p.rE + '</div></div><div class="dp-peak">Peak<br>' + bestY + '&ndash;' + (bestY + 1).toString().slice(2) + '</div><div class="dp-stats"><div class="dp-s"><div class="dp-v">' + (sumPpg / 10).toFixed(1) + '</div><div class="dp-l">PPG</div></div><div class="dp-s"><div class="dp-v">' + (sumRpg / 10).toFixed(1) + '</div><div class="dp-l">RPG</div></div><div class="dp-s"><div class="dp-v">' + (sumApg / 10).toFixed(1) + '</div><div class="dp-l">APG</div></div></div></div>';
+    const spgAvg = Math.max(0.1, sumSpg/10).toFixed(1);
+    const bpgAvg = Math.max(0.1, sumBpg/10).toFixed(1);
+    const spgStr = def.est ? '<span class="est-pfx">~</span>' + spgAvg : (sumSpg/10).toFixed(1);
+    const bpgStr = def.est ? '<span class="est-pfx">~</span>' + bpgAvg : (sumBpg/10).toFixed(1);
+    return '<div class="dp-row">' + avHtml + '<div class="dp-info"><div class="dp-name">' + p.name.split(' ').pop() + (isMvp ? ' <span class="dp-mvp-badge">MVP</span>' : '') + '</div><div class="dp-sub">' + pos + ' &middot; ' + p.rT + ' ' + p.rE + '</div></div><div class="dp-peak">Peak<br>' + bestY + '&ndash;' + (bestY + 1).toString().slice(2) + '</div><div class="dp-stats"><div class="dp-s"><div class="dp-v">' + (sumPpg/10).toFixed(1) + '</div><div class="dp-l">PPG</div></div><div class="dp-s"><div class="dp-v">' + (sumRpg/10).toFixed(1) + '</div><div class="dp-l">RPG</div></div><div class="dp-s"><div class="dp-v">' + (sumApg/10).toFixed(1) + '</div><div class="dp-l">APG</div></div><div class="dp-s"><div class="dp-v">' + spgStr + '</div><div class="dp-l">SPG</div></div><div class="dp-s"><div class="dp-v">' + bpgStr + '</div><div class="dp-l">BPG</div></div></div></div>';
   }).join('');
+  const fn = hasEst ? '<div class="dp-footnote">Pre-1974 defensive stats marked with ~ are historically-informed projections. SPG and BPG were not officially recorded before the 1973&#8209;74 season.</div>' : '';
   const el = document.getElementById('d-players');
-  if (el) { el.innerHTML = '<div class="dp-hd">Player Decade Averages</div>' + rows; el.style.display = 'block'; }
+  if (el) { el.innerHTML = '<div class="dp-hd">Player Decade Averages</div>' + rows + fn; el.style.display = 'block'; }
 }
 
 function logoClick() {
@@ -604,7 +717,10 @@ function logoClick() {
   }
 }
 
-function goHome() { showScreen('home-screen'); }
+function goHome() {
+  h2hChallenge = null; h2hLockedEVs = new Set(); h2hP2Roster = null; h2hSeriesResult = null;
+  showScreen('home-screen');
+}
 
 let htpStep = 1;
 function openHTP() {
@@ -628,7 +744,17 @@ function showScreen(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  loadData().catch(err => {
+  loadData().then(() => {
+    // Handle challenge/results URL params after data loads
+    const params = new URLSearchParams(window.location.search);
+    const challengeB64 = params.get('challenge');
+    const resultsB64 = params.get('results');
+    if (challengeB64) {
+      handleChallengeUrl(challengeB64);
+    } else if (resultsB64) {
+      handleResultsUrl(resultsB64);
+    }
+  }).catch(err => {
     console.error('Failed to load player data:', err);
     document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#888;font-size:14px;">Serve this app over HTTP to load player data.<br>Run: <code>python3 -m http.server 8080</code></div>';
   });
@@ -644,6 +770,431 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       closeHTP();
       document.getElementById('confirm-modal').style.display = 'none';
+      document.getElementById('challenge-modal').style.display = 'none';
     }
   });
 });
+
+// ═══════════════════════════════════════════════════════
+//  HEAD TO HEAD — encoding / decoding
+// ═══════════════════════════════════════════════════════
+
+function encodePayload(obj) {
+  const json = JSON.stringify(obj);
+  const bytes = new TextEncoder().encode(json);
+  let binary = '';
+  bytes.forEach(b => { binary += String.fromCharCode(b); });
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+}
+
+function decodePayload(b64) {
+  try {
+    const pad = b64.length % 4;
+    const padded = pad ? b64 + '===='.slice(pad) : b64;
+    const normal = padded.replace(/-/g, '+').replace(/_/g, '/');
+    const binary = atob(normal);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return JSON.parse(new TextDecoder().decode(bytes));
+  } catch (e) {
+    console.error('Failed to decode payload:', e);
+    return null;
+  }
+}
+
+// Build a compact roster payload from the current roster object
+function buildRosterPayload(rosterObj) {
+  return SLOTS.map(pos => {
+    const p = rosterObj[pos];
+    if (!p) return null;
+    return {
+      pos,
+      canon: p.canon,
+      name:  p.name,
+      init:  p.init || '??',
+      rT:    p.rT,
+      rE:    p.rE,
+      score: p.score,
+      ev:    p.era_variant || (p.canon + '-' + p.rE),
+    };
+  }).filter(Boolean);
+}
+
+// Look up full player object from DB given a payload entry
+function lookupPlayer(entry) {
+  const key = entry.rT + '-' + entry.rE;
+  const players = DB[key] || [];
+  const found = players.find(p => p.canon === entry.canon);
+  if (found) return Object.assign({}, found, { rT: entry.rT, rE: entry.rE });
+  // Fallback: minimal object from payload
+  return {
+    canon: entry.canon, name: entry.name, init: entry.init || entry.canon.split(' ').map(w => w[0]).join('').slice(0,2),
+    rT: entry.rT, rE: entry.rE, score: entry.score || 70,
+    pos: ['PG'], ppg: 0, rpg: 0, apg: 0, spg: 0, bpg: 0,
+    era_variant: entry.ev || (entry.canon + '-' + entry.rE),
+  };
+}
+
+// ═══════════════════════════════════════════════════════
+//  CHALLENGE LINK GENERATION
+// ═══════════════════════════════════════════════════════
+
+function openChallengeModal() {
+  const payload = { v: 1, p1: buildRosterPayload(roster) };
+  const b64 = encodePayload(payload);
+  const base = window.location.origin;
+  const challengeUrl = base + '/?challenge=' + b64;
+  const resultsUrl   = base + '/?results='   + b64;
+  document.getElementById('chal-link').value = challengeUrl;
+  document.getElementById('res-link').value  = resultsUrl;
+  document.getElementById('challenge-modal').style.display = 'flex';
+}
+
+function copyChalLink() {
+  navigator.clipboard.writeText(document.getElementById('chal-link').value);
+  const btn = document.getElementById('btn-copy-chal');
+  btn.textContent = 'Copied!';
+  setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+}
+
+function copyResLink() {
+  navigator.clipboard.writeText(document.getElementById('res-link').value);
+  const btn = document.getElementById('btn-copy-res');
+  btn.textContent = 'Copied!';
+  setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+}
+
+function shareChallenge() {
+  const url = document.getElementById('chal-link').value;
+  if (navigator.share) {
+    navigator.share({ text: 'I built a Ball Knowledge roster — think you can beat it?', url });
+  } else {
+    navigator.clipboard.writeText(url);
+    const btn = document.getElementById('btn-share-chal');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Share'; }, 2000);
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  CHALLENGE ACCEPTANCE FLOW
+// ═══════════════════════════════════════════════════════
+
+function handleChallengeUrl(b64) {
+  const data = decodePayload(b64);
+  if (!data || !data.p1 || !data.p1.length) return;
+  h2hChallenge = data;
+  h2hLockedEVs = new Set(data.p1.map(p => p.ev || (p.canon + '-' + p.rE)));
+  renderChallengeScreen(data);
+  showScreen('challenge-screen');
+}
+
+function handleResultsUrl(b64) {
+  const data = decodePayload(b64);
+  if (!data) return;
+  if (!data.p2) {
+    // P1 opened their own results link before opponent played
+    showScreen('results-waiting-screen');
+    return;
+  }
+  // Full results data from P2's share
+  h2hChallenge = data;
+  h2hSeriesResult = data.series;
+  renderH2HResults(data.p1, data.p2, data.series);
+  showScreen('h2h-results-screen');
+}
+
+function renderChallengeScreen(data) {
+  const chipsHtml = data.p1.map(entry => {
+    const p = lookupPlayer(entry);
+    const url = headshotUrl(p.canon);
+    const hsHtml = url
+      ? '<div class="sr-hs-wrap"><span class="sr-hs-fb">' + (p.init||'??') + '</span><img class="sr-hs" src="' + url + '" alt="" onerror="this.remove()"></div>'
+      : '<div class="sr-hs-wrap"><span class="sr-hs-fb">' + (p.init||'??') + '</span></div>';
+    return '<div class="sr-chip">' + hsHtml + '<div class="sr-pos">' + entry.pos + '</div><div class="sr-name">' + p.name.split(' ').pop() + '</div><div class="sr-era">' + entry.rT + ' ' + entry.rE + '</div></div>';
+  }).join('');
+  document.getElementById('ch-p1-chips').innerHTML = chipsHtml;
+
+  const ps = data.p1.map(e => lookupPlayer(e));
+  const totalsHtml = '<div style="grid-column:1/-1;font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">Starting 5 Totals</div>'
+    + [['PPG', ps.reduce((s,p)=>s+(p.ppg||0),0)],['RPG', ps.reduce((s,p)=>s+(p.rpg||0),0)],['APG', ps.reduce((s,p)=>s+(p.apg||0),0)],['SPG', ps.reduce((s,p)=>s+(p.spg||0),0)],['BPG', ps.reduce((s,p)=>s+(p.bpg||0),0)]].map(([lbl,val]) =>
+      '<div class="ss-box"><div class="ss-val">' + val.toFixed(1) + '</div><div class="ss-lbl">' + lbl + '</div></div>'
+    ).join('');
+  document.getElementById('ch-p1-stats').innerHTML = totalsHtml;
+}
+
+function acceptChallenge() {
+  // Start game in h2h mode, preserving h2hChallenge and h2hLockedEVs
+  gMode = 'h2h';
+  roster = { PG: null, SG: null, SF: null, PF: null, C: null };
+  takenC = new Set(); roundN = 1; rrT = false; rrE = false;
+  cTeam = ''; cEra = ''; cKey = ''; selP = null; mvMode = false; mvFrom = null; spinning = false;
+  document.getElementById('mode-tag').textContent = 'Head to Head';
+  showScreen('game-screen');
+  document.getElementById('list-zone').style.display = 'none';
+  document.getElementById('reroll-row').style.display = 'none';
+  document.getElementById('btn-spin').disabled = false;
+  document.getElementById('sc-team').textContent = '--';
+  document.getElementById('sc-era').textContent = '--';
+  SLOTS.forEach(s => resetNode(s));
+  syncTs(); clearBanner();
+}
+
+// ═══════════════════════════════════════════════════════
+//  PRE-SERIES SCREEN
+// ═══════════════════════════════════════════════════════
+
+function renderPSChips(containerId, entries) {
+  const html = entries.map(entry => {
+    const p = lookupPlayer(entry);
+    return '<div class="ps-chip">' +
+      '<span class="ps-chip-pos">' + entry.pos + '</span>' +
+      '<div style="flex:1;min-width:0;"><div class="ps-chip-name">' + p.name.split(' ').pop() + '</div>' +
+      '<div class="ps-chip-era">' + entry.rT + ' ' + entry.rE + '</div></div>' +
+      '</div>';
+  }).join('');
+  document.getElementById(containerId).innerHTML = html;
+}
+
+function showPreseries() {
+  const p1Entries = h2hChallenge.p1;
+  const p2Entries = buildRosterPayload(h2hP2Roster);
+
+  renderPSChips('ps-p1-chips', p1Entries);
+  renderPSChips('ps-p2-chips', p2Entries);
+
+  const p1Avg = (p1Entries.reduce((s,e) => s + (lookupPlayer(e).score || e.score || 75), 0) / p1Entries.length).toFixed(1);
+  const p2Avg = (Object.values(h2hP2Roster).filter(Boolean).reduce((s,p) => s + p.score, 0) / 5).toFixed(1);
+  document.getElementById('ps-p1-rating').textContent = 'Avg Rating: ' + p1Avg;
+  document.getElementById('ps-p2-rating').textContent = 'Avg Rating: ' + p2Avg;
+
+  showScreen('preseries-screen');
+}
+
+// ═══════════════════════════════════════════════════════
+//  SERIES SIMULATION
+// ═══════════════════════════════════════════════════════
+
+function calcModifiers(r1, r2) {
+  const mods = { p1: 0, p2: 0, details: [] };
+
+  // Interior dominance: C+PF avg 10+ higher
+  const p1Int = ((r1.C ? r1.C.score : 0) + (r1.PF ? r1.PF.score : 0)) / 2;
+  const p2Int = ((r2.C ? r2.C.score : 0) + (r2.PF ? r2.PF.score : 0)) / 2;
+  if (p1Int - p2Int >= 10) { mods.p1 += 4; mods.details.push({ name: 'Interior Dominance', p1: true }); }
+  else if (p2Int - p1Int >= 10) { mods.p2 += 4; mods.details.push({ name: 'Interior Dominance', p1: false }); }
+
+  // Perimeter advantage: PG+SG avg 10+ higher
+  const p1Per = ((r1.PG ? r1.PG.score : 0) + (r1.SG ? r1.SG.score : 0)) / 2;
+  const p2Per = ((r2.PG ? r2.PG.score : 0) + (r2.SG ? r2.SG.score : 0)) / 2;
+  if (p1Per - p2Per >= 10) { mods.p1 += 3; mods.details.push({ name: 'Perimeter Advantage', p1: true }); }
+  else if (p2Per - p1Per >= 10) { mods.p2 += 3; mods.details.push({ name: 'Perimeter Advantage', p1: false }); }
+
+  // Defensive edge: combined SPG+BPG 20% higher
+  const p1Def = Object.values(r1).reduce((s, p) => s + (p ? (p.spg||0) + (p.bpg||0) : 0), 0);
+  const p2Def = Object.values(r2).reduce((s, p) => s + (p ? (p.spg||0) + (p.bpg||0) : 0), 0);
+  if (p2Def > 0 && p1Def > p2Def * 1.2) { mods.p1 += 3; mods.details.push({ name: 'Defensive Edge', p1: true }); }
+  else if (p1Def > 0 && p2Def > p1Def * 1.2) { mods.p2 += 3; mods.details.push({ name: 'Defensive Edge', p1: false }); }
+
+  // Versatility bonus: 3+ multi-pos players
+  const p1Vers = Object.values(r1).filter(p => p && p.pos && p.pos.length >= 2).length;
+  const p2Vers = Object.values(r2).filter(p => p && p.pos && p.pos.length >= 2).length;
+  if (p1Vers >= 3) { mods.p1 += 2; mods.details.push({ name: 'Versatility Bonus', p1: true }); }
+  if (p2Vers >= 3) { mods.p2 += 2; mods.details.push({ name: 'Versatility Bonus', p1: false }); }
+
+  // Playmaking edge: total APG 5+ higher
+  const p1Apg = Object.values(r1).reduce((s, p) => s + (p ? (p.apg||0) : 0), 0);
+  const p2Apg = Object.values(r2).reduce((s, p) => s + (p ? (p.apg||0) : 0), 0);
+  if (p1Apg - p2Apg >= 5) { mods.p1 += 2; mods.details.push({ name: 'Playmaking Edge', p1: true }); }
+  else if (p2Apg - p1Apg >= 5) { mods.p2 += 2; mods.details.push({ name: 'Playmaking Edge', p1: false }); }
+
+  return mods;
+}
+
+function simH2HSeries(p1Entries, p2Entries) {
+  // Build position-keyed roster objects
+  const r1 = {}, r2 = {};
+  p1Entries.forEach(e => { r1[e.pos] = lookupPlayer(e); });
+  p2Entries.forEach(e => { r2[e.pos] = lookupPlayer(e); });
+
+  const ps1 = Object.values(r1).filter(Boolean);
+  const ps2 = Object.values(r2).filter(Boolean);
+  const avg1 = ps1.reduce((s,p) => s + p.score, 0) / ps1.length;
+  const avg2 = ps2.reduce((s,p) => s + p.score, 0) / ps2.length;
+
+  const mods = calcModifiers(r1, r2);
+  const baseProb = 1 / (1 + Math.pow(10, (avg2 - avg1) / 15));
+  const adjProb  = Math.min(0.85, Math.max(0.15, baseProb + (mods.p1 - mods.p2) / 100));
+
+  let p1W = 0, p2W = 0;
+  const games = [];
+  while (p1W < 4 && p2W < 4) {
+    const p1Won = Math.random() < adjProb;
+    if (p1Won) p1W++; else p2W++;
+    games.push({ game: games.length + 1, p1Won, p1W, p2W });
+  }
+
+  // MVP: highest-rated player on winning team
+  const winPosRoster = p1W > p2W ? r1 : r2;
+  const winPlayers   = Object.entries(winPosRoster).filter(([,p]) => p);
+  const [mvpPos, mvpP] = winPlayers.reduce(([ap,a],[bp,b]) => a.score >= b.score ? [ap,a] : [bp,b]);
+  const mvp = Object.assign({}, mvpP, { pos_assigned: mvpPos });
+
+  return { games, p1W, p2W, mods, mvp, p1Won: p1W > p2W, adjProb };
+}
+
+function runH2HSeries() {
+  const p1Entries = h2hChallenge.p1;
+  const p2Entries = buildRosterPayload(h2hP2Roster);
+  h2hSeriesResult = simH2HSeries(p1Entries, p2Entries);
+  renderH2HResults(p1Entries, p2Entries, h2hSeriesResult);
+  showScreen('h2h-results-screen');
+  fetchNarrative(p1Entries, p2Entries, h2hSeriesResult);
+}
+
+// ═══════════════════════════════════════════════════════
+//  RESULTS DISPLAY
+// ═══════════════════════════════════════════════════════
+
+function renderH2HResults(p1Entries, p2Entries, series) {
+  // Winner banner
+  const p2Won = !series.p1Won;
+  const winLabel  = p2Won ? 'You Win! &#127881;' : 'Challenger Wins!';
+  const scoreStr  = series.p1Won ? series.p1W + '–' + series.p2W : series.p2W + '–' + series.p1W;
+  const winnerName = series.p1Won ? 'Challenger' : 'You';
+  const banner = document.getElementById('h2h-winner-banner');
+  banner.className = 'h2h-winner-banner' + (p2Won ? ' banner-you' : '');
+  banner.innerHTML = '<div class="h2h-winner-title">' + winLabel + '</div><div class="h2h-winner-score">' + winnerName + ' win the series ' + scoreStr + '</div>';
+
+  // Game-by-game timeline
+  const tlEl = document.getElementById('h2h-series-timeline');
+  tlEl.innerHTML = series.games.map(g => {
+    const gWinner = g.p1Won ? 'Challenger' : 'You';
+    const cls = g.p1Won ? 'early' : 'champ';
+    return '<div class="s-row" style="opacity:1">' +
+      '<div class="s-yr">Game ' + g.game + '</div>' +
+      '<div class="s-w">' + g.p1W + '–' + g.p2W + '</div>' +
+      '<div class="s-r ' + cls + '">' + gWinner + ' win</div></div>';
+  }).join('');
+
+  // MVP card
+  const mvp = series.mvp;
+  const mvpUrl = headshotUrl(mvp.canon);
+  const mvpAvHtml = mvpUrl
+    ? '<div class="dp-av has-hs" style="width:48px;height:48px;flex-shrink:0;border-radius:10px;">' + (mvp.init||'??') + '<img class="p-hs" src="' + mvpUrl + '" alt="" onerror="this.parentNode.classList.remove(\'has-hs\');this.remove()"></div>'
+    : '<div class="dp-av" style="width:48px;height:48px;flex-shrink:0;border-radius:10px;">' + (mvp.init||'??') + '</div>';
+  document.getElementById('h2h-mvp-card').innerHTML =
+    '<div class="h2h-card-hd">Series MVP</div>' +
+    '<div class="h2h-mvp-row">' + mvpAvHtml +
+    '<div class="dp-info"><div class="dp-name">' + mvp.name + ' <span class="dp-mvp-badge">MVP</span></div>' +
+    '<div class="dp-sub">' + (mvp.pos_assigned||'') + ' &middot; ' + mvp.rT + ' ' + mvp.rE + ' &middot; ' + mvp.score + ' Rating</div></div></div>';
+
+  // Matchup modifiers
+  const modsHtml = series.mods.details.length
+    ? '<div class="h2h-mods-list">' + series.mods.details.map(m =>
+        '<div class="mod-badge ' + (m.p1 ? 'mod-p1' : 'mod-p2') + '">' +
+        '<span>' + m.name + '</span><span>&#8594; ' + (m.p1 ? 'Challenger' : 'You') + '</span></div>'
+      ).join('') + '</div>'
+    : '<div class="mod-none">Evenly matched — no significant matchup advantages</div>';
+  document.getElementById('h2h-mods-card').innerHTML = '<div class="h2h-card-hd">Matchup Factors</div>' + modsHtml;
+
+  // Roster comparison
+  const p1RowsHtml = p1Entries.map(e => {
+    const p = lookupPlayer(e);
+    return '<div class="h2h-roster-row"><span class="h2h-roster-pos">' + e.pos + '</span><span class="h2h-roster-name">' + p.name.split(' ').pop() + '</span><span class="h2h-roster-score">' + (p.score||e.score) + '</span></div>';
+  }).join('');
+  const p2RowsHtml = p2Entries.map(e => {
+    const p = lookupPlayer(e);
+    return '<div class="h2h-roster-row"><span class="h2h-roster-pos">' + e.pos + '</span><span class="h2h-roster-name">' + p.name.split(' ').pop() + '</span><span class="h2h-roster-score">' + (p.score||e.score) + '</span></div>';
+  }).join('');
+  document.getElementById('h2h-rosters-card').innerHTML =
+    '<div class="h2h-card-hd">Roster Comparison</div>' +
+    '<div class="h2h-roster-grid">' +
+    '<div class="h2h-roster-col"><div class="h2h-col-label">Challenger</div>' + p1RowsHtml + '</div>' +
+    '<div class="h2h-roster-col"><div class="h2h-col-label">You</div>' + p2RowsHtml + '</div>' +
+    '</div>';
+
+  const narEl = document.getElementById('h2h-narrative');
+  narEl.style.display = 'none';
+}
+
+// ═══════════════════════════════════════════════════════
+//  AI NARRATIVE
+// ═══════════════════════════════════════════════════════
+
+async function fetchNarrative(p1Entries, p2Entries, series) {
+  const narEl = document.getElementById('h2h-narrative');
+  try {
+    const r = await fetch('/api/narrate', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        p1: p1Entries.map(e => { const p = lookupPlayer(e); return { name: p.name, rT: e.rT, rE: e.rE, pos: e.pos, score: p.score||e.score }; }),
+        p2: p2Entries.map(e => { const p = lookupPlayer(e); return { name: p.name, rT: e.rT, rE: e.rE, pos: e.pos, score: p.score||e.score }; }),
+        series: {
+          p1Won: series.p1Won, p1W: series.p1W, p2W: series.p2W,
+          games: series.games,
+          mvp: { name: series.mvp.name, rT: series.mvp.rT, rE: series.mvp.rE },
+          modDetails: series.mods.details,
+        },
+      }),
+    });
+    if (r.ok) {
+      const data = await r.json();
+      if (data.narrative) {
+        narEl.innerHTML = data.narrative;
+        narEl.style.display = 'block';
+        return;
+      }
+    }
+  } catch (_) {}
+  // Fall back to client-side narrative
+  const p1Full = p1Entries.map(e => lookupPlayer(e));
+  const p2Full = p2Entries.map(e => lookupPlayer(e));
+  const txt = buildLocalNarrative(p1Full, p2Full, series);
+  if (txt) { narEl.innerHTML = txt; narEl.style.display = 'block'; }
+}
+
+function buildLocalNarrative(p1, p2, series) {
+  const p2Won = !series.p1Won;
+  const winner = p2Won ? 'You' : 'the Challenger';
+  const wRoster = p2Won ? p2 : p1;
+  const lRoster = p2Won ? p1 : p2;
+  const scoreStr = p2Won ? series.p2W + '–' + series.p1W : series.p1W + '–' + series.p2W;
+  const mvp = series.mvp;
+  const nGames = series.games.length;
+  const drama = nGames === 7 ? ' It went the full seven — every game decided by a possession.' : nGames <= 4 ? ' The sweep left no doubt.' : '';
+  const dominantMod = series.mods.details.find(m => p2Won ? !m.p1 : m.p1);
+  const modLine = dominantMod ? ' The <strong>' + dominantMod.name.toLowerCase() + '</strong> proved to be the decisive edge.' : '';
+  const topStar = wRoster.reduce((a,b) => (a.score||0) >= (b.score||0) ? a : b);
+  return 'In a ' + (nGames <= 5 ? 'commanding' : 'hard-fought') + ' ' + nGames + '-game series, <strong>' + winner + '</strong> took the series ' + scoreStr + '.' + drama + modLine +
+    ' <strong>' + mvp.name + '</strong> was the standout, anchoring the winning squad at a ' + (mvp.score||'elite') + ' composite rating.' +
+    (topStar.canon !== mvp.canon ? ' <strong>' + topStar.name.split(' ').pop() + '</strong> was equally crucial, giving the winners an insurmountable depth advantage.' : '');
+}
+
+// ═══════════════════════════════════════════════════════
+//  SHARE RESULTS
+// ═══════════════════════════════════════════════════════
+
+function shareH2HResults() {
+  const p2Entries = buildRosterPayload(h2hP2Roster || roster);
+  const series = h2hSeriesResult;
+  const payload = { v: 1, p1: h2hChallenge.p1, p2: p2Entries, series };
+  const b64 = encodePayload(payload);
+  const url = window.location.origin + '/?results=' + b64;
+
+  const p2Won = !series.p1Won;
+  const scoreStr = p2Won ? series.p2W + '-' + series.p1W : series.p1W + '-' + series.p2W;
+  const msg = p2Won
+    ? 'I just beat your Ball Knowledge squad ' + scoreStr + '. See the full breakdown: ' + url
+    : 'Your Ball Knowledge squad got me ' + scoreStr + '. See the full series: ' + url;
+
+  if (navigator.share) {
+    navigator.share({ text: msg, url });
+  } else {
+    navigator.clipboard.writeText(url);
+    const btn = document.getElementById('btn-h2h-share');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = '🔗 Share Results'; }, 2000);
+  }
+}

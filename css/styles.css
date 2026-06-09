@@ -2,7 +2,7 @@
 :root{--cream:#F7F5EF;--cream2:#EFECE3;--cream3:#E5E0D3;--ink:#1A1A1A;--ink2:#4A4A4A;--ink3:#888880;--orange:#E85D04;--orange-light:#FFF0E6;--red:#D62828;--blue:#1D4ED8;--green:#2D6A4F;--gold:#B45309;--border:#D8D3C8;}
 html,body{height:100%;overflow:hidden;}
 body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);}
-.screen{display:none;height:100vh;flex-direction:column;}
+.screen{display:none;height:100vh;flex-direction:column;overflow:hidden;}
 .screen.active{display:flex;}
 .topbar{height:52px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;flex-shrink:0;}
 .topbar-logo{font-weight:800;font-size:18px;letter-spacing:-.3px;}
@@ -72,7 +72,7 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .empty-list{text-align:center;padding:32px 16px;font-size:13px;color:var(--ink3);}
 .right-col{flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--cream);}
 .court-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:20px 24px 8px;position:relative;}
-.court-svg-wrap{position:relative;width:100%;max-width:660px;}
+.court-svg-wrap{position:relative;width:100%;max-width:660px;aspect-ratio:680/460;}
 .court-svg-wrap svg{width:100%;height:auto;display:block;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.15);}
 .pos-node{position:absolute;transform:translate(-50%,-50%);cursor:pointer;}
 .pos-bubble{width:62px;height:62px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:17px;transition:all .2s;border:2px dashed rgba(255,255,255,.5);background:rgba(0,0,0,.22);color:#fff;user-select:none;}
@@ -133,6 +133,8 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .s-yr{font-size:13px;font-weight:700;width:60px;flex-shrink:0;}
 .s-w{font-size:13px;font-weight:600;color:var(--ink2);width:72px;}
 .s-r{flex:1;font-size:13px;font-weight:600;}
+.s-r-main{font-size:13px;font-weight:600;}
+.s-series{font-size:10px;font-weight:500;color:var(--ink3);margin-top:3px;line-height:1.5;}
 .champ{color:#B45309;}.conf{color:#1D4ED8;}.early{color:var(--ink3);}
 .d-summary{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:24px;text-align:center;}
 .ds-grade{font-size:72px;font-weight:800;letter-spacing:-2px;line-height:1;margin-bottom:4px;}
@@ -150,8 +152,8 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .p-hs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;}
 
 /* Court bubble headshot — circular */
-.pos-node.filled .pos-bubble{overflow:hidden;}
-.bub-hs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;z-index:1;}
+.bub-hs-wrap{position:absolute;inset:0;overflow:hidden;border-radius:inherit;z-index:1;}
+.bub-hs{width:100%;height:100%;object-fit:cover;object-position:top center;}
 .bub-fb{font-size:18px;font-weight:800;color:var(--ink);position:relative;z-index:0;}
 
 /* Scorecard roster chip headshot */
@@ -177,10 +179,12 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .proj-info{flex:1;min-width:0;}
 .proj-name{font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .proj-sub{font-size:10px;color:var(--ink3);margin-top:1px;}
-.proj-stats{display:grid;grid-template-columns:repeat(3,32px);gap:2px 6px;flex-shrink:0;}
+.proj-stats{display:grid;grid-template-columns:repeat(5,30px);gap:2px 4px;flex-shrink:0;}
 .proj-s{text-align:right;}
-.proj-v{font-size:12px;font-weight:800;color:var(--ink);}
+.proj-v{font-size:11px;font-weight:800;color:var(--ink);}
 .proj-l{font-size:8px;color:var(--ink3);letter-spacing:.03em;text-transform:uppercase;}
+.est-pfx{font-size:8px;font-weight:500;color:var(--ink3);vertical-align:1px;}
+.proj-footnote{font-size:9px;color:var(--ink3);padding:8px 16px 10px;border-top:1px solid var(--border);line-height:1.5;}
 
 /* Dynasty player decade summary */
 .d-players{margin-bottom:16px;}
@@ -191,11 +195,12 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .dp-name{font-size:12px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:5px;}
 .dp-sub{font-size:10px;color:var(--ink3);margin-top:1px;}
 .dp-peak{font-size:10px;font-weight:600;color:var(--ink3);text-align:center;flex-shrink:0;line-height:1.4;}
-.dp-stats{display:flex;gap:8px;flex-shrink:0;}
+.dp-stats{display:grid;grid-template-columns:repeat(5,26px);gap:2px 4px;flex-shrink:0;}
 .dp-s{text-align:right;}
-.dp-v{font-size:13px;font-weight:800;color:var(--ink);}
+.dp-v{font-size:11px;font-weight:800;color:var(--ink);}
 .dp-l{font-size:9px;color:var(--ink3);letter-spacing:.03em;}
 .dp-mvp-badge{background:var(--orange);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:.04em;text-transform:uppercase;}
+.dp-footnote{font-size:9px;color:var(--ink3);margin-top:6px;line-height:1.5;}
 
 /* How to Play Modal */
 .htp-overlay{position:fixed;inset:0;background:rgba(26,26,26,.55);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;}
@@ -262,3 +267,90 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .htp-btn-prev:hover{background:var(--cream2);}
 .htp-btn-next{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:8px 20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;}
 .htp-btn-next:hover{background:#D04E00;}
+
+/* ── Home screen: 4-card 2×2 grid (mobile) → 4-column (desktop) ── */
+.mode-cards{grid-template-columns:repeat(2,1fr);}
+@media(min-width:680px){.mode-cards{grid-template-columns:repeat(4,1fr);}}
+
+/* ── H2H mode-tag variant ── */
+.mode-tag.h2h-tag{background:#EFF6FF;color:var(--blue);}
+
+/* ── Challenge button on score screen ── */
+.btn-challenge{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:#EFF6FF;border:1.5px solid var(--blue);border-radius:12px;padding:13px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--blue);cursor:pointer;transition:all .15s;margin-top:10px;}
+.btn-challenge:hover{background:#DBEAFE;}
+
+/* ── Challenge acceptance screen ── */
+.ch-inner{max-width:580px;width:100%;padding:28px 24px;}
+.ch-title{font-size:26px;font-weight:800;letter-spacing:-.6px;margin-bottom:8px;}
+.ch-sub{font-size:14px;color:var(--ink2);line-height:1.6;margin-bottom:24px;}
+.ch-accept-btn{width:100%;margin-bottom:16px;}
+.ch-note{font-size:12px;color:var(--ink3);line-height:1.6;text-align:center;}
+
+/* ── Challenge modal ── */
+.chal-modal-box{background:#fff;border-radius:20px;padding:28px 24px;max-width:460px;width:calc(100% - 32px);box-shadow:0 24px 64px rgba(0,0,0,.25);position:relative;display:flex;flex-direction:column;gap:16px;}
+.chal-modal-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.chal-section{display:flex;flex-direction:column;gap:6px;}
+.chal-section-label{font-size:12px;font-weight:700;color:var(--ink);letter-spacing:.02em;}
+.chal-section-sub{font-size:11px;color:var(--ink3);line-height:1.5;}
+.chal-input-row{display:flex;}
+.chal-link-input{flex:1;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:8px 12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:var(--ink);outline:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;}
+.chal-btn-row{display:flex;gap:8px;margin-top:4px;}
+.chal-btn{padding:8px 16px;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;border:none;}
+.chal-btn-copy{background:var(--cream2);color:var(--ink);}
+.chal-btn-copy:hover{background:var(--cream3);}
+.chal-btn-share{background:var(--orange);color:#fff;}
+.chal-btn-share:hover{background:#D04E00;}
+.chal-divider{height:1px;background:var(--border);margin:4px 0;}
+.chal-note{font-size:11px;color:var(--ink3);line-height:1.5;background:var(--cream);border-radius:8px;padding:10px 12px;}
+
+/* ── Pre-series screen ── */
+.ps-inner{max-width:680px;width:100%;padding:28px 24px;}
+.ps-title{font-size:28px;font-weight:800;letter-spacing:-.8px;margin-bottom:4px;}
+.ps-sub{font-size:14px;color:var(--ink2);margin-bottom:24px;}
+.ps-matchup{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:start;margin-bottom:28px;}
+.ps-team-col{display:flex;flex-direction:column;gap:8px;}
+.ps-col-label{font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+.ps-chips{display:flex;flex-direction:column;gap:6px;}
+.ps-chip{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:8px 10px;display:flex;align-items:center;gap:8px;}
+.ps-chip-pos{font-size:9px;font-weight:700;color:var(--orange);letter-spacing:.06em;text-transform:uppercase;flex-shrink:0;width:22px;}
+.ps-chip-name{font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ps-chip-era{font-size:10px;color:var(--ink3);}
+.ps-rating{font-size:13px;font-weight:700;color:var(--ink2);text-align:center;}
+.ps-vs{font-size:24px;font-weight:800;color:var(--ink3);align-self:center;padding-top:28px;}
+.ps-sim-btn{width:100%;}
+
+/* ── H2H Results screen ── */
+.h2h-inner{max-width:620px;width:100%;padding:28px 24px;}
+.h2h-winner-banner{background:var(--orange);border-radius:16px;padding:20px 24px;text-align:center;margin-bottom:20px;color:#fff;}
+.h2h-winner-banner.banner-you{background:var(--green);}
+.h2h-winner-title{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-bottom:4px;}
+.h2h-winner-score{font-size:15px;font-weight:600;opacity:.9;}
+.h2h-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px;}
+.h2h-card-hd{font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;}
+.h2h-mvp-row{display:flex;align-items:center;gap:12px;}
+.h2h-roster-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.h2h-roster-col{display:flex;flex-direction:column;gap:4px;}
+.h2h-col-label{font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
+.h2h-roster-row{display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid var(--cream2);}
+.h2h-roster-row:last-child{border-bottom:none;}
+.h2h-roster-pos{font-size:9px;font-weight:700;color:var(--orange);width:22px;flex-shrink:0;letter-spacing:.04em;}
+.h2h-roster-name{font-size:12px;font-weight:600;color:var(--ink);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.h2h-roster-score{font-size:11px;font-weight:700;color:var(--ink2);}
+.h2h-mods-list{display:flex;flex-direction:column;gap:6px;}
+.mod-badge{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:8px;font-size:12px;font-weight:600;}
+.mod-p1{background:var(--orange-light);color:var(--orange);}
+.mod-p2{background:#EFF6FF;color:var(--blue);}
+.mod-none{color:var(--ink3);font-size:13px;}
+
+/* ── Results waiting screen ── */
+.wait-inner{max-width:360px;width:100%;padding:24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@keyframes wait-pulse{0%,100%{transform:scale(1);opacity:.8;}50%{transform:scale(1.15);opacity:1;}}
+.wait-pulse{width:64px;height:64px;border-radius:50%;background:var(--orange-light);border:3px solid var(--orange);animation:wait-pulse 1.6s ease-in-out infinite;margin-bottom:8px;}
+.wait-title{font-size:22px;font-weight:800;letter-spacing:-.4px;}
+.wait-sub{font-size:14px;color:var(--ink2);line-height:1.6;}
+.wait-sub2{font-size:12px;color:var(--ink3);line-height:1.6;}
+
+/* ── Locked player card in H2H mode ── */
+.p-card-locked{opacity:.45;cursor:not-allowed;}
+.p-card-locked:hover{border-color:var(--border) !important;background:var(--cream) !important;}
+.p-taken{font-size:10px;font-weight:700;color:var(--ink3);background:var(--cream2);border-radius:6px;padding:3px 7px;flex-shrink:0;letter-spacing:.04em;text-transform:uppercase;}

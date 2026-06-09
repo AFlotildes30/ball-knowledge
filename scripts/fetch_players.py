@@ -344,17 +344,18 @@ def build_combo(abbr: str, era: str, seasons: list[int]) -> list[dict]:
         untracked = best["year"] < SPG_BPG_START_YEAR
 
         entry = {
-            "name":  best["name"],
-            "canon": best["name"],
-            "pos":   positions,
-            "ppg":   round(best["ppg"], 1),
-            "rpg":   round(best["rpg"], 1),
-            "apg":   round(best["apg"], 1),
-            "spg":   round(best["spg"], 1),
-            "bpg":   round(best["bpg"], 1),
-            "best":  season_label,
-            "init":  make_initials(best["name"]),
-            "score": score,
+            "name":         best["name"],
+            "canon":        best["name"],
+            "pos":          positions,
+            "ppg":          round(best["ppg"], 1),
+            "rpg":          round(best["rpg"], 1),
+            "apg":          round(best["apg"], 1),
+            "spg":          round(best["spg"], 1),
+            "bpg":          round(best["bpg"], 1),
+            "best":         season_label,
+            "init":         make_initials(best["name"]),
+            "score":        score,
+            "era_variant":  f"{best['name']}-{era}",
         }
         if untracked:
             entry["note"] = "SPG/BPG untracked"
