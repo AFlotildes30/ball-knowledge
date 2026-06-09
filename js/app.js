@@ -156,7 +156,11 @@ function applyF() {
       || (posF === 'C' && p.pos.includes('C'));
     return pm && p.name.toLowerCase().includes(s);
   });
-  fPlayers.sort((a, b) => b.ppg - a.ppg);
+  if (gMode === 'challenge') {
+    fPlayers.sort((a, b) => a.name.split(' ').pop().localeCompare(b.name.split(' ').pop()));
+  } else {
+    fPlayers.sort((a, b) => b.ppg - a.ppg);
+  }
   renderList();
 }
 
@@ -460,6 +464,22 @@ function showDGrade(champs, avgW) {
 
 function goHome() { showScreen('home-screen'); }
 
+let htpStep = 1;
+function openHTP() {
+  htpStep = 1;
+  document.getElementById('htp-modal').style.display = 'flex';
+  htpRender();
+}
+function closeHTP() { document.getElementById('htp-modal').style.display = 'none'; }
+function htpNext() { if (htpStep < 4) { htpStep++; htpRender(); } else closeHTP(); }
+function htpPrev() { if (htpStep > 1) { htpStep--; htpRender(); } }
+function htpRender() {
+  for (let i = 1; i <= 4; i++) document.getElementById('htp-s' + i).classList.toggle('active', i === htpStep);
+  document.querySelectorAll('.htp-dot').forEach((d, i) => d.classList.toggle('active', i + 1 === htpStep));
+  document.getElementById('htp-prev').style.visibility = htpStep === 1 ? 'hidden' : 'visible';
+  document.getElementById('htp-next').textContent = htpStep === 4 ? 'Got it!' : 'Next →';
+}
+
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -470,4 +490,13 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Failed to load player data:', err);
     document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#888;font-size:14px;">Serve this app over HTTP to load player data.<br>Run: <code>python3 -m http.server 8080</code></div>';
   });
+  document.addEventListener('click', (e) => {
+    if (!selP) return;
+    if (e.target.closest('#list-zone')) return;
+    selP = null;
+    clearBanner();
+    renderList();
+    SLOTS.forEach(s => updateNode(s));
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeHTP(); });
 });

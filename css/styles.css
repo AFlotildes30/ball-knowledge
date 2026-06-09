@@ -138,3 +138,69 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .ds-grade{font-size:72px;font-weight:800;letter-spacing:-2px;line-height:1;margin-bottom:4px;}
 .ds-sub{font-size:15px;font-weight:700;color:var(--ink2);margin-bottom:8px;}
 .ds-txt{font-size:14px;color:var(--ink2);line-height:1.6;}
+
+/* How to Play Modal */
+.htp-overlay{position:fixed;inset:0;background:rgba(26,26,26,.55);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;}
+.htp-box{background:var(--cream);border-radius:24px;padding:28px 24px;max-width:420px;width:calc(100% - 32px);box-shadow:0 24px 64px rgba(0,0,0,.25);position:relative;display:flex;flex-direction:column;gap:20px;}
+.htp-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--cream2);border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--ink2);transition:all .15s;}
+.htp-close:hover{background:var(--cream3);}
+.htp-step{display:none;flex-direction:column;gap:18px;}
+.htp-step.active{display:flex;}
+.htp-step-hd{display:flex;flex-direction:column;gap:4px;}
+.htp-step-num{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:.06em;text-transform:uppercase;}
+.htp-step-title{font-size:21px;font-weight:800;letter-spacing:-.4px;color:var(--ink);}
+.htp-demo{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;min-height:130px;}
+.htp-step-desc{font-size:13px;color:var(--ink2);line-height:1.7;}
+.htp-hl{color:#2D6A4F;font-weight:700;}
+/* Step 1 — Spin */
+.htp-demo-1{flex-direction:column;gap:14px;}
+.htp-demo-cards{display:flex;gap:10px;width:100%;}
+.htp-demo-card{flex:1;background:var(--cream);border-radius:10px;padding:10px;text-align:center;}
+.htp-dc-team{border:2px solid var(--red);}
+.htp-dc-era{border:2px solid var(--blue);}
+.htp-dc-lbl{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px;}
+.htp-dc-val{font-size:20px;font-weight:800;color:var(--ink);}
+@keyframes htp-card-bob{0%,100%{transform:scale(1);}50%{transform:scale(1.07);}}
+.htp-step.active .htp-dc-val{animation:htp-card-bob 1.6s ease-in-out infinite;}
+.htp-step.active .htp-dc-era .htp-dc-val{animation-delay:.8s;}
+.htp-demo-spin{background:#2D6A4F;color:#fff;border-radius:8px;padding:8px 28px;font-size:13px;font-weight:700;}
+/* Step 2 — Player list */
+.htp-demo-2{padding:14px;}
+.htp-demo-plist{display:flex;flex-direction:column;gap:6px;width:100%;}
+.htp-demo-pc{background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:10px;}
+.htp-demo-pc-sel{border-color:var(--orange);background:var(--orange);}
+.htp-demo-pav{width:28px;height:28px;border-radius:6px;background:var(--cream3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--ink2);}
+.htp-demo-pc-sel .htp-demo-pav{background:rgba(255,255,255,.25);color:#fff;}
+.htp-demo-pinfo{display:flex;flex-direction:column;gap:1px;}
+.htp-demo-pname{font-size:12px;font-weight:700;color:var(--ink);}
+.htp-demo-pc-sel .htp-demo-pname{color:#fff;}
+.htp-demo-ppos{font-size:10px;font-weight:600;color:var(--blue);}
+.htp-demo-pc-sel .htp-demo-ppos{color:rgba(255,255,255,.8);}
+@keyframes htp-sel-glow{0%,100%{box-shadow:0 0 0 0 rgba(232,93,4,.4);}50%{box-shadow:0 0 0 6px rgba(232,93,4,0);}}
+.htp-step.active .htp-demo-pc-sel{animation:htp-sel-glow 1.5s ease-in-out infinite;}
+/* Step 3 — Court */
+.htp-demo-3{background:#C68642;border-color:#B07030;padding:12px;}
+.htp-court-demo{position:relative;width:220px;height:130px;}
+.htp-cn{position:absolute;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;border:2px dashed rgba(255,255,255,.5);}
+.htp-cn-f{background:rgba(255,255,255,.9);border-style:solid;border-color:rgba(255,255,255,.7);color:var(--ink);}
+.htp-cn-init{font-size:14px;font-weight:800;line-height:1;}
+.htp-cn-pos{font-size:8px;font-weight:700;color:var(--ink3);margin-top:1px;}
+.htp-cn-d{background:rgba(0,0,0,.28);opacity:.4;}
+.htp-cn-g{background:rgba(255,255,255,.28);border-style:solid;border-color:#fff;}
+@keyframes htp-node-pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.7);}50%{box-shadow:0 0 0 9px rgba(255,255,255,0);}}
+.htp-step.active .htp-cn-g{animation:htp-node-pulse 1.3s ease-in-out infinite;}
+/* Step 4 — Grade */
+.htp-demo-4{flex-direction:column;gap:6px;}
+@keyframes htp-grade-pop{0%{opacity:0;transform:scale(.4) rotate(-12deg);}65%{transform:scale(1.14) rotate(3deg);}100%{opacity:1;transform:scale(1) rotate(0);}}
+.htp-demo-grade{font-size:76px;font-weight:800;letter-spacing:-2px;color:#2D6A4F;line-height:1;}
+.htp-step.active .htp-demo-grade{animation:htp-grade-pop .55s cubic-bezier(.34,1.56,.64,1) forwards;}
+.htp-demo-wins{font-size:15px;font-weight:700;color:var(--ink2);}
+/* Navigation */
+.htp-nav{display:flex;align-items:center;justify-content:space-between;}
+.htp-dots{display:flex;gap:5px;}
+.htp-dot{width:7px;height:7px;border-radius:50%;background:var(--cream3);transition:all .2s;}
+.htp-dot.active{background:var(--orange);width:18px;border-radius:4px;}
+.htp-btn-prev{background:transparent;border:1.5px solid var(--border);border-radius:10px;padding:8px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--ink2);cursor:pointer;transition:all .15s;}
+.htp-btn-prev:hover{background:var(--cream2);}
+.htp-btn-next{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:8px 20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;}
+.htp-btn-next:hover{background:#D04E00;}

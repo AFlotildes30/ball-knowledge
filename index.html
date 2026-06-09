@@ -11,7 +11,7 @@
 <body>
 
 <div id="home-screen" class="screen active">
-  <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><div class="nav-chip">How to Play</div></div>
+  <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><div class="nav-chip" onclick="openHTP()">How to Play</div></div>
   <div style="flex:1;display:flex;align-items:center;justify-content:center;">
     <div class="home-inner">
       <div class="home-title">Ball Knowledge</div>
@@ -101,7 +101,7 @@
       <div class="score-roster" id="score-roster"></div>
       <div class="score-stats" id="score-stats"></div>
       <div class="score-analysis" id="score-analysis"></div>
-      <div class="score-btns"><button class="btn-outline" onclick="goHome()">New Game</button><button class="btn-start" onclick="goHome()">Play Again</button></div>
+      <div class="score-btns"><button class="btn-outline" onclick="goHome()">Choose Game Mode</button><button class="btn-start" onclick="startGame()">Play Again</button></div>
     </div>
   </div>
 </div>
@@ -120,9 +120,91 @@
       <div class="d-summary" id="d-summary" style="display:none;">
         <div class="ds-grade" id="ds-grade"></div><div class="ds-sub" id="ds-sub2"></div><div class="ds-txt" id="ds-txt"></div>
         <div style="display:flex;gap:10px;justify-content:center;margin-top:20px;">
-          <button class="btn-outline" onclick="goHome()">New Game</button><button class="btn-start" onclick="goHome()">Play Again</button>
+          <button class="btn-outline" onclick="goHome()">Choose Game Mode</button><button class="btn-start" onclick="startGame()">Play Again</button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="htp-modal" class="htp-overlay" onclick="if(event.target===this)closeHTP()">
+  <div class="htp-box">
+    <button class="htp-close" onclick="closeHTP()">&#x2715;</button>
+
+    <div class="htp-step" id="htp-s1">
+      <div class="htp-step-hd">
+        <div class="htp-step-num">1 &nbsp;/&nbsp; 4</div>
+        <div class="htp-step-title">Spin to get your assignment</div>
+      </div>
+      <div class="htp-demo htp-demo-1">
+        <div class="htp-demo-cards">
+          <div class="htp-demo-card htp-dc-team"><div class="htp-dc-lbl">Team</div><div class="htp-dc-val">GSW</div></div>
+          <div class="htp-demo-card htp-dc-era"><div class="htp-dc-lbl">Era</div><div class="htp-dc-val">1990s</div></div>
+        </div>
+        <div class="htp-demo-spin">SPIN</div>
+      </div>
+      <div class="htp-step-desc">Tap <strong>SPIN</strong> to get a random team and era. You can re-roll the team or era one time each if you want a different assignment.</div>
+    </div>
+
+    <div class="htp-step" id="htp-s2">
+      <div class="htp-step-hd">
+        <div class="htp-step-num">2 &nbsp;/&nbsp; 4</div>
+        <div class="htp-step-title">Select a player</div>
+      </div>
+      <div class="htp-demo htp-demo-2">
+        <div class="htp-demo-plist">
+          <div class="htp-demo-pc">
+            <div class="htp-demo-pav">MJ</div>
+            <div class="htp-demo-pinfo"><div class="htp-demo-pname">Michael Jordan</div><div class="htp-demo-ppos">SG</div></div>
+          </div>
+          <div class="htp-demo-pc htp-demo-pc-sel">
+            <div class="htp-demo-pav">SP</div>
+            <div class="htp-demo-pinfo"><div class="htp-demo-pname">Scottie Pippen</div><div class="htp-demo-ppos">SF &middot; SG &middot; PF</div></div>
+          </div>
+          <div class="htp-demo-pc">
+            <div class="htp-demo-pav">RD</div>
+            <div class="htp-demo-pinfo"><div class="htp-demo-pname">Dennis Rodman</div><div class="htp-demo-ppos">PF &middot; C</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="htp-step-desc">Browse your player pool and tap a player to select them. Their eligible court positions will light up green.</div>
+    </div>
+
+    <div class="htp-step" id="htp-s3">
+      <div class="htp-step-hd">
+        <div class="htp-step-num">3 &nbsp;/&nbsp; 4</div>
+        <div class="htp-step-title">Place them on the court</div>
+      </div>
+      <div class="htp-demo htp-demo-3">
+        <div class="htp-court-demo">
+          <div class="htp-cn htp-cn-f" style="top:24%;left:38%"><div class="htp-cn-init">MJ</div><div class="htp-cn-pos">C</div></div>
+          <div class="htp-cn htp-cn-f" style="top:24%;left:62%"><div class="htp-cn-init">RD</div><div class="htp-cn-pos">PF</div></div>
+          <div class="htp-cn htp-cn-g" style="top:52%;left:18%">SF</div>
+          <div class="htp-cn htp-cn-d" style="top:52%;left:82%">SG</div>
+          <div class="htp-cn htp-cn-d" style="top:80%;left:50%">PG</div>
+        </div>
+      </div>
+      <div class="htp-step-desc">Tap a <span class="htp-hl">glowing slot</span> to place your selected player there. Tap a filled slot to swap them to a new eligible position.</div>
+    </div>
+
+    <div class="htp-step" id="htp-s4">
+      <div class="htp-step-hd">
+        <div class="htp-step-num">4 &nbsp;/&nbsp; 4</div>
+        <div class="htp-step-title">Get your grade</div>
+      </div>
+      <div class="htp-demo htp-demo-4">
+        <div class="htp-demo-grade">A+</div>
+        <div class="htp-demo-wins">73 Projected Wins</div>
+      </div>
+      <div class="htp-step-desc">Fill all 5 positions to reveal your team's grade and projected win total. In <strong>Dynasty mode</strong>, your squad simulates 10 full seasons chasing championships.</div>
+    </div>
+
+    <div class="htp-nav">
+      <button class="htp-btn-prev" id="htp-prev" onclick="htpPrev()">&#8592; Back</button>
+      <div class="htp-dots">
+        <div class="htp-dot"></div><div class="htp-dot"></div><div class="htp-dot"></div><div class="htp-dot"></div>
+      </div>
+      <button class="htp-btn-next" id="htp-next" onclick="htpNext()">Next &#8594;</button>
     </div>
   </div>
 </div>
