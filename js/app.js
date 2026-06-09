@@ -188,7 +188,7 @@ function renderList() {
     const meta = ch ? '' : '<div class="p-meta">Best: ' + p.best + (untracked ? ' - Pre-stat era' : '') + '</div>';
     const url = headshotUrl(p.canon);
     const avHtml = url
-      ? '<div class="p-av has-hs"><span class="p-av-fb">' + p.init + '</span><img class="p-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'"></div>'
+      ? '<div class="p-av has-hs">' + p.init + '<img class="p-hs" src="' + url + '" alt="" onerror="this.parentNode.classList.remove(\'has-hs\');this.remove()"></div>'
       : '<div class="p-av">' + p.init + '</div>';
     d.innerHTML = avHtml + '<div class="p-info"><div class="p-name">' + p.name + '</div><div class="p-pos">' + p.pos.join(' - ') + '</div>' + meta + '</div>' + stats;
     d.onclick = (ev) => { ev.stopPropagation(); selPlayer(p); };
@@ -237,7 +237,7 @@ function renderFilled(bub, p) {
   bub.setAttribute('data-name', p.name);
   const url = headshotUrl(p.canon);
   if (url) {
-    bub.innerHTML = '<span class="bub-fb">' + p.init + '</span><img class="bub-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'">';
+    bub.innerHTML = '<span class="bub-fb">' + p.init + '</span><img class="bub-hs" src="' + url + '" alt="" onerror="this.remove()">';
   } else {
     bub.innerHTML = '<div style="font-size:18px;font-weight:800;color:var(--ink);">' + p.init + '</div>';
   }
@@ -375,7 +375,7 @@ function buildScore() {
     if (!p) return '';
     const url = headshotUrl(p.canon);
     const hsHtml = url
-      ? '<div class="sr-hs-wrap"><span class="sr-hs-fb">' + p.init + '</span><img class="sr-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'"></div>'
+      ? '<div class="sr-hs-wrap"><span class="sr-hs-fb">' + p.init + '</span><img class="sr-hs" src="' + url + '" alt="" onerror="this.remove()"></div>'
       : '<div class="sr-hs-wrap"><span class="sr-hs-fb">' + p.init + '</span></div>';
     return '<div class="sr-chip">' + hsHtml + '<div class="sr-pos">' + pos + '</div><div class="sr-name">' + p.name.split(' ').pop() + '</div><div class="sr-era">' + p.rT + ' ' + p.rE + '</div></div>';
   }).join('');
@@ -517,11 +517,14 @@ function buildProjections() {
     const pPpg = (p.ppg * perf).toFixed(1);
     const pRpg = (p.rpg * perf).toFixed(1);
     const pApg = (p.apg * perf).toFixed(1);
+    const pSpg = (p.spg * perf).toFixed(1);
+    const pBpg = (p.bpg * perf).toFixed(1);
     const url = headshotUrl(p.canon);
     const avHtml = url
-      ? '<div class="proj-av has-hs"><span class="p-av-fb">' + p.init + '</span><img class="p-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'"></div>'
+      ? '<div class="proj-av has-hs">' + p.init + '<img class="p-hs" src="' + url + '" alt="" onerror="this.parentNode.classList.remove(\'has-hs\');this.remove()"></div>'
       : '<div class="proj-av">' + p.init + '</div>';
-    return '<div class="proj-row">' + avHtml + '<div class="proj-info"><div class="proj-name">' + p.name + '</div><div class="proj-sub">' + pos + ' &middot; ' + p.rT + ' ' + p.rE + '</div></div><div class="proj-stats"><div class="proj-s"><div class="proj-v">' + pPpg + '</div><div class="proj-l">PPG</div></div><div class="proj-s"><div class="proj-v">' + pRpg + '</div><div class="proj-l">RPG</div></div><div class="proj-s"><div class="proj-v">' + pApg + '</div><div class="proj-l">APG</div></div></div></div>';
+    const s = (v, l) => '<div class="proj-s"><div class="proj-v">' + v + '</div><div class="proj-l">' + l + '</div></div>';
+    return '<div class="proj-row">' + avHtml + '<div class="proj-info"><div class="proj-name">' + p.name + '</div><div class="proj-sub">' + pos + ' &middot; ' + p.rT + ' ' + p.rE + '</div></div><div class="proj-stats">' + s(pPpg,'PPG') + s(pRpg,'RPG') + s(pApg,'APG') + s(pSpg,'SPG') + s(pBpg,'BPG') + '</div></div>';
   }).join('');
   const el = document.getElementById('score-projections');
   if (el) el.innerHTML = '<div class="proj-hd">Projected Season Stats</div>' + rows;
@@ -548,7 +551,7 @@ function buildDynastyPlayers(era) {
     const isMvp = p.canon === mvp.canon;
     const url = headshotUrl(p.canon);
     const avHtml = url
-      ? '<div class="dp-av has-hs"><span class="p-av-fb">' + p.init + '</span><img class="p-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'"></div>'
+      ? '<div class="dp-av has-hs">' + p.init + '<img class="p-hs" src="' + url + '" alt="" onerror="this.parentNode.classList.remove(\'has-hs\');this.remove()"></div>'
       : '<div class="dp-av">' + p.init + '</div>';
     return '<div class="dp-row">' + avHtml + '<div class="dp-info"><div class="dp-name">' + p.name.split(' ').pop() + (isMvp ? ' <span class="dp-mvp-badge">MVP</span>' : '') + '</div><div class="dp-sub">' + pos + ' &middot; ' + p.rT + ' ' + p.rE + '</div></div><div class="dp-peak">Peak<br>' + bestY + '&ndash;' + (bestY + 1).toString().slice(2) + '</div><div class="dp-stats"><div class="dp-s"><div class="dp-v">' + (sumPpg / 10).toFixed(1) + '</div><div class="dp-l">PPG</div></div><div class="dp-s"><div class="dp-v">' + (sumRpg / 10).toFixed(1) + '</div><div class="dp-l">RPG</div></div><div class="dp-s"><div class="dp-v">' + (sumApg / 10).toFixed(1) + '</div><div class="dp-l">APG</div></div></div></div>';
   }).join('');

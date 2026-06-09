@@ -144,9 +144,10 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .logo-link:hover span{opacity:.8;}
 
 /* Headshots — shared helpers */
-.p-av.has-hs,.proj-av.has-hs,.dp-av.has-hs{position:relative;overflow:hidden;}
-.p-av-fb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--ink2);z-index:0;}
-.p-hs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;z-index:1;}
+/* Initials are direct text content of the avatar div; color:transparent hides them behind the img.
+   onerror removes the img + has-hs class, restoring the avatar's natural color/initials. */
+.p-av.has-hs,.proj-av.has-hs,.dp-av.has-hs{position:relative;overflow:hidden;color:transparent;}
+.p-hs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;}
 
 /* Court bubble headshot — circular */
 .pos-node.filled .pos-bubble{overflow:hidden;}
@@ -176,10 +177,10 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .proj-info{flex:1;min-width:0;}
 .proj-name{font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .proj-sub{font-size:10px;color:var(--ink3);margin-top:1px;}
-.proj-stats{display:flex;gap:10px;flex-shrink:0;}
+.proj-stats{display:grid;grid-template-columns:repeat(3,32px);gap:2px 6px;flex-shrink:0;}
 .proj-s{text-align:right;}
-.proj-v{font-size:13px;font-weight:800;color:var(--ink);}
-.proj-l{font-size:9px;color:var(--ink3);letter-spacing:.03em;}
+.proj-v{font-size:12px;font-weight:800;color:var(--ink);}
+.proj-l{font-size:8px;color:var(--ink3);letter-spacing:.03em;text-transform:uppercase;}
 
 /* Dynasty player decade summary */
 .d-players{margin-bottom:16px;}
