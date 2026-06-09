@@ -72,11 +72,23 @@ function doReroll(type) {
   if (type === 'team') {
     const pool = TBE[cEra];
     const nt = pool[Math.floor(Math.random() * pool.length)];
-    animOne('sc-team', 600, true, () => { cTeam = nt; setCards(cTeam, cEra); spinning = false; loadPool(); });
+    const frozenEra = cEra;
+    animTeam(nt, () => {
+      cTeam = nt;
+      console.log('[re-roll] team →', cTeam, '| era frozen at', frozenEra);
+      spinning = false;
+      loadPool();
+    });
   } else {
     const others = ERAS.filter(e => e !== cEra);
     const ne = others[Math.floor(Math.random() * others.length)];
-    animOne('sc-era', 600, false, () => { cEra = ne; setCards(cTeam, cEra); spinning = false; loadPool(); });
+    const frozenTeam = cTeam;
+    animEra(ne, () => {
+      cEra = ne;
+      console.log('[re-roll] era →', cEra, '| team frozen at', frozenTeam);
+      spinning = false;
+      loadPool();
+    });
   }
 }
 
@@ -99,14 +111,35 @@ function animBoth(dur, cb) {
   }, 80);
 }
 
-function animOne(id, dur, isT, cb) {
-  const el = document.getElementById(id);
+function animTeam(finalVal, cb) {
+  const el = document.getElementById('sc-team');
   let t = 0;
   const iv = setInterval(() => {
-    el.textContent = isT ? ALL_T[Math.floor(Math.random() * ALL_T.length)] : ERAS[Math.floor(Math.random() * ERAS.length)];
+    el.textContent = ALL_T[Math.floor(Math.random() * ALL_T.length)];
     el.classList.add('spinning');
     t += 80;
-    if (t >= dur) { clearInterval(iv); el.classList.remove('spinning'); cb(); }
+    if (t >= 600) {
+      clearInterval(iv);
+      el.classList.remove('spinning');
+      el.textContent = finalVal;
+      cb();
+    }
+  }, 80);
+}
+
+function animEra(finalVal, cb) {
+  const el = document.getElementById('sc-era');
+  let t = 0;
+  const iv = setInterval(() => {
+    el.textContent = ERAS[Math.floor(Math.random() * ERAS.length)];
+    el.classList.add('spinning');
+    t += 80;
+    if (t >= 600) {
+      clearInterval(iv);
+      el.classList.remove('spinning');
+      el.textContent = finalVal;
+      cb();
+    }
   }, 80);
 }
 
@@ -128,7 +161,10 @@ function loadPool(retries = 0) {
   if (!all.length && retries < 10) {
     const r = rRoll();
     cTeam = r.t; cEra = r.e;
-    setCards(cTeam, cEra);
+    // Update both display cards silently — this safety path only fires when the
+    // selected combo has no data, so showing the new combo is intentional.
+    document.getElementById('sc-team').textContent = cTeam;
+    document.getElementById('sc-era').textContent = cEra;
     return loadPool(retries + 1);
   }
   const seen = new Set();
