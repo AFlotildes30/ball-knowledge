@@ -1,14 +1,19 @@
-let DB, TBE, ERAS, SLOTS, ALL_T, HIST;
+let DB, TBE, ERAS, SLOTS, ALL_T, HIST, PLAYER_IDS = {};
 
 async function loadData() {
-  const res = await fetch('/data/players.json');
-  const data = await res.json();
-  DB = data.db;
-  TBE = data.tbe;
-  ERAS = data.eras;
-  SLOTS = data.slots;
-  ALL_T = data.allTeams;
-  HIST = data.hist;
+  const [dataRes, idsRes] = await Promise.all([
+    fetch('/data/players.json'),
+    fetch('/data/player_ids.json')
+  ]);
+  const data = await dataRes.json();
+  PLAYER_IDS = await idsRes.json();
+  DB = data.db; TBE = data.tbe; ERAS = data.eras;
+  SLOTS = data.slots; ALL_T = data.allTeams; HIST = data.hist;
+}
+
+function headshotUrl(canon) {
+  const id = PLAYER_IDS[canon];
+  return id ? 'https://cdn.nba.com/headshots/nba/latest/1040x760/' + id + '.png' : null;
 }
 
 let gMode = 'classic', roster = { PG: null, SG: null, SF: null, PF: null, C: null };
@@ -36,6 +41,8 @@ function startGame() {
   SLOTS.forEach(s => resetNode(s));
   syncTs();
   clearBanner();
+  const dp = document.getElementById('d-players');
+  if (dp) dp.style.display = 'none';
 }
 
 function doSpin() {
@@ -179,7 +186,11 @@ function renderList() {
     const untracked = p.note && p.note.includes('untracked');
     const stats = ch ? '' : '<div class="p-stats"><div class="p-stat"><div class="p-stat-val">' + p.ppg.toFixed(1) + '</div><div class="p-stat-lbl">PPG</div></div><div class="p-stat"><div class="p-stat-val">' + p.rpg.toFixed(1) + '</div><div class="p-stat-lbl">RPG</div></div><div class="p-stat"><div class="p-stat-val">' + p.apg.toFixed(1) + '</div><div class="p-stat-lbl">APG</div></div></div>';
     const meta = ch ? '' : '<div class="p-meta">Best: ' + p.best + (untracked ? ' - Pre-stat era' : '') + '</div>';
-    d.innerHTML = '<div class="p-av">' + p.init + '</div><div class="p-info"><div class="p-name">' + p.name + '</div><div class="p-pos">' + p.pos.join(' - ') + '</div>' + meta + '</div>' + stats;
+    const url = headshotUrl(p.canon);
+    const avHtml = url
+      ? '<div class="p-av has-hs"><span class="p-av-fb">' + p.init + '</span><img class="p-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'"></div>'
+      : '<div class="p-av">' + p.init + '</div>';
+    d.innerHTML = avHtml + '<div class="p-info"><div class="p-name">' + p.name + '</div><div class="p-pos">' + p.pos.join(' - ') + '</div>' + meta + '</div>' + stats;
     d.onclick = (ev) => { ev.stopPropagation(); selPlayer(p); };
     sc.appendChild(d);
   });
@@ -224,7 +235,12 @@ function renderEmpty(bub, pos) {
 
 function renderFilled(bub, p) {
   bub.setAttribute('data-name', p.name);
-  bub.innerHTML = '<div style="font-size:18px;font-weight:800;color:var(--ink);">' + p.init + '</div>';
+  const url = headshotUrl(p.canon);
+  if (url) {
+    bub.innerHTML = '<span class="bub-fb">' + p.init + '</span><img class="bub-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'">';
+  } else {
+    bub.innerHTML = '<div style="font-size:18px;font-weight:800;color:var(--ink);">' + p.init + '</div>';
+  }
 }
 
 function nodeClick(pos) {
@@ -357,17 +373,18 @@ function buildScore() {
   document.getElementById('score-roster').innerHTML = SLOTS.map(pos => {
     const p = roster[pos];
     if (!p) return '';
-    return '<div class="sr-chip"><div class="sr-pos">' + pos + '</div><div class="sr-name">' + p.name.split(' ').pop() + '</div><div class="sr-era">' + p.rT + ' ' + p.rE + '</div></div>';
+    const url = headshotUrl(p.canon);
+    const hsHtml = url
+      ? '<div class="sr-hs-wrap"><span class="sr-hs-fb">' + p.init + '</span><img class="sr-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'"></div>'
+      : '<div class="sr-hs-wrap"><span class="sr-hs-fb">' + p.init + '</span></div>';
+    return '<div class="sr-chip">' + hsHtml + '<div class="sr-pos">' + pos + '</div><div class="sr-name">' + p.name.split(' ').pop() + '</div><div class="sr-era">' + p.rT + ' ' + p.rE + '</div></div>';
   }).join('');
   document.getElementById('score-stats').innerHTML = '<div style="grid-column:1/-1;font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">Starting 5 Totals</div>'
     + [['PPG', tPpg], ['RPG', tRpg], ['APG', tApg], ['SPG', tSpg], ['BPG', tBpg]].map(kv =>
       '<div class="ss-box"><div class="ss-val">' + kv[1].toFixed(1) + '</div><div class="ss-lbl">' + kv[0] + '</div></div>'
     ).join('');
-  const sc = ppgAvg > 22 ? 'elite scoring' : ppgAvg > 16 ? 'solid scoring' : 'limited scoring';
-  const rb = rpgAvg > 8 ? 'dominant rebounding' : rpgAvg > 5 ? 'solid rebounding' : 'light rebounding';
-  const pl = apgAvg > 5 ? 'elite playmaking' : apgAvg > 3 ? 'decent playmaking' : 'minimal playmaking';
-  const df = (spgAvg + bpgAvg) > 3 ? 'strong defensive presence' : 'modest defensive output';
-  document.getElementById('score-analysis').innerHTML = 'This roster delivers <strong>' + sc + '</strong>, <strong>' + rb + '</strong>, and <strong>' + pl + '</strong> with <strong>' + df + '</strong>. The starting five combine for ' + tPpg.toFixed(1) + ' PPG and ' + tRpg.toFixed(1) + ' RPG, ' + (avg > 88 ? 'making this a legitimate championship-caliber squad in any era.' : avg > 73 ? 'a solid playoff team -- one star away from true contention.' : 'but would need more firepower to compete at the highest level.');
+  document.getElementById('score-analysis').innerHTML = buildAnalysis(ps, tPpg, tRpg, tApg, tSpg, tBpg, avg);
+  buildProjections();
 }
 
 let dEra = '';
@@ -418,7 +435,7 @@ function simDynasty(era) {
           const o3 = opps[Math.floor(Math.random() * opps.length)];
           if (sg(ts, o3.r)) {
             const o4 = opps[Math.floor(Math.random() * opps.length)];
-            if (sg(ts, o4.r)) { res = 'Trophy Champion'; cls = 'champ'; champs++; }
+            if (sg(ts, o4.r)) { res = '🏆 Champions'; cls = 'champ'; champs++; }
             else { res = 'Finals Loss'; cls = 'conf'; }
           } else { res = 'Conference Finals'; cls = 'conf'; }
         } else { res = 'Second Round Exit'; cls = 'early'; }
@@ -443,6 +460,7 @@ function sg(my, opp) {
 }
 
 function showDGrade(champs, avgW) {
+  buildDynastyPlayers(dEra);
   const sum = document.getElementById('d-summary');
   sum.style.display = 'block';
   let g, cls;
@@ -460,6 +478,91 @@ function showDGrade(champs, avgW) {
   dg.className = 'ds-grade ' + cls;
   document.getElementById('ds-sub2').textContent = champs + ' Championship' + (champs !== 1 ? 's' : '') + ' in 10 Seasons';
   document.getElementById('ds-txt').textContent = 'Averaging ' + avgW.toFixed(1) + ' wins/season across the ' + dEra + '. ' + (champs >= 5 ? 'An all-time dynasty - this team owned their era.' : champs >= 3 ? 'A legitimate dynasty with multiple deep runs.' : champs >= 1 ? 'Champions, but inconsistency prevented true greatness.' : avgW >= 50 ? 'A perennial contender that could never close the deal.' : 'This squad struggled to find their footing in a tough decade.');
+}
+
+function buildAnalysis(ps, tPpg, tRpg, tApg, tSpg, tBpg, avg) {
+  const tDef = tSpg + tBpg;
+  const cScore = roster['C'] ? roster['C'].score : 0;
+  const pfScore = roster['PF'] ? roster['PF'].score : 0;
+  const topScorer = ps.reduce((a, b) => a.ppg > b.ppg ? a : b);
+  const topFloor = ps.reduce((a, b) => a.apg > b.apg ? a : b);
+  const topDef = ps.reduce((a, b) => (a.spg + a.bpg) > (b.spg + b.bpg) ? a : b);
+  const topBig = cScore >= pfScore ? roster['C'] : roster['PF'];
+  const tail = avg >= 88
+    ? 'championship-caliber across any era.'
+    : avg >= 73
+    ? 'a legitimate playoff team — one cornerstone away from real contention.'
+    : 'a squad that can hang with anyone on a good night, but needs more firepower to go deep.';
+
+  if (tPpg > 110) {
+    return 'Buckle up — this is a team built to light up the scoreboard. <strong>' + topScorer.name.split(' ').pop() + '</strong> leads the charge at ' + topScorer.ppg.toFixed(1) + ' PPG, and the starting five pour in a combined <strong>' + tPpg.toFixed(1) + ' PPG</strong> that would rank among the highest-output lineups of any era. Opponents can\'t sag off a single player in this rotation — everyone is a threat. ' + (avg >= 88 ? 'The firepower is undeniable. This roster wins shootouts and grinds opponents into submission on the scoreboard.' : avg >= 73 ? 'The offense is elite, but establishing a defensive identity would push this from a great team to an untouchable one.' : 'They can score with anyone. Defensive consistency will determine how far they actually go.');
+  }
+  if (tDef > 15) {
+    return 'Defense doesn\'t show up in highlight reels until someone\'s shot gets rejected into the third row. This roster, anchored by <strong>' + topDef.name.split(' ').pop() + '</strong>, combines for <strong>' + tDef.toFixed(1) + ' steals and blocks per game</strong> — the kind of collective pressure that forces opponents to completely alter their schemes. Scoring in the half court against this group is a grind. ' + (avg >= 88 ? 'Add the offensive firepower to match and you have the formula every championship team is built on.' : avg >= 73 ? 'If the offense stays consistent, this defense alone makes them dangerous in a seven-game series.' : 'The defensive ceiling is real. Give them a legitimate bucket-getter and the pieces are already in place.');
+  }
+  if (tApg > 25) {
+    return 'Ball movement is the identity here. <strong>' + topFloor.name.split(' ').pop() + '</strong> orchestrates the offense and the group generates a combined <strong>' + tApg.toFixed(1) + ' assists per game</strong> — the ball never sticks, everyone gets their shot in rhythm. Teams that share the rock at this rate are historically difficult to gameplan against because there\'s no single player to key on. ' + (avg >= 88 ? 'With this level of unselfishness and the talent to execute, opponents are in for a long series.' : avg >= 73 ? 'The system creates open looks for everyone. Get them a few more elite finishers and this becomes truly dangerous.' : 'The playmaking keeps them in every game. The ceiling rises dramatically if the finishing catches up to the passing.');
+  }
+  if (cScore > 85 && pfScore > 85) {
+    return 'The paint belongs to this squad. <strong>' + topBig.name.split(' ').pop() + '</strong> and the frontcourt make life miserable inside — <strong>' + tRpg.toFixed(1) + ' boards per game</strong>, rim protection that shrinks the lane, and the kind of interior depth that doesn\'t fatigue in the fourth quarter. Teams without size get eaten alive at both ends. ' + (avg >= 88 ? 'Championship-caliber bigs on both ends of the floor — this team was made to win a seven-game series.' : avg >= 73 ? 'The frontcourt is elite. Get them a perimeter shooter who demands attention and this is a Finals-caliber lineup.' : 'They dominate the paint but the pace of the modern game may expose them on the perimeter. The talent is there, the fit is everything.');
+  }
+  return 'No glaring weaknesses. No obvious one-note identity. This is a roster built on balance — <strong>' + tPpg.toFixed(1) + ' PPG</strong>, <strong>' + tRpg.toFixed(1) + ' RPG</strong>, and <strong>' + tApg.toFixed(1) + ' APG</strong> spread evenly across all five positions. <strong>' + topScorer.name.split(' ').pop() + '</strong> leads the scoring but the others carry their weight rather than just filling out a stat line. Balanced teams are underrated — they adjust, they don\'t rely on one action, and they hold up late in series. ' + (avg >= 88 ? 'When a complete team is also this talented, that\'s the formula every dynasty was built on.' : avg >= 73 ? 'Versatile, hard to exploit, and dangerous in a series. One true star away from the next level.' : 'A team you never take lightly — but one that needs a genuine closer to reach their ceiling.');
+}
+
+function buildProjections() {
+  const rows = SLOTS.map(pos => {
+    const p = roster[pos];
+    if (!p) return '';
+    const perf = 0.88 + (p.score / 99) * 0.22;
+    const pPpg = (p.ppg * perf).toFixed(1);
+    const pRpg = (p.rpg * perf).toFixed(1);
+    const pApg = (p.apg * perf).toFixed(1);
+    const url = headshotUrl(p.canon);
+    const avHtml = url
+      ? '<div class="proj-av has-hs"><span class="p-av-fb">' + p.init + '</span><img class="p-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'"></div>'
+      : '<div class="proj-av">' + p.init + '</div>';
+    return '<div class="proj-row">' + avHtml + '<div class="proj-info"><div class="proj-name">' + p.name + '</div><div class="proj-sub">' + pos + ' &middot; ' + p.rT + ' ' + p.rE + '</div></div><div class="proj-stats"><div class="proj-s"><div class="proj-v">' + pPpg + '</div><div class="proj-l">PPG</div></div><div class="proj-s"><div class="proj-v">' + pRpg + '</div><div class="proj-l">RPG</div></div><div class="proj-s"><div class="proj-v">' + pApg + '</div><div class="proj-l">APG</div></div></div></div>';
+  }).join('');
+  const el = document.getElementById('score-projections');
+  if (el) el.innerHTML = '<div class="proj-hd">Projected Season Stats</div>' + rows;
+}
+
+function buildDynastyPlayers(era) {
+  const ps = Object.values(roster).filter(Boolean);
+  if (!ps.length) return;
+  const mvp = ps.reduce((a, b) => a.score > b.score ? a : b);
+  const startY = parseInt(era);
+  const rows = SLOTS.map(pos => {
+    const p = roster[pos];
+    if (!p) return '';
+    const peakOff = Math.floor(Math.random() * 3);
+    const primePerf = 0.88 + (p.score / 99) * 0.22;
+    const declineRate = p.score > 85 ? 0.018 : 0.028;
+    let sumPpg = 0, sumRpg = 0, sumApg = 0;
+    for (let i = 0; i < 10; i++) {
+      const dec = Math.max(0, (i - peakOff) * declineRate);
+      const perf = Math.max(0.5, primePerf - dec);
+      sumPpg += p.ppg * perf; sumRpg += p.rpg * perf; sumApg += p.apg * perf;
+    }
+    const bestY = startY + peakOff;
+    const isMvp = p.canon === mvp.canon;
+    const url = headshotUrl(p.canon);
+    const avHtml = url
+      ? '<div class="dp-av has-hs"><span class="p-av-fb">' + p.init + '</span><img class="p-hs" src="' + url + '" alt="" onerror="this.style.display=\'none\'"></div>'
+      : '<div class="dp-av">' + p.init + '</div>';
+    return '<div class="dp-row">' + avHtml + '<div class="dp-info"><div class="dp-name">' + p.name.split(' ').pop() + (isMvp ? ' <span class="dp-mvp-badge">MVP</span>' : '') + '</div><div class="dp-sub">' + pos + ' &middot; ' + p.rT + ' ' + p.rE + '</div></div><div class="dp-peak">Peak<br>' + bestY + '&ndash;' + (bestY + 1).toString().slice(2) + '</div><div class="dp-stats"><div class="dp-s"><div class="dp-v">' + (sumPpg / 10).toFixed(1) + '</div><div class="dp-l">PPG</div></div><div class="dp-s"><div class="dp-v">' + (sumRpg / 10).toFixed(1) + '</div><div class="dp-l">RPG</div></div><div class="dp-s"><div class="dp-v">' + (sumApg / 10).toFixed(1) + '</div><div class="dp-l">APG</div></div></div></div>';
+  }).join('');
+  const el = document.getElementById('d-players');
+  if (el) { el.innerHTML = '<div class="dp-hd">Player Decade Averages</div>' + rows; el.style.display = 'block'; }
+}
+
+function logoClick() {
+  const hasGame = Object.values(roster).some(Boolean) || !!selP || !!cTeam;
+  if (hasGame) {
+    document.getElementById('confirm-modal').style.display = 'flex';
+  } else {
+    goHome();
+  }
 }
 
 function goHome() { showScreen('home-screen'); }
@@ -498,5 +601,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderList();
     SLOTS.forEach(s => updateNode(s));
   });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeHTP(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeHTP();
+      document.getElementById('confirm-modal').style.display = 'none';
+    }
+  });
 });

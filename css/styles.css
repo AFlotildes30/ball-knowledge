@@ -139,6 +139,63 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .ds-sub{font-size:15px;font-weight:700;color:var(--ink2);margin-bottom:8px;}
 .ds-txt{font-size:14px;color:var(--ink2);line-height:1.6;}
 
+/* Logo as clickable link */
+.logo-link{cursor:pointer;}
+.logo-link:hover span{opacity:.8;}
+
+/* Headshots — shared helpers */
+.p-av.has-hs,.proj-av.has-hs,.dp-av.has-hs{position:relative;overflow:hidden;}
+.p-av-fb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--ink2);z-index:0;}
+.p-hs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;z-index:1;}
+
+/* Court bubble headshot — circular */
+.pos-node.filled .pos-bubble{overflow:hidden;}
+.bub-hs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;z-index:1;}
+.bub-fb{font-size:18px;font-weight:800;color:var(--ink);position:relative;z-index:0;}
+
+/* Scorecard roster chip headshot */
+.sr-chip{position:relative;}
+.sr-hs-wrap{width:48px;height:48px;border-radius:8px;background:var(--cream2);overflow:hidden;margin:0 auto 6px;position:relative;}
+.sr-hs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;}
+.sr-hs-fb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--ink3);}
+
+/* Confirm modal */
+.confirm-overlay{position:fixed;inset:0;background:rgba(26,26,26,.55);backdrop-filter:blur(4px);z-index:200;display:none;align-items:center;justify-content:center;}
+.confirm-box{background:#fff;border-radius:20px;padding:32px 28px;max-width:340px;width:calc(100% - 32px);box-shadow:0 24px 64px rgba(0,0,0,.25);text-align:center;}
+.confirm-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:8px;}
+.confirm-body{font-size:14px;color:var(--ink2);line-height:1.6;margin-bottom:24px;}
+.confirm-btns{display:flex;gap:10px;justify-content:center;}
+.btn-danger{background:var(--red);color:#fff;border:none;border-radius:10px;padding:11px 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .15s;}
+.btn-danger:hover{background:#B01E1E;}
+
+/* Player Projections (score screen) */
+.score-projections{background:#fff;border:1.5px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:18px;}
+.proj-hd{font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;padding:12px 16px 6px;}
+.proj-row{display:flex;align-items:center;gap:10px;padding:8px 16px;border-top:1px solid var(--border);}
+.proj-av{width:34px;height:34px;border-radius:8px;background:var(--cream2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--ink2);}
+.proj-info{flex:1;min-width:0;}
+.proj-name{font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.proj-sub{font-size:10px;color:var(--ink3);margin-top:1px;}
+.proj-stats{display:flex;gap:10px;flex-shrink:0;}
+.proj-s{text-align:right;}
+.proj-v{font-size:13px;font-weight:800;color:var(--ink);}
+.proj-l{font-size:9px;color:var(--ink3);letter-spacing:.03em;}
+
+/* Dynasty player decade summary */
+.d-players{margin-bottom:16px;}
+.dp-hd{font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;}
+.dp-row{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.dp-av{width:36px;height:36px;border-radius:8px;background:var(--cream2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--ink2);}
+.dp-info{flex:1;min-width:0;}
+.dp-name{font-size:12px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:5px;}
+.dp-sub{font-size:10px;color:var(--ink3);margin-top:1px;}
+.dp-peak{font-size:10px;font-weight:600;color:var(--ink3);text-align:center;flex-shrink:0;line-height:1.4;}
+.dp-stats{display:flex;gap:8px;flex-shrink:0;}
+.dp-s{text-align:right;}
+.dp-v{font-size:13px;font-weight:800;color:var(--ink);}
+.dp-l{font-size:9px;color:var(--ink3);letter-spacing:.03em;}
+.dp-mvp-badge{background:var(--orange);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:.04em;text-transform:uppercase;}
+
 /* How to Play Modal */
 .htp-overlay{position:fixed;inset:0;background:rgba(26,26,26,.55);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;}
 .htp-box{background:var(--cream);border-radius:24px;padding:28px 24px;max-width:420px;width:calc(100% - 32px);box-shadow:0 24px 64px rgba(0,0,0,.25);position:relative;display:flex;flex-direction:column;gap:20px;}

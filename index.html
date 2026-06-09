@@ -28,7 +28,7 @@
 
 <div id="game-screen" class="screen">
   <div class="left-col">
-    <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><div class="mode-tag" id="mode-tag">Classic</div></div>
+    <div class="topbar"><div class="topbar-logo logo-link" onclick="logoClick()">Ball <span>Knowledge</span></div><div class="mode-tag" id="mode-tag">Classic</div></div>
     <div class="spin-zone">
       <div class="cards-row">
         <div class="spin-card team-card"><div class="sc-label">Team</div><div class="sc-value" id="sc-team">&#8212;</div></div>
@@ -94,12 +94,13 @@
 </div>
 
 <div id="score-screen" class="screen">
-  <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><span class="nav-chip" onclick="goHome()">&#8592; New Game</span></div>
+  <div class="topbar"><div class="topbar-logo logo-link" onclick="goHome()">Ball <span>Knowledge</span></div><span class="nav-chip" onclick="goHome()">&#8592; New Game</span></div>
   <div style="flex:1;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:24px;">
     <div class="score-inner">
       <div style="text-align:center;margin-bottom:24px;"><div class="score-grade" id="score-grade">A</div><div class="score-wins" id="score-wins"></div></div>
       <div class="score-roster" id="score-roster"></div>
       <div class="score-stats" id="score-stats"></div>
+      <div class="score-projections" id="score-projections"></div>
       <div class="score-analysis" id="score-analysis"></div>
       <div class="score-btns"><button class="btn-outline" onclick="goHome()">Choose Game Mode</button><button class="btn-start" onclick="startGame()">Play Again</button></div>
     </div>
@@ -107,7 +108,7 @@
 </div>
 
 <div id="dynasty-screen" class="screen">
-  <div class="topbar"><div class="topbar-logo">Ball <span>Knowledge</span></div><div class="mode-tag">Dynasty</div></div>
+  <div class="topbar"><div class="topbar-logo logo-link" onclick="goHome()">Ball <span>Knowledge</span></div><div class="mode-tag">Dynasty</div></div>
   <div style="flex:1;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:24px;">
     <div class="dynasty-inner">
       <div class="dynasty-title" id="d-title">Spin for your dynasty era</div>
@@ -117,12 +118,24 @@
         <button class="btn-dspin" id="btn-dspin" onclick="dynastySpin()">SPIN FOR DECADE</button>
       </div>
       <div class="dynasty-timeline" id="d-timeline" style="display:none;"></div>
+      <div class="d-players" id="d-players" style="display:none;"></div>
       <div class="d-summary" id="d-summary" style="display:none;">
         <div class="ds-grade" id="ds-grade"></div><div class="ds-sub" id="ds-sub2"></div><div class="ds-txt" id="ds-txt"></div>
         <div style="display:flex;gap:10px;justify-content:center;margin-top:20px;">
           <button class="btn-outline" onclick="goHome()">Choose Game Mode</button><button class="btn-start" onclick="startGame()">Play Again</button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="confirm-modal" class="confirm-overlay" onclick="if(event.target===this)this.style.display='none'">
+  <div class="confirm-box">
+    <div class="confirm-title">Leave game?</div>
+    <div class="confirm-body">You'll lose your current roster progress.</div>
+    <div class="confirm-btns">
+      <button class="btn-outline" onclick="document.getElementById('confirm-modal').style.display='none'">Keep Playing</button>
+      <button class="btn-danger" onclick="document.getElementById('confirm-modal').style.display='none';goHome()">Go to Home</button>
     </div>
   </div>
 </div>
