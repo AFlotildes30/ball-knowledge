@@ -27,6 +27,11 @@ let h2hLockedEVs = new Set(); // era_variants taken by P1
 let h2hP2Roster = null;     // P2's completed roster (before series)
 let h2hSeriesResult = null; // result from simH2HSeries
 
+// Share state — populated by buildScore() and showDGrade()
+let shareState = { grade: '', wins: 0, playerNames: [], challengeUrl: '', champs: 0, avgW: 0, dEraLabel: '' };
+// H2H results share state — populated by openShareResultsModal()
+let h2hShareData = { url: '', msg: '' };
+
 function pickMode(m) {
   gMode = m;
   document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('sel'));
@@ -89,9 +94,13 @@ function doReroll(type) {
       loadPool(0, 'era');
     });
   } else {
-    const others = ERAS.filter(e => e !== cEra);
-    const ne = others[Math.floor(Math.random() * others.length)];
+    const origEra = cEra;
     const frozenTeam = cTeam;
+    // Only pick eras that have data for the locked team — prevents loadPool's
+    // empty-combo fallback from cycling back to origEra.
+    const withData = ERAS.filter(e => e !== origEra && (DB[frozenTeam + '-' + e] || []).length > 0);
+    const pool = withData.length ? withData : ERAS.filter(e => e !== origEra);
+    const ne = pool[Math.floor(Math.random() * pool.length)];
     animEra(ne, () => {
       cEra = ne;
       console.log('[re-roll] era →', cEra, '| team frozen at', frozenTeam);
@@ -188,8 +197,9 @@ function loadPool(retries = 0, lock = '') {
   }
   const seen = new Set();
   cPlayers = all.filter(p => {
-    if (takenC.has(p.canon) || seen.has(p.canon)) return false;
-    seen.add(p.canon);
+    const ev = p.era_variant || (p.canon + '-' + p.rE);
+    if (takenC.has(ev) || seen.has(ev)) return false;
+    seen.add(ev);
     return true;
   });
   document.getElementById('list-meta').textContent = cPlayers.length + ' players available';
@@ -327,7 +337,7 @@ function nodeClick(pos) {
     if (roster[pos]) return;
     if (!selP.pos.includes(pos)) return;
     roster[pos] = Object.assign({}, selP, { rT: cTeam, rE: cEra });
-    takenC.add(selP.canon);
+    takenC.add(selP.era_variant || (selP.canon + '-' + cEra));
     selP = null;
     clearBanner();
     SLOTS.forEach(s => updateNode(s));
@@ -459,6 +469,11 @@ function buildScore() {
     ).join('');
   document.getElementById('score-analysis').innerHTML = buildAnalysis(ps, tPpg, tRpg, tApg, tSpg, tBpg, avg);
   buildProjections();
+  // Populate share state for score-screen share buttons
+  shareState.grade = g;
+  shareState.wins = wins;
+  shareState.playerNames = SLOTS.map(pos => roster[pos] ? roster[pos].name : '').filter(Boolean);
+  shareState.challengeUrl = buildChallengeUrl();
   // Show challenge button for classic / challenge / h2h modes
   const chalBtn = document.getElementById('btn-challenge-friend');
   if (chalBtn) chalBtn.style.display = gMode !== 'dynasty' ? 'flex' : 'none';
@@ -570,6 +585,11 @@ function sg(my, opp) {
 
 function showDGrade(champs, avgW) {
   buildDynastyPlayers(dEra);
+  // Populate share state for dynasty share buttons
+  shareState.champs = champs;
+  shareState.avgW = avgW;
+  shareState.dEraLabel = dEra;
+  shareState.playerNames = SLOTS.map(pos => roster[pos] ? roster[pos].name : '').filter(Boolean);
   const sum = document.getElementById('d-summary');
   sum.style.display = 'block';
   let g, cls;
@@ -833,6 +853,93 @@ function lookupPlayer(entry) {
     pos: ['PG'], ppg: 0, rpg: 0, apg: 0, spg: 0, bpg: 0,
     era_variant: entry.ev || (entry.canon + '-' + entry.rE),
   };
+}
+
+// ═══════════════════════════════════════════════════════
+//  SOCIAL SHARING
+// ═══════════════════════════════════════════════════════
+
+function buildChallengeUrl() {
+  const payload = { v: 1, p1: buildRosterPayload(roster) };
+  return window.location.origin + '/?challenge=' + encodePayload(payload);
+}
+
+function abbrevEra(era) {
+  return ({ '1960s':'60s','1970s':'70s','1980s':'80s','1990s':'90s','2000s':'00s','2010s':'10s','2020s':'20s' })[era] || era;
+}
+
+function buildScoreShareText(forTwitter) {
+  const { grade, wins, playerNames, challengeUrl } = shareState;
+  const lastNames = playerNames.map(n => n.split(' ').pop()).join(' · ');
+  if (forTwitter) {
+    const body = '🏀 Ball Knowledge · ' + grade + ' · ' + wins + 'W · ' + lastNames + ' · Can you beat it?';
+    // Twitter counts URLs as ~23 chars via t.co shortening
+    if (body.length + 24 <= 280) return body + ' ' + challengeUrl;
+    return '🏀 Ball Knowledge · ' + grade + ' · ' + wins + ' Projected Wins · ' + challengeUrl;
+  }
+  return '🏀 Ball Knowledge · ' + grade + ' · ' + wins + ' Projected Wins\n' + lastNames + '\nThink you can beat it?\n' + challengeUrl;
+}
+
+function buildDynastyShareText(forTwitter) {
+  const { champs, avgW, dEraLabel, playerNames } = shareState;
+  const era = abbrevEra(dEraLabel);
+  const lastNames = playerNames.map(n => n.split(' ').pop()).join(' · ');
+  const url = window.location.origin;
+  let header;
+  if (champs >= 5)      header = '🏆🏆 DYNASTY · ' + champs + ' Championships in the ' + era;
+  else if (champs >= 3) header = '🏆 Dynasty · ' + champs + ' Championships in the ' + era;
+  else if (champs >= 1) header = 'Ball Knowledge Dynasty · ' + champs + ' Championship' + (champs > 1 ? 's' : '') + ' in the ' + era;
+  else                  header = 'Ball Knowledge Contender · 0 Championships but ' + avgW.toFixed(1) + ' avg wins in the ' + era;
+  const suffix = 'See the full dynasty: ' + url;
+  if (forTwitter) {
+    const full = header + ' · ' + lastNames + '\n' + suffix;
+    if (full.length <= 280) return full;
+    const mid = header + '\n' + suffix;
+    if (mid.length <= 280) return mid;
+    return header + '\n' + url;
+  }
+  return header + '\n' + lastNames + '\n' + suffix;
+}
+
+function doScShare() {
+  const text = buildScoreShareText(false);
+  if (navigator.share) {
+    navigator.share({ text }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(text).then(() => showShareToast('btn-sc-share'));
+  }
+}
+
+function doDyShare() {
+  const text = buildDynastyShareText(false);
+  if (navigator.share) {
+    navigator.share({ text }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(text).then(() => showShareToast('btn-dy-share'));
+  }
+}
+
+function showShareToast(btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  const orig = btn.innerHTML;
+  btn.textContent = '✓ Copied!';
+  setTimeout(() => { btn.innerHTML = orig; }, 2000);
+}
+
+function openPlatformShare(platform, screen) {
+  const isDynasty = screen === 'dynasty';
+  const text = isDynasty ? buildDynastyShareText(platform === 'twitter') : buildScoreShareText(platform === 'twitter');
+  const url = isDynasty ? window.location.origin : shareState.challengeUrl;
+  const enc = encodeURIComponent(text);
+  const encUrl = encodeURIComponent(url);
+  let shareUrl;
+  if (platform === 'twitter')   shareUrl = 'https://twitter.com/intent/tweet?text=' + enc;
+  else if (platform === 'whatsapp') shareUrl = 'https://wa.me/?text=' + enc;
+  else if (platform === 'reddit')   shareUrl = 'https://reddit.com/submit?url=' + encUrl + '&title=' + enc;
+  else if (platform === 'sms')      shareUrl = 'sms:?&body=' + enc;
+  if (platform === 'sms') window.location.href = shareUrl;
+  else window.open(shareUrl, '_blank');
 }
 
 // ═══════════════════════════════════════════════════════
@@ -1176,25 +1283,78 @@ function buildLocalNarrative(p1, p2, series) {
 //  SHARE RESULTS
 // ═══════════════════════════════════════════════════════
 
-function shareH2HResults() {
-  const p2Entries = buildRosterPayload(h2hP2Roster || roster);
-  const series = h2hSeriesResult;
-  const payload = { v: 1, p1: h2hChallenge.p1, p2: p2Entries, series };
-  const b64 = encodePayload(payload);
-  const url = window.location.origin + '/?results=' + b64;
+function openShareResultsModal() {
+  console.log('[H2H Share] button clicked — state:', {
+    h2hChallenge: !!h2hChallenge,
+    h2hSeriesResult: !!h2hSeriesResult,
+    h2hP2Roster: !!h2hP2Roster,
+  });
 
-  const p2Won = !series.p1Won;
-  const scoreStr = p2Won ? series.p2W + '-' + series.p1W : series.p1W + '-' + series.p2W;
-  const msg = p2Won
-    ? 'I just beat your Ball Knowledge squad ' + scoreStr + '. See the full breakdown: ' + url
-    : 'Your Ball Knowledge squad got me ' + scoreStr + '. See the full series: ' + url;
-
-  if (navigator.share) {
-    navigator.share({ text: msg, url });
-  } else {
-    navigator.clipboard.writeText(url);
+  if (!h2hChallenge || !h2hSeriesResult) {
+    console.error('[H2H Share] missing required state', { h2hChallenge, h2hSeriesResult });
     const btn = document.getElementById('btn-h2h-share');
-    btn.textContent = 'Copied!';
-    setTimeout(() => { btn.textContent = '🔗 Share Results'; }, 2000);
+    if (btn) { btn.textContent = '⚠ State missing — reload?'; btn.style.background = '#c00'; }
+    return;
   }
+
+  try {
+    // P2 played locally → use h2hP2Roster.
+    // P1 viewing a ?results= URL → h2hChallenge.p2 already has P2's entries from the decoded payload.
+    const p2Entries = h2hP2Roster
+      ? buildRosterPayload(h2hP2Roster)
+      : (h2hChallenge.p2 || []);
+
+    console.log('[H2H Share] p2Entries count:', p2Entries.length);
+
+    const series = h2hSeriesResult;
+    const payload = { v: 1, p1: h2hChallenge.p1, p2: p2Entries, series };
+    const b64 = encodePayload(payload);
+    const url = window.location.origin + '/?results=' + b64;
+
+    console.log('[H2H Share] results URL length:', url.length);
+
+    const p2Won = !series.p1Won;
+    const scoreStr = p2Won ? series.p2W + '-' + series.p1W : series.p1W + '-' + series.p2W;
+    const msg = p2Won
+      ? 'I just beat your Ball Knowledge squad ' + scoreStr + '. See the full breakdown: ' + url
+      : 'Your Ball Knowledge squad got me ' + scoreStr + '. See the full series: ' + url;
+
+    h2hShareData = { url, msg };
+    document.getElementById('h2h-res-link').value = url;
+    console.log('[H2H Share] showing modal');
+    document.getElementById('share-results-modal').style.display = 'flex';
+  } catch (e) {
+    console.error('[H2H Share] uncaught error:', e);
+  }
+}
+
+function copyH2HResLink() {
+  navigator.clipboard.writeText(h2hShareData.url);
+  const btn = document.getElementById('btn-copy-h2h-res');
+  btn.textContent = 'Copied!';
+  setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+}
+
+function shareH2HViaBtn() {
+  if (navigator.share) {
+    navigator.share({ text: h2hShareData.msg }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(h2hShareData.msg);
+    const btn = document.getElementById('btn-share-h2h-res');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Share'; }, 2000);
+  }
+}
+
+function openH2HPlatformShare(platform) {
+  const { msg, url } = h2hShareData;
+  const enc = encodeURIComponent(msg);
+  const encUrl = encodeURIComponent(url);
+  let shareUrl;
+  if (platform === 'twitter')       shareUrl = 'https://twitter.com/intent/tweet?text=' + enc;
+  else if (platform === 'whatsapp') shareUrl = 'https://wa.me/?text=' + enc;
+  else if (platform === 'reddit')   shareUrl = 'https://reddit.com/submit?url=' + encUrl + '&title=' + enc;
+  else if (platform === 'sms')      shareUrl = 'sms:?&body=' + enc;
+  if (platform === 'sms') window.location.href = shareUrl;
+  else window.open(shareUrl, '_blank');
 }

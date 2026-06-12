@@ -27,7 +27,7 @@
       "2010s": ["SF", "SG"],
       "2020s": ["SF", "SG", "PF"]
     },
-    "Jimmy Butler III": {
+    "Jimmy Butler": {
       "2010s": ["SF", "SG"],
       "2020s": ["SF", "SG", "PF"]
     },
@@ -125,6 +125,9 @@
     },
     "Anthony Davis": {
       "2020s": ["C", "PF"]
+    },
+    "Chris Bosh": {
+      "2010s": ["C", "PF"]
     },
     "Bam Adebayo": {
       "2010s": ["C", "PF"],
@@ -242,7 +245,6 @@
   },
 
   "display_name_overrides": {
-    "Jimmy Butler III": "Jimmy Butler",
     "Anfernee Hardaway": "Penny Hardaway"
   }
 }

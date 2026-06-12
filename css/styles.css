@@ -353,3 +353,14 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .p-card-locked{opacity:.45;cursor:not-allowed;}
 .p-card-locked:hover{border-color:var(--border) !important;background:var(--cream) !important;}
 .p-taken{font-size:10px;font-weight:700;color:var(--ink3);background:var(--cream2);border-radius:6px;padding:3px 7px;flex-shrink:0;letter-spacing:.04em;text-transform:uppercase;}
+
+/* ── Share section ── */
+.share-section{margin-top:16px;}
+.btn-share-main{width:100%;background:var(--orange);color:#fff;border:none;border-radius:12px;padding:14px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-share-main:hover{background:#D04E00;}
+.share-icons-row{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:12px;}
+.share-icons-label{font-size:11px;color:var(--ink3);font-weight:600;letter-spacing:.04em;text-transform:uppercase;}
+.share-icons{display:flex;gap:12px;justify-content:center;}
+.share-icon-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,opacity .15s;padding:0;flex-shrink:0;}
+.share-icon-btn:hover{transform:scale(1.12);opacity:.9;}
+.share-divider{height:1px;background:var(--border);margin:16px 0 8px;}
