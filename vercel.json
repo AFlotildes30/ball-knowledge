@@ -1,16 +1,5 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/$1" }
-  ],
-  "headers": [
-    {
-      "source": "/data/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
-      ]
-    }
-  ],
-  "functions": {
-    "api/narrate.js": { "runtime": "nodejs18.x" }
-  }
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
