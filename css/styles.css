@@ -11,6 +11,7 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .nav-chip:hover{background:var(--cream2);color:var(--ink);}
 .mode-tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--orange-light);color:var(--orange);padding:4px 10px;border-radius:20px;}
 #home-screen{background:var(--cream);align-items:center;justify-content:center;}
+.home-scroll{flex:1;display:flex;align-items:center;justify-content:center;}
 .home-inner{max-width:680px;width:100%;padding:24px;text-align:center;}
 .home-title{font-size:56px;font-weight:800;letter-spacing:-1.5px;line-height:1;margin-bottom:12px;}
 .home-sub{font-size:15px;color:var(--ink2);line-height:1.6;margin-bottom:48px;max-width:420px;margin-left:auto;margin-right:auto;}
@@ -378,6 +379,7 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 @media (max-width:480px){
 
   /* ── Home screen ── */
+  .home-scroll{overflow-y:auto;align-items:flex-start;padding:16px 0 32px;}
   .home-title{font-size:36px;}
   .mode-cards{grid-template-columns:1fr;}
 
