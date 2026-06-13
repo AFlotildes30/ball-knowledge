@@ -796,6 +796,9 @@ function htpRender() {
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
+  const atHome = id === 'home-screen';
+  document.documentElement.classList.toggle('at-home', atHome);
+  if (atHome) window.scrollTo(0, 0);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

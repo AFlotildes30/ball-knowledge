@@ -378,8 +378,11 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
    ══════════════════════════════════════════════════════════════ */
 @media (max-width:480px){
 
-  /* ── Home screen ── */
-  .home-scroll{overflow-y:auto;align-items:flex-start;padding:16px 0 32px;}
+  /* ── Home screen: body-level scroll (avoids iOS 100vh URL-bar trap) ── */
+  html.at-home,html.at-home body{overflow:auto;height:auto;}
+  html.at-home #home-screen{height:auto;min-height:100vh;overflow:visible;}
+  html.at-home .home-scroll{flex:none;overflow:visible;}
+  .home-scroll{align-items:flex-start;padding:16px 0 40px;}
   .home-title{font-size:36px;}
   .mode-cards{grid-template-columns:1fr;}
 
