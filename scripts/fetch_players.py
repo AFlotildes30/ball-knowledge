@@ -36,11 +36,11 @@ OUTPUT_PATH = Path(__file__).parent.parent / "data" / "players.json"
 
 TBE = {
     "1960s": ["BOS", "PHI", "LAL", "NYK", "SAC", "HOU", "ATL"],
-    "1970s": ["NYK", "MIL", "GSW", "POR", "LAL", "OKC", "SAC", "UTA"],
-    "1980s": ["BOS", "LAL", "DET", "CHI", "HOU", "PHI"],
-    "1990s": ["CHI", "UTA", "HOU", "SAS", "ORL", "NYK", "OKC", "IND"],
-    "2000s": ["LAL", "SAS", "MIA", "DET", "DAL", "PHX", "PHI", "CLE", "MIN"],
-    "2010s": ["GSW", "MIA", "OKC", "SAS", "CLE", "TOR", "HOU", "MIL", "BOS", "NOP"],
+    "1970s": ["NYK", "MIL", "GSW", "POR", "LAL", "OKC", "SAC", "UTA", "BOS", "WAS"],
+    "1980s": ["BOS", "LAL", "DET", "CHI", "HOU", "PHI", "UTA", "ATL", "DAL"],
+    "1990s": ["CHI", "UTA", "HOU", "SAS", "ORL", "NYK", "OKC", "IND", "PHX", "LAL", "MIN"],
+    "2000s": ["LAL", "SAS", "MIA", "DET", "DAL", "PHX", "PHI", "CLE", "MIN", "BOS", "SAC", "NOP"],
+    "2010s": ["GSW", "MIA", "OKC", "SAS", "CLE", "TOR", "HOU", "MIL", "BOS", "NOP", "UTA", "DAL"],
     "2020s": ["DEN", "MIL", "LAL", "BKN", "PHX", "DAL", "BOS", "OKC", "MIN", "IND"],
 }
 
@@ -87,6 +87,7 @@ HIST_ABBR: dict = {
     "ATL": [(1967, "STL"), (9999, "ATL")],
     "HOU": [(1970, "SDR"), (9999, "HOU")],
     "NOP": [(2012, "NOH"), (9999, "NOP")],
+    "WAS": [(1972, "BAL"), (1996, "WSB"), (9999, "WAS")],
 }
 
 
