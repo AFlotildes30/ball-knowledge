@@ -28242,6 +28242,911 @@
         "score": 61,
         "era_variant": "Patrick Williams-2020s"
       }
+    ],
+    "SAS-1970s": [
+      {
+        "name": "George Gervin",
+        "canon": "George Gervin",
+        "pos": [
+          "SG",
+          "SF"
+        ],
+        "ppg": 29.6,
+        "rpg": 4.8,
+        "apg": 2.4,
+        "spg": 1.1,
+        "bpg": 0.9,
+        "best": "1978-79",
+        "init": "GG",
+        "score": 95,
+        "era_variant": "George Gervin-1970s"
+      },
+      {
+        "name": "Larry Kenon",
+        "canon": "Larry Kenon",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 23.1,
+        "rpg": 10.4,
+        "apg": 2.9,
+        "spg": 1.3,
+        "bpg": 0.9,
+        "best": "1977-78",
+        "init": "LK",
+        "score": 91,
+        "era_variant": "Larry Kenon-1970s"
+      },
+      {
+        "name": "James Silas",
+        "canon": "James Silas",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 20.3,
+        "rpg": 3.4,
+        "apg": 6.1,
+        "spg": 1.7,
+        "bpg": 0.2,
+        "best": "1976-77",
+        "init": "JS",
+        "score": 83,
+        "era_variant": "James Silas-1970s"
+      },
+      {
+        "name": "Billy Paultz",
+        "canon": "Billy Paultz",
+        "pos": [
+          "C"
+        ],
+        "ppg": 16.3,
+        "rpg": 9.6,
+        "apg": 2.0,
+        "spg": 0.8,
+        "bpg": 1.8,
+        "best": "1976-77",
+        "init": "BP",
+        "score": 78,
+        "era_variant": "Billy Paultz-1970s"
+      },
+      {
+        "name": "Mike Gale",
+        "canon": "Mike Gale",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 9.8,
+        "rpg": 3.1,
+        "apg": 5.0,
+        "spg": 2.0,
+        "bpg": 0.2,
+        "best": "1977-78",
+        "init": "MG",
+        "score": 65,
+        "era_variant": "Mike Gale-1970s"
+      }
+    ],
+    "PHX-1970s": [
+      {
+        "name": "Paul Westphal",
+        "canon": "Paul Westphal",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 25.2,
+        "rpg": 4.4,
+        "apg": 6.0,
+        "spg": 1.9,
+        "bpg": 0.3,
+        "best": "1977-78",
+        "init": "PW",
+        "score": 93,
+        "era_variant": "Paul Westphal-1970s"
+      },
+      {
+        "name": "Charlie Scott",
+        "canon": "Charlie Scott",
+        "pos": [
+          "SG",
+          "PG"
+        ],
+        "ppg": 23.4,
+        "rpg": 4.6,
+        "apg": 6.4,
+        "spg": 2.0,
+        "bpg": 0.3,
+        "best": "1973-74",
+        "init": "CS",
+        "score": 91,
+        "era_variant": "Charlie Scott-1970s"
+      },
+      {
+        "name": "Walter Davis",
+        "canon": "Walter Davis",
+        "pos": [
+          "SG",
+          "SF"
+        ],
+        "ppg": 24.2,
+        "rpg": 4.8,
+        "apg": 4.0,
+        "spg": 2.0,
+        "bpg": 0.3,
+        "best": "1977-78",
+        "init": "WD",
+        "score": 90,
+        "era_variant": "Walter Davis-1970s"
+      },
+      {
+        "name": "Alvan Adams",
+        "canon": "Alvan Adams",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 19.0,
+        "rpg": 9.1,
+        "apg": 5.6,
+        "spg": 1.5,
+        "bpg": 1.1,
+        "best": "1975-76",
+        "init": "AA",
+        "score": 87,
+        "era_variant": "Alvan Adams-1970s"
+      },
+      {
+        "name": "Connie Hawkins",
+        "canon": "Connie Hawkins",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 21.9,
+        "rpg": 10.4,
+        "apg": 3.8,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1970-71",
+        "init": "CH",
+        "score": 82,
+        "era_variant": "Connie Hawkins-1970s",
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Neal Walk",
+        "canon": "Neal Walk",
+        "pos": [
+          "C"
+        ],
+        "ppg": 20.2,
+        "rpg": 12.1,
+        "apg": 3.0,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1971-72",
+        "init": "NW",
+        "score": 80,
+        "era_variant": "Neal Walk-1970s",
+        "note": "SPG/BPG untracked"
+      },
+      {
+        "name": "Don Buse",
+        "canon": "Don Buse",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 9.4,
+        "rpg": 3.6,
+        "apg": 6.0,
+        "spg": 3.5,
+        "bpg": 0.2,
+        "best": "1977-78",
+        "init": "DB",
+        "score": 72,
+        "era_variant": "Don Buse-1970s"
+      }
+    ],
+    "LAC-1970s": [
+      {
+        "name": "Bob McAdoo",
+        "canon": "Bob McAdoo",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 34.5,
+        "rpg": 14.1,
+        "apg": 2.0,
+        "spg": 1.4,
+        "bpg": 1.4,
+        "best": "1974-75",
+        "init": "BM",
+        "score": 99,
+        "era_variant": "Bob McAdoo-1970s"
+      },
+      {
+        "name": "Randy Smith",
+        "canon": "Randy Smith",
+        "pos": [
+          "SG",
+          "PG"
+        ],
+        "ppg": 24.6,
+        "rpg": 4.1,
+        "apg": 5.7,
+        "spg": 2.0,
+        "bpg": 0.3,
+        "best": "1977-78",
+        "init": "RS",
+        "score": 92,
+        "era_variant": "Randy Smith-1970s"
+      },
+      {
+        "name": "Jim McMillian",
+        "canon": "Jim McMillian",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 23.0,
+        "rpg": 5.8,
+        "apg": 3.8,
+        "spg": 1.2,
+        "bpg": 0.2,
+        "best": "1975-76",
+        "init": "JM",
+        "score": 85,
+        "era_variant": "Jim McMillian-1970s"
+      },
+      {
+        "name": "Ernie DiGregorio",
+        "canon": "Ernie DiGregorio",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 15.3,
+        "rpg": 2.2,
+        "apg": 8.2,
+        "spg": 1.2,
+        "bpg": 0.0,
+        "best": "1973-74",
+        "init": "ED",
+        "score": 74,
+        "era_variant": "Ernie DiGregorio-1970s"
+      },
+      {
+        "name": "Jack Marin",
+        "canon": "Jack Marin",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 18.1,
+        "rpg": 4.4,
+        "apg": 2.5,
+        "spg": 0.8,
+        "bpg": 0.2,
+        "best": "1973-74",
+        "init": "MA",
+        "score": 72,
+        "era_variant": "Jack Marin-1970s"
+      },
+      {
+        "name": "Elmore Smith",
+        "canon": "Elmore Smith",
+        "pos": [
+          "C"
+        ],
+        "ppg": 14.5,
+        "rpg": 14.6,
+        "apg": 0.8,
+        "spg": 0.0,
+        "bpg": 0.0,
+        "best": "1972-73",
+        "init": "ES",
+        "score": 69,
+        "era_variant": "Elmore Smith-1970s",
+        "note": "SPG/BPG untracked"
+      }
+    ],
+    "PHX-1980s": [
+      {
+        "name": "Walter Davis",
+        "canon": "Walter Davis",
+        "pos": [
+          "SG",
+          "SF"
+        ],
+        "ppg": 27.2,
+        "rpg": 4.1,
+        "apg": 4.4,
+        "spg": 1.3,
+        "bpg": 0.4,
+        "best": "1983-84",
+        "init": "WD",
+        "score": 90,
+        "era_variant": "Walter Davis-1980s"
+      },
+      {
+        "name": "Kevin Johnson",
+        "canon": "Kevin Johnson",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 20.4,
+        "rpg": 4.4,
+        "apg": 12.2,
+        "spg": 1.7,
+        "bpg": 0.1,
+        "best": "1988-89",
+        "init": "KJ",
+        "score": 89,
+        "era_variant": "Kevin Johnson-1980s"
+      },
+      {
+        "name": "Larry Nance",
+        "canon": "Larry Nance",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 22.5,
+        "rpg": 8.5,
+        "apg": 2.8,
+        "spg": 1.1,
+        "bpg": 1.9,
+        "best": "1986-87",
+        "init": "LN",
+        "score": 87,
+        "era_variant": "Larry Nance-1980s"
+      },
+      {
+        "name": "Tom Chambers",
+        "canon": "Tom Chambers",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 25.7,
+        "rpg": 6.4,
+        "apg": 2.4,
+        "spg": 1.0,
+        "bpg": 0.7,
+        "best": "1988-89",
+        "init": "TC",
+        "score": 86,
+        "era_variant": "Tom Chambers-1980s"
+      },
+      {
+        "name": "Dennis Johnson",
+        "canon": "Dennis Johnson",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 17.0,
+        "rpg": 4.3,
+        "apg": 5.3,
+        "spg": 2.2,
+        "bpg": 0.5,
+        "best": "1980-81",
+        "init": "DJ",
+        "score": 78,
+        "era_variant": "Dennis Johnson-1980s"
+      },
+      {
+        "name": "Alvan Adams",
+        "canon": "Alvan Adams",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 17.0,
+        "rpg": 7.8,
+        "apg": 4.6,
+        "spg": 1.0,
+        "bpg": 0.9,
+        "best": "1981-82",
+        "init": "AA",
+        "score": 77,
+        "era_variant": "Alvan Adams-1980s"
+      },
+      {
+        "name": "James Edwards",
+        "canon": "James Edwards",
+        "pos": [
+          "C"
+        ],
+        "ppg": 15.5,
+        "rpg": 7.0,
+        "apg": 1.3,
+        "spg": 0.5,
+        "bpg": 1.1,
+        "best": "1984-85",
+        "init": "JE",
+        "score": 68,
+        "era_variant": "James Edwards-1980s"
+      }
+    ],
+    "OKC-1980s": [
+      {
+        "name": "Gus Williams",
+        "canon": "Gus Williams",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 23.4,
+        "rpg": 3.5,
+        "apg": 6.7,
+        "spg": 2.1,
+        "bpg": 0.1,
+        "best": "1981-82",
+        "init": "GW",
+        "score": 88,
+        "era_variant": "Gus Williams-1980s"
+      },
+      {
+        "name": "Jack Sikma",
+        "canon": "Jack Sikma",
+        "pos": [
+          "C"
+        ],
+        "ppg": 19.6,
+        "rpg": 12.7,
+        "apg": 3.9,
+        "spg": 1.3,
+        "bpg": 0.8,
+        "best": "1981-82",
+        "init": "JS",
+        "score": 85,
+        "era_variant": "Jack Sikma-1980s"
+      },
+      {
+        "name": "Xavier McDaniel",
+        "canon": "Xavier McDaniel",
+        "pos": [
+          "PF",
+          "SF"
+        ],
+        "ppg": 24.0,
+        "rpg": 8.2,
+        "apg": 2.6,
+        "spg": 1.2,
+        "bpg": 0.5,
+        "best": "1987-88",
+        "init": "XM",
+        "score": 85,
+        "era_variant": "Xavier McDaniel-1980s"
+      },
+      {
+        "name": "Dale Ellis",
+        "canon": "Dale Ellis",
+        "pos": [
+          "SG",
+          "SF"
+        ],
+        "ppg": 27.5,
+        "rpg": 3.8,
+        "apg": 1.6,
+        "spg": 0.7,
+        "bpg": 0.4,
+        "best": "1988-89",
+        "init": "DE",
+        "score": 84,
+        "era_variant": "Dale Ellis-1980s"
+      },
+      {
+        "name": "Tom Chambers",
+        "canon": "Tom Chambers",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 23.3,
+        "rpg": 6.5,
+        "apg": 2.8,
+        "spg": 1.2,
+        "bpg": 0.5,
+        "best": "1986-87",
+        "init": "TC",
+        "score": 83,
+        "era_variant": "Tom Chambers-1980s"
+      },
+      {
+        "name": "Ricky Pierce",
+        "canon": "Ricky Pierce",
+        "pos": [
+          "SG"
+        ],
+        "ppg": 17.9,
+        "rpg": 3.5,
+        "apg": 2.9,
+        "spg": 1.0,
+        "bpg": 0.3,
+        "best": "1988-89",
+        "init": "RP",
+        "score": 71,
+        "era_variant": "Ricky Pierce-1980s"
+      },
+      {
+        "name": "Gerald Henderson",
+        "canon": "Gerald Henderson",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 14.0,
+        "rpg": 3.7,
+        "apg": 4.6,
+        "spg": 1.5,
+        "bpg": 0.2,
+        "best": "1984-85",
+        "init": "GH",
+        "score": 68,
+        "era_variant": "Gerald Henderson-1980s"
+      }
+    ],
+    "DEN-1980s": [
+      {
+        "name": "Fat Lever",
+        "canon": "Fat Lever",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 21.8,
+        "rpg": 10.7,
+        "apg": 7.9,
+        "spg": 2.8,
+        "bpg": 0.4,
+        "best": "1987-88",
+        "init": "FL",
+        "score": 96,
+        "era_variant": "Fat Lever-1980s"
+      },
+      {
+        "name": "Alex English",
+        "canon": "Alex English",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 29.8,
+        "rpg": 6.0,
+        "apg": 3.2,
+        "spg": 1.0,
+        "bpg": 0.4,
+        "best": "1985-86",
+        "init": "AE",
+        "score": 93,
+        "era_variant": "Alex English-1980s"
+      },
+      {
+        "name": "Kiki Vandeweghe",
+        "canon": "Kiki Vandeweghe",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 29.4,
+        "rpg": 5.6,
+        "apg": 3.1,
+        "spg": 0.7,
+        "bpg": 0.2,
+        "best": "1983-84",
+        "init": "KV",
+        "score": 90,
+        "era_variant": "Kiki Vandeweghe-1980s"
+      },
+      {
+        "name": "Dan Issel",
+        "canon": "Dan Issel",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 21.7,
+        "rpg": 9.9,
+        "apg": 2.4,
+        "spg": 0.9,
+        "bpg": 0.8,
+        "best": "1981-82",
+        "init": "DI",
+        "score": 83,
+        "era_variant": "Dan Issel-1980s"
+      },
+      {
+        "name": "Calvin Natt",
+        "canon": "Calvin Natt",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 21.6,
+        "rpg": 6.7,
+        "apg": 3.2,
+        "spg": 1.0,
+        "bpg": 0.4,
+        "best": "1985-86",
+        "init": "CN",
+        "score": 80,
+        "era_variant": "Calvin Natt-1980s"
+      },
+      {
+        "name": "Michael Adams",
+        "canon": "Michael Adams",
+        "pos": [
+          "PG"
+        ],
+        "ppg": 15.5,
+        "rpg": 3.4,
+        "apg": 8.0,
+        "spg": 2.0,
+        "bpg": 0.1,
+        "best": "1988-89",
+        "init": "MA",
+        "score": 76,
+        "era_variant": "Michael Adams-1980s"
+      },
+      {
+        "name": "Danny Schayes",
+        "canon": "Danny Schayes",
+        "pos": [
+          "C",
+          "PF"
+        ],
+        "ppg": 15.0,
+        "rpg": 7.8,
+        "apg": 1.7,
+        "spg": 0.5,
+        "bpg": 0.8,
+        "best": "1986-87",
+        "init": "DS",
+        "score": 68,
+        "era_variant": "Danny Schayes-1980s"
+      }
+    ],
+    "GSW-1980s": [
+      {
+        "name": "Chris Mullin",
+        "canon": "Chris Mullin",
+        "pos": [
+          "SG",
+          "SF"
+        ],
+        "ppg": 26.5,
+        "rpg": 5.4,
+        "apg": 4.4,
+        "spg": 1.6,
+        "bpg": 0.5,
+        "best": "1988-89",
+        "init": "CM",
+        "score": 91,
+        "era_variant": "Chris Mullin-1980s"
+      },
+      {
+        "name": "Purvis Short",
+        "canon": "Purvis Short",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 28.0,
+        "rpg": 4.7,
+        "apg": 2.4,
+        "spg": 1.1,
+        "bpg": 0.4,
+        "best": "1984-85",
+        "init": "PS",
+        "score": 88,
+        "era_variant": "Purvis Short-1980s"
+      },
+      {
+        "name": "Joe Barry Carroll",
+        "canon": "Joe Barry Carroll",
+        "pos": [
+          "C"
+        ],
+        "ppg": 24.1,
+        "rpg": 9.1,
+        "apg": 2.2,
+        "spg": 0.7,
+        "bpg": 1.9,
+        "best": "1983-84",
+        "init": "JC",
+        "score": 88,
+        "era_variant": "Joe Barry Carroll-1980s"
+      },
+      {
+        "name": "Mitch Richmond",
+        "canon": "Mitch Richmond",
+        "pos": [
+          "SG",
+          "SF"
+        ],
+        "ppg": 23.9,
+        "rpg": 5.1,
+        "apg": 3.5,
+        "spg": 1.5,
+        "bpg": 0.4,
+        "best": "1989-90",
+        "init": "MR",
+        "score": 85,
+        "era_variant": "Mitch Richmond-1980s"
+      },
+      {
+        "name": "Sleepy Floyd",
+        "canon": "Sleepy Floyd",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 21.0,
+        "rpg": 3.5,
+        "apg": 7.0,
+        "spg": 2.0,
+        "bpg": 0.2,
+        "best": "1984-85",
+        "init": "SF",
+        "score": 84,
+        "era_variant": "Sleepy Floyd-1980s"
+      },
+      {
+        "name": "Bernard King",
+        "canon": "Bernard King",
+        "pos": [
+          "SF",
+          "PF"
+        ],
+        "ppg": 21.9,
+        "rpg": 5.8,
+        "apg": 2.6,
+        "spg": 0.9,
+        "bpg": 0.2,
+        "best": "1980-81",
+        "init": "BK",
+        "score": 78,
+        "era_variant": "Bernard King-1980s"
+      },
+      {
+        "name": "World B. Free",
+        "canon": "World B. Free",
+        "pos": [
+          "SG",
+          "PG"
+        ],
+        "ppg": 21.7,
+        "rpg": 3.9,
+        "apg": 3.0,
+        "spg": 1.0,
+        "bpg": 0.2,
+        "best": "1980-81",
+        "init": "WF",
+        "score": 77,
+        "era_variant": "World B. Free-1980s"
+      }
+    ],
+    "MIL-1980s": [
+      {
+        "name": "Sidney Moncrief",
+        "canon": "Sidney Moncrief",
+        "pos": [
+          "SG",
+          "PG"
+        ],
+        "ppg": 24.8,
+        "rpg": 5.9,
+        "apg": 4.8,
+        "spg": 2.5,
+        "bpg": 0.4,
+        "best": "1984-85",
+        "init": "SM",
+        "score": 92,
+        "era_variant": "Sidney Moncrief-1980s"
+      },
+      {
+        "name": "Marques Johnson",
+        "canon": "Marques Johnson",
+        "pos": [
+          "SF",
+          "SG"
+        ],
+        "ppg": 21.8,
+        "rpg": 7.8,
+        "apg": 4.6,
+        "spg": 1.6,
+        "bpg": 0.7,
+        "best": "1980-81",
+        "init": "MJ",
+        "score": 86,
+        "era_variant": "Marques Johnson-1980s"
+      },
+      {
+        "name": "Terry Cummings",
+        "canon": "Terry Cummings",
+        "pos": [
+          "PF",
+          "C"
+        ],
+        "ppg": 23.5,
+        "rpg": 8.0,
+        "apg": 2.3,
+        "spg": 1.2,
+        "bpg": 0.5,
+        "best": "1984-85",
+        "init": "TC",
+        "score": 84,
+        "era_variant": "Terry Cummings-1980s"
+      },
+      {
+        "name": "Jack Sikma",
+        "canon": "Jack Sikma",
+        "pos": [
+          "C"
+        ],
+        "ppg": 18.8,
+        "rpg": 9.8,
+        "apg": 3.7,
+        "spg": 1.5,
+        "bpg": 1.1,
+        "best": "1986-87",
+        "init": "JS",
+        "score": 83,
+        "era_variant": "Jack Sikma-1980s"
+      },
+      {
+        "name": "Bob Lanier",
+        "canon": "Bob Lanier",
+        "pos": [
+          "C"
+        ],
+        "ppg": 19.5,
+        "rpg": 8.0,
+        "apg": 2.6,
+        "spg": 0.7,
+        "bpg": 0.8,
+        "best": "1980-81",
+        "init": "BL",
+        "score": 77,
+        "era_variant": "Bob Lanier-1980s"
+      },
+      {
+        "name": "Paul Pressey",
+        "canon": "Paul Pressey",
+        "pos": [
+          "PG",
+          "SG"
+        ],
+        "ppg": 12.2,
+        "rpg": 5.3,
+        "apg": 9.1,
+        "spg": 2.6,
+        "bpg": 0.5,
+        "best": "1986-87",
+        "init": "PP",
+        "score": 77,
+        "era_variant": "Paul Pressey-1980s"
+      },
+      {
+        "name": "Ricky Pierce",
+        "canon": "Ricky Pierce",
+        "pos": [
+          "SG"
+        ],
+        "ppg": 19.5,
+        "rpg": 3.2,
+        "apg": 2.7,
+        "spg": 0.8,
+        "bpg": 0.2,
+        "best": "1986-87",
+        "init": "RP",
+        "score": 72,
+        "era_variant": "Ricky Pierce-1980s"
+      }
     ]
   },
   "tbe": {
@@ -28264,7 +29169,10 @@
       "SAC",
       "UTA",
       "BOS",
-      "WAS"
+      "WAS",
+      "SAS",
+      "PHX",
+      "LAC"
     ],
     "1980s": [
       "BOS",
@@ -28275,7 +29183,12 @@
       "PHI",
       "UTA",
       "ATL",
-      "DAL"
+      "DAL",
+      "PHX",
+      "OKC",
+      "DEN",
+      "GSW",
+      "MIL"
     ],
     "1990s": [
       "CHI",

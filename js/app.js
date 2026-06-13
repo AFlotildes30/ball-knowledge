@@ -52,6 +52,7 @@ function startGame() {
   document.getElementById('btn-spin').disabled = false;
   document.getElementById('sc-team').textContent = '--';
   document.getElementById('sc-era').textContent = '--';
+  setSpinZoneCompact(false);
   SLOTS.forEach(s => resetNode(s));
   syncTs();
   clearBanner();
@@ -73,6 +74,7 @@ function doSpin() {
     loadPool();
     document.getElementById('list-zone').style.display = 'flex';
     document.getElementById('list-zone').style.flexDirection = 'column';
+    setSpinZoneCompact(true);
   });
 }
 
@@ -83,6 +85,7 @@ function doReroll(type) {
   if (type === 'team') rrT = true; else rrE = true;
   syncRR();
   spinning = true;
+  setSpinZoneCompact(false);
   if (type === 'team') {
     const pool = TBE[cEra].filter(t => t !== cTeam);
     const nt = pool[Math.floor(Math.random() * pool.length)];
@@ -92,6 +95,7 @@ function doReroll(type) {
       console.log('[re-roll] team →', cTeam, '| era frozen at', frozenEra);
       spinning = false;
       loadPool(0, 'era');
+      setSpinZoneCompact(true);
     });
   } else {
     const origEra = cEra;
@@ -106,6 +110,7 @@ function doReroll(type) {
       console.log('[re-roll] era →', cEra, '| team frozen at', frozenTeam);
       spinning = false;
       loadPool(0, 'team');
+      setSpinZoneCompact(true);
     });
   }
 }
@@ -262,7 +267,7 @@ function renderList() {
     }
     d.className = 'p-card' + (isSel ? ' selected' : '');
     const untracked = p.note && p.note.includes('untracked');
-    const stats = ch ? '' : '<div class="p-stats"><div class="p-stat"><div class="p-stat-val">' + p.ppg.toFixed(1) + '</div><div class="p-stat-lbl">PPG</div></div><div class="p-stat"><div class="p-stat-val">' + p.rpg.toFixed(1) + '</div><div class="p-stat-lbl">RPG</div></div><div class="p-stat"><div class="p-stat-val">' + p.apg.toFixed(1) + '</div><div class="p-stat-lbl">APG</div></div></div>';
+    const stats = ch ? '' : '<div class="p-stats"><div class="p-stat"><div class="p-stat-val">' + p.ppg.toFixed(1) + '</div><div class="p-stat-lbl">PPG</div></div><div class="p-stat"><div class="p-stat-val">' + p.apg.toFixed(1) + '</div><div class="p-stat-lbl">APG</div></div><div class="p-stat"><div class="p-stat-val">' + p.rpg.toFixed(1) + '</div><div class="p-stat-lbl">RPG</div></div><div class="p-stat"><div class="p-stat-val">' + (p.spg||0).toFixed(1) + '</div><div class="p-stat-lbl">SPG</div></div><div class="p-stat"><div class="p-stat-val">' + (p.bpg||0).toFixed(1) + '</div><div class="p-stat-lbl">BPG</div></div></div>';
     const meta = ch ? '' : '<div class="p-meta">Best: ' + p.best + (untracked ? ' - Pre-stat era' : '') + '</div>';
     const url = headshotUrl(p.canon);
     const avHtml = url
@@ -351,6 +356,7 @@ function nodeClick(pos) {
       document.getElementById('reroll-row').style.display = 'none';
       document.getElementById('btn-spin').disabled = false;
       setCards('--', '--');
+      setSpinZoneCompact(false);
     }, 350);
     return;
   }
@@ -380,11 +386,40 @@ function clearBanner() {
   document.getElementById('assign-banner').className = 'assign-banner';
 }
 
+function setSpinZoneCompact(compact) {
+  const sz = document.getElementById('spin-zone');
+  if (!sz) return;
+  if (compact) {
+    const pill = document.getElementById('compact-pill');
+    if (pill) pill.textContent = cTeam + ' · ' + cEra;
+    sz.classList.add('has-result');
+  } else {
+    sz.classList.remove('has-result');
+  }
+}
+
+function syncMobilePosBar() {
+  SLOTS.forEach(pos => {
+    const bubble = document.getElementById('mpb-' + pos);
+    if (!bubble) return;
+    const slot = bubble.parentElement;
+    const p = roster[pos];
+    if (p) {
+      bubble.textContent = p.init;
+      slot.classList.add('filled');
+    } else {
+      bubble.textContent = pos;
+      slot.classList.remove('filled');
+    }
+  });
+}
+
 function syncTs() {
   const ps = Object.values(roster).filter(Boolean);
   const count = ps.length;
   const countEl = document.getElementById('ts-count');
   if (countEl) countEl.textContent = '(' + count + '/5 players)';
+  syncMobilePosBar();
   ['ppg', 'apg', 'rpg', 'spg', 'bpg'].forEach(k => {
     const v = ps.length ? ps.reduce((s, p) => s + (p[k] || 0), 0) / ps.length : 0;
     const el = document.getElementById('ts-' + k);
@@ -1043,6 +1078,7 @@ function acceptChallenge() {
   document.getElementById('btn-spin').disabled = false;
   document.getElementById('sc-team').textContent = '--';
   document.getElementById('sc-era').textContent = '--';
+  setSpinZoneCompact(false);
   SLOTS.forEach(s => resetNode(s));
   syncTs(); clearBanner();
 }

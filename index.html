@@ -37,11 +37,12 @@
 <div id="game-screen" class="screen">
   <div class="left-col">
     <div class="topbar"><div class="topbar-logo logo-link" onclick="logoClick()">Ball <span>Knowledge</span></div><div class="mode-tag" id="mode-tag">Classic</div></div>
-    <div class="spin-zone">
+    <div class="spin-zone" id="spin-zone">
       <div class="cards-row">
         <div class="spin-card team-card"><div class="sc-label">Team</div><div class="sc-value" id="sc-team">&#8212;</div></div>
         <div class="spin-card era-card"><div class="sc-label">Era</div><div class="sc-value" id="sc-era">&#8212;</div></div>
       </div>
+      <div class="compact-pill" id="compact-pill"></div>
       <button class="btn-spin" id="btn-spin" onclick="doSpin()">SPIN</button>
       <div class="reroll-row" id="reroll-row" style="display:none;">
         <button class="btn-rr" id="rr-team" onclick="doReroll('team')"><span class="rr-dot" id="dot-t">1</span>Re-roll Team</button>
@@ -59,6 +60,13 @@
       <div class="list-meta" id="list-meta">&#8212; players available</div>
       <div class="player-scroll" id="player-scroll"></div>
     </div>
+  </div>
+  <div class="mobile-pos-bar">
+    <div class="mpb-slot" id="mpb-slot-PG" onclick="nodeClick('PG')"><div class="mpb-bubble" id="mpb-PG">PG</div></div>
+    <div class="mpb-slot" id="mpb-slot-SG" onclick="nodeClick('SG')"><div class="mpb-bubble" id="mpb-SG">SG</div></div>
+    <div class="mpb-slot" id="mpb-slot-SF" onclick="nodeClick('SF')"><div class="mpb-bubble" id="mpb-SF">SF</div></div>
+    <div class="mpb-slot" id="mpb-slot-PF" onclick="nodeClick('PF')"><div class="mpb-bubble" id="mpb-PF">PF</div></div>
+    <div class="mpb-slot" id="mpb-slot-C" onclick="nodeClick('C')"><div class="mpb-bubble" id="mpb-C">C</div></div>
   </div>
   <div class="right-col">
     <div class="court-wrap">

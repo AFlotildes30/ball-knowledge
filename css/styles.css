@@ -364,3 +364,111 @@ body{background:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;color:va
 .share-icon-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,opacity .15s;padding:0;flex-shrink:0;}
 .share-icon-btn:hover{transform:scale(1.12);opacity:.9;}
 .share-divider{height:1px;background:var(--border);margin:16px 0 8px;}
+
+/* ── Compact spin-zone pill (mobile only, hidden by default) ── */
+.compact-pill{display:none;}
+
+/* ── Mobile position bar (hidden on desktop) ── */
+.mobile-pos-bar{display:none;}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE LAYOUT — screens ≤ 480 px (iPhone SE, 12/13/14, etc.)
+   Only layout/spacing changes; all colors, fonts, radii unchanged.
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width:480px){
+
+  /* ── Home screen ── */
+  .home-title{font-size:36px;}
+  .mode-cards{grid-template-columns:1fr;}
+
+  /* ── Game screen: stack left col full-width, hide court ── */
+  #game-screen{flex-direction:column;}
+  .left-col{flex:1;width:100%;min-width:0;border-right:none;border-bottom:none;}
+  .right-col{display:none;}
+
+  /* ── Compact spin zone after a spin result appears ── */
+  .spin-zone.has-result .cards-row{display:none;}
+  .spin-zone.has-result .btn-spin{display:none;}
+  .spin-zone.has-result .compact-pill{
+    display:inline-flex;
+    align-items:center;
+    background:var(--cream2);
+    border:1.5px solid var(--border);
+    border-radius:20px;
+    padding:5px 14px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--ink);
+    margin-bottom:10px;
+  }
+
+  /* ── Filter bar: slightly tighter on mobile ── */
+  .list-filters{padding:8px 10px;gap:4px;flex-wrap:nowrap;}
+  .pf-btn{padding:4px 8px;font-size:11px;}
+
+  /* ── Player cards: two-row layout so all 5 stats fit ── */
+  .p-card{flex-wrap:wrap;align-items:flex-start;}
+  .p-info{flex:1;min-width:0;}
+  .p-stats{
+    flex-basis:100%;
+    justify-content:space-between;
+    gap:0;
+    margin-top:5px;
+    padding-top:5px;
+    border-top:1px solid var(--cream3);
+  }
+  .p-card.selected .p-stats{border-top-color:rgba(255,255,255,.25);}
+  .p-stat{text-align:center;flex:1;}
+  .p-stat-val{font-size:11px;}
+  .p-stat-lbl{font-size:7.5px;}
+
+  /* ── Extra scroll space so last card clears the mobile bar ── */
+  .player-scroll{padding-bottom:64px;}
+
+  /* ── Mobile position bar ── */
+  .mobile-pos-bar{
+    display:flex;
+    position:fixed;
+    bottom:0;left:0;right:0;
+    height:56px;
+    background:#fff;
+    border-top:1px solid var(--border);
+    justify-content:space-around;
+    align-items:center;
+    padding:0 8px;
+    z-index:50;
+  }
+  .mpb-slot{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    padding:4px;
+  }
+  .mpb-bubble{
+    width:44px;height:44px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;justify-content:center;
+    font-weight:800;font-size:13px;
+    color:var(--ink3);
+    background:var(--cream2);
+    border:1.5px dashed var(--border);
+    transition:all .15s;
+    user-select:none;
+  }
+  .mpb-slot.filled .mpb-bubble{
+    background:var(--orange-light);
+    border-color:var(--orange);
+    border-style:solid;
+    color:var(--orange);
+    font-size:11px;
+  }
+  .mpb-slot.eligible .mpb-bubble{
+    border-style:solid;
+    border-color:var(--green);
+    background:rgba(45,106,79,.1);
+    color:var(--green);
+  }
+}
