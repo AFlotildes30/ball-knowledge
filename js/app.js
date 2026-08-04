@@ -87,29 +87,29 @@ function doReroll(type) {
   spinning = true;
   setSpinZoneCompact(false);
   if (type === 'team') {
-    const pool = TBE[cEra].filter(t => t !== cTeam);
-    const nt = pool[Math.floor(Math.random() * pool.length)];
-    const frozenEra = cEra;
+    const origTeam = cTeam; // capture before animation
+    const pool = TBE[cEra].filter(t => t !== origTeam);
+    let nt = pool[Math.floor(Math.random() * pool.length)];
+    while (nt === origTeam) { nt = pool[Math.floor(Math.random() * pool.length)]; } // safety net
     animTeam(nt, () => {
       cTeam = nt;
-      console.log('[re-roll] team →', cTeam, '| era frozen at', frozenEra);
       spinning = false;
-      loadPool(0, 'era');
+      loadPool(0, 'era', origTeam);
       setSpinZoneCompact(true);
     });
   } else {
-    const origEra = cEra;
+    const origEra = cEra; // capture before animation
     const frozenTeam = cTeam;
-    // Only pick eras that have data for the locked team — prevents loadPool's
-    // empty-combo fallback from cycling back to origEra.
+    // Prefer eras that have data for the locked team — prevents loadPool fallback from looping back.
     const withData = ERAS.filter(e => e !== origEra && (DB[frozenTeam + '-' + e] || []).length > 0);
     const pool = withData.length ? withData : ERAS.filter(e => e !== origEra);
-    const ne = pool[Math.floor(Math.random() * pool.length)];
+    let ne = pool[Math.floor(Math.random() * pool.length)];
+    while (ne === origEra) { ne = pool[Math.floor(Math.random() * pool.length)]; } // safety net
     animEra(ne, () => {
       cEra = ne;
-      console.log('[re-roll] era →', cEra, '| team frozen at', frozenTeam);
       spinning = false;
-      loadPool(0, 'team');
+      // Pass origEra as forbidden so loadPool fallback never snaps back to it
+      loadPool(0, 'team', origEra);
       setSpinZoneCompact(true);
     });
   }
@@ -178,18 +178,20 @@ function syncRR() {
   document.getElementById('dot-e').classList.toggle('spent', rrE);
 }
 
-function loadPool(retries = 0, lock = '') {
+function loadPool(retries = 0, lock = '', forbidden = '') {
   cKey = cTeam + '-' + cEra;
   const all = DB[cKey] || [];
   if (!all.length && retries < 10) {
     if (lock === 'team') {
-      // Era re-roll: keep cTeam fixed, only cycle the era
-      const others = ERAS.filter(e => e !== cEra);
-      cEra = others[Math.floor(Math.random() * others.length)];
+      // Era re-roll: keep cTeam fixed, cycle the era — never return to forbidden (origEra)
+      const others = ERAS.filter(e => e !== cEra && e !== forbidden);
+      const pool = others.length ? others : ERAS.filter(e => e !== cEra);
+      cEra = pool[Math.floor(Math.random() * pool.length)];
       document.getElementById('sc-era').textContent = cEra;
     } else if (lock === 'era') {
-      // Team re-roll: keep cEra fixed, only cycle the team
-      const pool = TBE[cEra];
+      // Team re-roll: keep cEra fixed, cycle the team — never return to forbidden (origTeam)
+      const others = TBE[cEra].filter(t => t !== cTeam && t !== forbidden);
+      const pool = others.length ? others : TBE[cEra].filter(t => t !== cTeam);
       cTeam = pool[Math.floor(Math.random() * pool.length)];
       document.getElementById('sc-team').textContent = cTeam;
     } else {
@@ -198,7 +200,7 @@ function loadPool(retries = 0, lock = '') {
       document.getElementById('sc-team').textContent = cTeam;
       document.getElementById('sc-era').textContent = cEra;
     }
-    return loadPool(retries + 1, lock);
+    return loadPool(retries + 1, lock, forbidden);
   }
   const seen = new Set();
   cPlayers = all.filter(p => {
@@ -1322,15 +1324,12 @@ function buildLocalNarrative(p1, p2, series) {
 //  SHARE RESULTS
 // ═══════════════════════════════════════════════════════
 
-function openShareResultsModal() {
-  console.log('[H2H Share] button clicked — state:', {
-    h2hChallenge: !!h2hChallenge,
-    h2hSeriesResult: !!h2hSeriesResult,
-    h2hP2Roster: !!h2hP2Roster,
-  });
+function openShareResultsModal(evt) {
+  if (evt) evt.stopPropagation();
+  // Ensure selP is cleared so the document click listener doesn't fire side-effects
+  selP = null;
 
   if (!h2hChallenge || !h2hSeriesResult) {
-    console.error('[H2H Share] missing required state', { h2hChallenge, h2hSeriesResult });
     const btn = document.getElementById('btn-h2h-share');
     if (btn) { btn.textContent = '⚠ State missing — reload?'; btn.style.background = '#c00'; }
     return;
