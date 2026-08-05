@@ -38,8 +38,8 @@ TBE = {
     "1960s": ["BOS", "PHI", "LAL", "NYK", "SAC", "HOU", "ATL"],
     "1970s": ["NYK", "MIL", "GSW", "POR", "LAL", "OKC", "SAC", "UTA", "BOS", "WAS", "SAS", "PHX", "LAC"],
     "1980s": ["BOS", "LAL", "DET", "CHI", "HOU", "PHI", "UTA", "ATL", "DAL", "PHX", "OKC", "DEN", "GSW", "MIL"],
-    "1990s": ["CHI", "UTA", "HOU", "SAS", "ORL", "NYK", "OKC", "IND", "PHX", "LAL", "MIN"],
-    "2000s": ["LAL", "SAS", "MIA", "DET", "DAL", "PHX", "PHI", "CLE", "MIN", "BOS", "SAC", "NOP"],
+    "1990s": ["CHI", "UTA", "HOU", "SAS", "ORL", "NYK", "OKC", "IND", "GSW", "POR", "PHX", "LAL", "MIN", "DET", "SAC", "TOR"],
+    "2000s": ["LAL", "SAS", "MIA", "DET", "DAL", "PHX", "PHI", "CLE", "MIN", "BOS", "SAC", "NOP", "HOU"],
     "2010s": ["GSW", "MIA", "OKC", "SAS", "CLE", "TOR", "HOU", "MIL", "BOS", "NOP", "UTA", "DAL", "CHI", "LAC"],
     "2020s": ["DEN", "MIL", "LAL", "BKN", "PHX", "DAL", "BOS", "OKC", "MIN", "IND", "GSW", "MIA", "CHI"],
 }
