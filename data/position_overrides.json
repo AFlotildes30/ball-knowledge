@@ -149,6 +149,194 @@
 
     "_additional_from_scan": "Players below added from full dataset audit",
 
+    "_phase2_audit": "Position corrections from full BBR audit (Phase 2, 2026-08-04)",
+
+    "Michael Jordan": {
+      "1980s": ["SG"],
+      "1990s": ["SG"]
+    },
+    "Julius Erving": {
+      "1980s": ["SF", "PF"]
+    },
+    "Cliff Hagan": {
+      "1960s": ["SF", "PF"]
+    },
+    "Al Ferrari": {
+      "1960s": ["SG", "SF"]
+    },
+    "Chet Walker": {
+      "1960s": ["SF", "SG"]
+    },
+    "Bailey Howell": {
+      "1960s": ["SF", "PF"]
+    },
+    "Jack Twyman": {
+      "1960s": ["SG", "SF"]
+    },
+    "Bob Pettit": {
+      "1960s": ["PF", "C"]
+    },
+    "Bob Boozer": {
+      "1960s": ["C", "PF"],
+      "1970s": ["C", "PF"]
+    },
+    "Rick Barry": {
+      "1970s": ["SF", "SG"]
+    },
+    "E.C. Coleman": {
+      "1970s": ["SF", "PF"]
+    },
+    "Allan Bristow": {
+      "1970s": ["SF", "PF"]
+    },
+    "Jeff Mullins": {
+      "1970s": ["SG", "PG"]
+    },
+    "Dave Cowens": {
+      "1970s": ["C", "PF"]
+    },
+    "Jo Jo White": {
+      "1970s": ["PG"]
+    },
+    "Don Nelson": {
+      "1970s": ["SF", "PF"]
+    },
+    "Bobby Jones": {
+      "1980s": ["SF", "PF"]
+    },
+    "John Drew": {
+      "1980s": ["SF", "PF"]
+    },
+    "Rodney McCray": {
+      "1980s": ["SF", "PF"]
+    },
+    "Robert Reid": {
+      "1980s": ["SF", "SG"]
+    },
+    "Billy Paultz": {
+      "1970s": ["C"],
+      "1980s": ["C"]
+    },
+    "Joe Barry Carroll": {
+      "1980s": ["C"]
+    },
+    "Mark Eaton": {
+      "1980s": ["C"],
+      "1990s": ["C"]
+    },
+    "Adrian Dantley": {
+      "1970s": ["SF", "PF"],
+      "1980s": ["SF", "PF"]
+    },
+    "Reggie Miller": {
+      "1990s": ["SG"]
+    },
+    "Toni Kukoc": {
+      "1990s": ["SF", "PG"]
+    },
+    "Greg Ostertag": {
+      "1990s": ["C"]
+    },
+    "Adam Keefe": {
+      "1990s": ["PF", "C"]
+    },
+    "Olden Polynice": {
+      "1990s": ["C"]
+    },
+    "Billy Owens": {
+      "1990s": ["SF", "PF"]
+    },
+    "Adonal Foyle": {
+      "1990s": ["C"]
+    },
+    "Alton Lister": {
+      "1990s": ["C"]
+    },
+    "Clyde Drexler": {
+      "1990s": ["SG", "PG"]
+    },
+    "Aaron McKie": {
+      "1990s": ["SG", "PG"],
+      "2000s": ["SG", "PG"]
+    },
+    "Danny Ainge": {
+      "1980s": ["PG", "SG"],
+      "1990s": ["PG", "SG"]
+    },
+    "Robert Horry": {
+      "1990s": ["PF", "SF"],
+      "2000s": ["SF", "PF"]
+    },
+    "Alonzo Mourning": {
+      "2000s": ["C"]
+    },
+    "Shawn Bradley": {
+      "2000s": ["C"]
+    },
+    "Antonio McDyess": {
+      "2000s": ["PF", "C"]
+    },
+    "Jason Terry": {
+      "2000s": ["SG", "PG"],
+      "2010s": ["SG", "PG"]
+    },
+    "Manu Ginobili": {
+      "2000s": ["SG", "SF"],
+      "2010s": ["SG", "SF"]
+    },
+    "Antoine Walker": {
+      "2000s": ["SF", "PF"]
+    },
+    "Keith Van Horn": {
+      "2000s": ["SF", "PF"]
+    },
+    "Mike Miller": {
+      "2000s": ["SF", "SG"],
+      "2010s": ["SF", "SG"]
+    },
+    "Andre Iguodala": {
+      "2000s": ["SF", "SG"],
+      "2010s": ["SF", "SG"]
+    },
+    "Kobe Bryant": {
+      "1990s": ["SG", "PG"],
+      "2000s": ["SG", "PG"]
+    },
+    "Luis Scola": {
+      "2010s": ["PF", "SF"]
+    },
+    "Marc Gasol": {
+      "2010s": ["C"]
+    },
+    "Robin Lopez": {
+      "2010s": ["C"]
+    },
+    "Brandon Ingram": {
+      "2010s": ["SF", "SG"],
+      "2020s": ["SF", "SG"]
+    },
+    "Al Horford": {
+      "2010s": ["C", "PF"],
+      "2020s": ["C", "PF"]
+    },
+    "Monta Ellis": {
+      "2010s": ["SG", "PG"]
+    },
+    "DeMar DeRozan": {
+      "2010s": ["SG", "SF"],
+      "2020s": ["SG", "SF"]
+    },
+    "Paul George": {
+      "2010s": ["SF", "SG"],
+      "2020s": ["SF", "SG"]
+    },
+    "Chandler Parsons": {
+      "2010s": ["SF", "SG"]
+    },
+    "Josh Giddey": {
+      "2020s": ["SF", "PG"]
+    },
+
     "Larry Bird": {
       "1980s": ["SF", "PF"]
     },
